@@ -7,7 +7,7 @@ This is an app that hosts your favorite trucks in the 5 boroughs!
 - [Deployed Api Server]()
 - [Deployed FrontEnd]()
 - [Trello Board](https://trello.com/b/DsRA3t2k/truck-app)
-- [ERD](https://miro.com/app/board/uXjVPcsr2JQ=/)
+- [ERD](https://dbdiagram.io/d/63069ffdf1a9b01b0fd9aa1b)
 - [Wireframe]()
 
 ## Local Set Up
