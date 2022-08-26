@@ -11,5 +11,5 @@ CREATE TABLE trucks (
     borough TEXT,
     category TEXT,
     image_url TEXT,
-    about TEXT,
+    about TEXT
 );
