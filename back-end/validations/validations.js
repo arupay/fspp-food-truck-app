@@ -2,7 +2,7 @@ const defaultImgUrl =
   "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image";
 
 const defaultImage = (req, res, next) => {
-  req.body.image ? null : (req.body.image = defaultImgUrl);
+  req.body.image_url.length ? null : (req.body.image_url = defaultImgUrl);
   next();
 };
 

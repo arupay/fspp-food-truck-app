@@ -13,3 +13,14 @@ CREATE TABLE trucks (
     image_url TEXT,
     about TEXT
 );
+
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    reviewer TEXT,
+    title TEXT,
+    content TEXT,
+    rating NUMERIC,
+    CHECK (rating >= 0 AND rating <= 5),
+    trucks_id INTEGER REFERENCES trucks (id)
+    ON DELETE CASCADE
+);
