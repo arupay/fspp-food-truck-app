@@ -1,7 +1,8 @@
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function NavBar() {
+  const borough = require("./boroughs");
   return (
     <Navbar
       bg="light"
@@ -21,7 +22,16 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link href="/trucks/">All Trucks</Nav.Link>
+            <NavDropdown title="Trucks">
+              <NavDropdown.Item href="/trucks">All Trucks</NavDropdown.Item>
+              {borough.map((e, idx) => {
+                return (
+                  <NavDropdown.Item href={`/trucks?borough=${e}`} key={idx}>
+                    {e}
+                  </NavDropdown.Item>
+                );
+              })}
+            </NavDropdown>
             <Nav.Link href="/trucks/new">New Truck</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/signin">Login/Register</Nav.Link>

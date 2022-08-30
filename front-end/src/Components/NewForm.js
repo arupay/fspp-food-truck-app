@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Container } from "react-bootstrap";
 
+const API = process.env.REACT_APP_API_URL;
+
 function NewForm() {
   const navigate = useNavigate();
   const [truck, setTruck] = useState({
@@ -33,7 +35,7 @@ function NewForm() {
 
   return (
     <Container>
-      <h3>Add A Truck</h3>
+      <h3>Add Your Truck</h3>
       <div style={{ display: "block", padding: 30 }}>
         <Form onSubmit={handleSubmit}>
           <Form.Group>
@@ -44,17 +46,19 @@ function NewForm() {
               name="name"
               value={truck.name}
               onChange={handleChange}
+              placeholder="Mom's Momo"
               required
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Street Address</Form.Label>
+            <Form.Label>Nearest Address or Cross Streets</Form.Label>
             <Form.Control
               type="text"
               id="address"
               name="address"
               value={truck.address}
               onChange={handleChange}
+              placeholder="Roosevelt Ave & 74th St"
             />
           </Form.Group>
           <Form.Group>
@@ -63,8 +67,8 @@ function NewForm() {
               type="number"
               id="zip"
               name="zip"
-              value={truck.zip}
               onChange={handleChange}
+              placeholder="11377"
               required
             />
           </Form.Group>
@@ -74,6 +78,7 @@ function NewForm() {
               type="text"
               id="borough"
               name="borough"
+              placeholder="Queens"
               value={truck.borough}
               onChange={handleChange}
               required
@@ -85,6 +90,7 @@ function NewForm() {
               type="category"
               id="category"
               name="category"
+              placeholder="Asian"
               value={truck.category}
               onChange={handleChange}
               required
@@ -96,19 +102,20 @@ function NewForm() {
               type="text"
               id="image_url"
               name="image_url"
+              placeholder="...foodtruck.jpg"
               value={truck.image_url}
               onChange={handleChange}
-              required
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>About</Form.Label>
+            <Form.Label>About / Mission </Form.Label>
             <Form.Control
-              type="textarea"
+              type="text-area"
               id="about"
               name="about"
               value={truck.about}
               onChange={handleChange}
+              placeholder="We strive to deliver the best of the Himalayas..."
               required
             />
           </Form.Group>

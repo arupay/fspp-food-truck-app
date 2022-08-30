@@ -1,4 +1,10 @@
+import NewForm from "../Components/NewForm";
+
 function NewPage() {
-  return <div>This is the new page</div>;
+  return (
+    <div>
+      <NewForm />
+    </div>
+  );
 }
 export default NewPage;

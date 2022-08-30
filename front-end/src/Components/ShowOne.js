@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
+import TruckMap from "./TruckMap";
 const API = process.env.REACT_APP_API_URL;
 
 function ShowOne() {
@@ -35,13 +36,13 @@ function ShowOne() {
     <Container className="text-center">
       <h3>{truck.name}</h3>
       <div>
-        <img src={truck.image_url} alt={truck.name} height="400" />
+        <img src={truck.image_url} alt={truck.name} className="img-fluid" />
         <p>
           <em>{truck.about}</em>
         </p>
-        <div>
-          Location: {truck.address} {truck.zip} {truck.borough}
-        </div>
+        <p>
+          Location: {truck.address}, {truck.borough} NY, {truck.zip}
+        </p>
         <Link to="/trucks">
           <Button variant="outline-danger">Back</Button>
         </Link>{" "}
@@ -52,6 +53,7 @@ function ShowOne() {
           Delete
         </Button>
       </div>
+      {/* {truck.id && <TruckMap address={truck.address} borough={truck.borough} />} */}
     </Container>
   );
 }
