@@ -33,6 +33,7 @@ function NavBar() {
               })}
             </NavDropdown>
             <Nav.Link href="/trucks/new">New Truck</Nav.Link>
+            <Nav.Link href="/map">Map</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/signin">Login/Register</Nav.Link>
           </Nav>

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Components
 import NavBar from "./Components/NavBar";
+import Maps from "./Components/Maps";
 
 //Pages
 import EditPage from "./Pages/EditPage";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/trucks/:id" element={<ShowPage />} />
           <Route path="/trucks/new" element={<NewPage />} />
           <Route path="/trucks/:id/edit/" element={<EditPage />} />
+          {/* <Route path="/map" element={<Maps />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

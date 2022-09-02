@@ -7,6 +7,12 @@ function TruckMap({ address, borough }) {
   const [coordinates, setCoordinates] = useState([]);
   const location = address + " " + borough;
 
+  const testObj = [
+    { lat: 37.4224764, lng: -122.0842499 },
+    { lat: 37.5224764, lng: -121.0842499 },
+    { lat: 37.3224764, lng: -120.0842499 },
+  ];
+
   useEffect(() => {
     axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
@@ -30,10 +36,11 @@ function TruckMap({ address, borough }) {
           apiKey={MAP_API_KEY}
           style={{ height: "400px", width: "100%" }}
           zoom={15}
-          center={{ lat: coordinates.lat, lng: coordinates.lng }}
-          markers={{ lat: coordinates.lat, lng: coordinates.lng }} //optional
+          center={coordinates}
+          markers={testObj} //optional
         />
       )}
+      {console.log(coordinates)}
     </div>
   );
 }

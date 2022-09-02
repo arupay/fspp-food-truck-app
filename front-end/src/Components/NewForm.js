@@ -110,8 +110,9 @@ function NewForm() {
           <Form.Group>
             <Form.Label>About / Mission </Form.Label>
             <Form.Control
-              type="text-area"
+              type="textarea"
               id="about"
+              rows="3"
               name="about"
               value={truck.about}
               onChange={handleChange}
