@@ -3,24 +3,32 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Container, Card, Row, Col } from "react-bootstrap";
+import ReviewStars from "./ReviewStars";
 
 const API = process.env.REACT_APP_API_URL;
 
 function ShowAll() {
   const [trucks, setTrucks] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [searchParams] = useSearchParams();
   const borough = searchParams.get("borough");
-  useEffect(() => {
-    axios
-      .get(`${API}/trucks`)
-      .then((res) => {
-        setTrucks(res.data.payload);
-      })
-      .catch((err) => {
-        return err;
-      });
-  }, []);
 
+  useEffect(() => {
+    const fetching = async () => {
+      const { data } = await axios.get(`${API}/trucks`);
+      const reviews = await axios.get(`${API}/trucks/all/reviews`);
+      setTrucks(data.payload);
+      setReviews(reviews.data);
+    };
+    fetching();
+  }, [setTrucks, setReviews]);
+
+  const filterReviews = (reviews, truckId) => {
+    const x = reviews.filter((review) => {
+      return review.trucks_id === truckId;
+    });
+    return x;
+  };
   return (
     <section>
       {borough === null ? (
@@ -46,12 +54,9 @@ function ShowAll() {
                         {truck.name}
                       </Card.Title>
                       <Card.Text tag="div" style={{ fontSize: "11px" }}>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star-half-full"></span>
-                        <span className="fa fa-star"></span>
-                        <span id="reviews">3 Reviews</span>
+                        <ReviewStars
+                          newReviews={filterReviews(reviews, truck.id)}
+                        />
                       </Card.Text>
                       <Card.Text tag="div" style={{ fontSize: "11px" }}>
                         {truck.category}

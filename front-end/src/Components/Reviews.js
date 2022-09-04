@@ -16,7 +16,7 @@ function Reviews({ id }) {
         return err;
       });
   }, [id]);
-  console.log(reviews[0]);
+
   const handleAdd = (newReview) => {
     axios
       .post(`${API}/trucks/${id}/reviews`, newReview)
