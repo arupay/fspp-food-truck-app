@@ -1,6 +1,9 @@
 const express = require("express");
 const db = require("../db/dbConfig");
 const trucks = express.Router();
+const reviewsController = require("./reviewsController.js");
+
+trucks.use("/:trucks_id/reviews", reviewsController);
 
 const {
   getTrucks,

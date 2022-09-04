@@ -3,6 +3,7 @@
 const express = require("express");
 const cors = require("cors");
 const trucksController = require("./controllers/trucksController");
+const reviewsController = require("./controllers/reviewsController.js");
 
 //CONFIGURATION
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/trucks", trucksController);
+app.use("/reviews", reviewsController);
 
 //Routes
 app.get("/", (req, res) => {

@@ -23,7 +23,7 @@ const getOneTruck = async (id) => {
 const createTruck = async (truck) => {
   try {
     const newTruck = await db.any(
-      "INSERT INTO trucks (name, address, zip, borough, category, image_url, about) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO trucks (name, address, zip, borough, category, image_url, about, lat, lng) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
       [
         truck.name,
         truck.address,
@@ -32,10 +32,13 @@ const createTruck = async (truck) => {
         truck.category,
         truck.image_url,
         truck.about,
+        truck.lat,
+        truck.lng,
       ]
     );
     return newTruck;
   } catch (error) {
+    console.log(error.message || error);
     return error;
   }
 };
@@ -55,12 +58,12 @@ const deleteTruck = async (id) => {
 
 const editTruck = async (
   id,
-  { name, address, zip, borough, category, image_url, about }
+  { name, address, zip, borough, category, image_url, about, lat, lng }
 ) => {
   try {
     const updatedTruck = await db.one(
-      "UPDATE trucks SET name=$1, address=$2, zip=$3, borough=$4, category=$5, image_url=$6, about=$7 WHERE id=$8 RETURNING *",
-      [name, address, zip, borough, category, image_url, about, id]
+      "UPDATE trucks SET name=$1, address=$2, zip=$3, borough=$4, category=$5, image_url=$6, about=$7, lat=$8, lng=$9 WHERE id=$10 RETURNING *",
+      [name, address, zip, borough, category, image_url, about, lat, lng, id]
     );
     return updatedTruck;
   } catch (error) {

@@ -15,8 +15,8 @@ function NavBar() {
         <Navbar.Toggle />
         <Navbar.Brand mb-0="true" h1="true" className="d-inline-block" href="/">
           <img
-            width="100"
-            src="https://gcdnb.pbrd.co/images/5nqKv9Uw1PsE.png"
+            width="150"
+            src="https://gcdnb.pbrd.co/images/B8y9IN22cS8j.png"
             alt=""
           />
         </Navbar.Brand>

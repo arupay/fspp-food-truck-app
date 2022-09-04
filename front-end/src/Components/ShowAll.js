@@ -10,7 +10,6 @@ function ShowAll() {
   const [trucks, setTrucks] = useState([]);
   const [searchParams] = useSearchParams();
   const borough = searchParams.get("borough");
-  console.log(borough);
   useEffect(() => {
     axios
       .get(`${API}/trucks`)
@@ -23,56 +22,67 @@ function ShowAll() {
   }, []);
 
   return (
-    <Container className="trucks-index ">
-      {borough === null ? <h2> All Trucks</h2> : <h2> {borough} Trucks</h2>}
-      <Row className="row-cols-sm1 row-cols-md4">
-        {borough === null
-          ? trucks.map((truck) => (
-              <Col sm={4} key={truck.id}>
-                <Card className="truck-card flex-fill mt-2">
-                  <Link to={`/trucks/${truck.id}`}>
-                    <Card.Img variant="top" src={truck.image_url} />
-                  </Link>
-                  <Card.Body>
-                    <Card.Title className="truck-title">
-                      {truck.name}
-                    </Card.Title>
-                    <Card.Text style={{ fontSize: "11px" }}>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star-half-full"></span>
-                      <span className="fa fa-star"></span>
-                      <span id="reviews">3 Reviews</span>
-                    </Card.Text>
-                    <Card.Text style={{ fontSize: "11px" }}>
-                      {truck.category}
-                      <span className="borough-tag"> {truck.borough}</span>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
-          : trucks
-              .filter((truck) => truck.borough === borough)
-              .map((truck) => (
+    <section>
+      {borough === null ? (
+        <span className="index-title">
+          <h1 className="index-title-text">our food trucks</h1>
+        </span>
+      ) : (
+        <span className="index-title">
+          <h1 className="index-title-text">trucks in {borough}</h1>
+        </span>
+      )}
+      <Container className="trucks-index ">
+        <Row className="row-cols-sm1 row-cols-md4">
+          {borough === null
+            ? trucks.map((truck) => (
                 <Col sm={4} key={truck.id}>
-                  <Card className="flex-fill mt-2">
+                  <Card className="truck-card flex-fill mt-2">
                     <Link to={`/trucks/${truck.id}`}>
-                      <Card.Img variant="top" src={truck.image_url} />{" "}
+                      <Card.Img variant="top" src={truck.image_url} />
                     </Link>
                     <Card.Body>
-                      <Card.Title>{truck.name}</Card.Title>
-                      <Card.Text style={{ fontSize: "10px" }}>
+                      <Card.Title className="truck-title">
+                        {truck.name}
+                      </Card.Title>
+                      <Card.Text tag="div" style={{ fontSize: "11px" }}>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star-half-full"></span>
+                        <span className="fa fa-star"></span>
+                        <span id="reviews">3 Reviews</span>
+                      </Card.Text>
+                      <Card.Text tag="div" style={{ fontSize: "11px" }}>
                         {truck.category}
+
                         <span className="borough-tag"> {truck.borough}</span>
                       </Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>
-              ))}
-      </Row>
-    </Container>
+              ))
+            : trucks
+                .filter((truck) => truck.borough === borough)
+                .map((truck) => (
+                  <Col sm={4} key={truck.id}>
+                    <Card className="flex-fill mt-2">
+                      <Link to={`/trucks/${truck.id}`}>
+                        <Card.Img variant="top" src={truck.image_url} />{" "}
+                      </Link>
+                      <Card.Body>
+                        <Card.Title>{truck.name}</Card.Title>
+                        <Card.Text style={{ fontSize: "10px" }}>
+                          {truck.category}
+                          <span className="borough-tag"> {truck.borough}</span>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+        </Row>
+      </Container>
+    </section>
   );
 }
 

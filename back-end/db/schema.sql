@@ -11,13 +11,14 @@ CREATE TABLE trucks (
     borough TEXT,
     category TEXT,
     image_url TEXT,
-    about TEXT
+    about TEXT,
+    lat DECIMAL(10,8),
+    lng DECIMAL(11,8)
 );
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     reviewer TEXT,
-    title TEXT,
     content TEXT,
     rating NUMERIC,
     CHECK (rating >= 0 AND rating <= 5),
