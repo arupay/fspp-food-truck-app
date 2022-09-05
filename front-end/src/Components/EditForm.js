@@ -23,6 +23,7 @@ function EditForm() {
 
   useEffect(() => {
     axios.get(`${API}/trucks/${id}`).then((res) => {
+      console.log(res);
       setTruck(res.data.payload);
     });
   }, [id]);
@@ -34,7 +35,7 @@ function EditForm() {
   const handleEdit = (e) => {
     e.preventDefault();
     axios
-      .post(`${API}/trucks/edit`, truck)
+      .put(`${API}/trucks/${id}`, truck)
       .then(() => {
         navigate(`/trucks`);
       })
@@ -79,8 +80,8 @@ function EditForm() {
               type="number"
               id="zip"
               name="zip"
+              value={truck.zip}
               onChange={handleChange}
-              placeholder="11377"
               required
             />
           </Form.Group>

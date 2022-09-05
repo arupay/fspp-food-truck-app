@@ -76,9 +76,17 @@ function ShowAll() {
                         <Card.Img variant="top" src={truck.image_url} />{" "}
                       </Link>
                       <Card.Body>
-                        <Card.Title>{truck.name}</Card.Title>
-                        <Card.Text style={{ fontSize: "10px" }}>
+                        <Card.Title className="truck-title">
+                          {truck.name}
+                        </Card.Title>
+                        <Card.Text tag="div" style={{ fontSize: "11px" }}>
+                          <ReviewStars
+                            newReviews={filterReviews(reviews, truck.id)}
+                          />
+                        </Card.Text>
+                        <Card.Text tag="div" style={{ fontSize: "11px" }}>
                           {truck.category}
+
                           <span className="borough-tag"> {truck.borough}</span>
                         </Card.Text>
                       </Card.Body>

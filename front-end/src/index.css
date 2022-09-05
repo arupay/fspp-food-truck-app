@@ -82,6 +82,7 @@
   transform:scale(1.1);
 }
 
+
 @media only screen and (min-width: 768px) {
   .trucks-index .card-img-top {
     width: 100%;
@@ -90,3 +91,4 @@
     border: 2px solid #ffffff;
   }
 }
+
