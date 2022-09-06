@@ -16,7 +16,7 @@ function TruckMap({ latitude, longitude }) {
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={coordinates}
-            zoom={15}
+            zoom={20}
           >
             <MarkerF
               position={coordinates}

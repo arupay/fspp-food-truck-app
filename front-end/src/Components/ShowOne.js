@@ -48,9 +48,7 @@ function ShowOne() {
           <p>
             <em>{truck.about}</em>
           </p>
-          <p>
-            Location: {truck.address}, {truck.borough} NY, {truck.zip}
-          </p>
+          <p>Cuisine Type: {truck.category}</p>
           <Link to="/trucks">
             <Button variant="outline-danger">Back</Button>
           </Link>

@@ -80,9 +80,9 @@ function Maps() {
                           position={e[1]}
                         >
                           <div>
-                            <div>{e[0].name}</div>
+                            <h6>{e[0].name}</h6>
                             <Link to={`/trucks/${e[0].id}`}>
-                              <img src={e[0].image_url} alt="" width="75" />
+                              <img src={e[0].image_url} alt="" width="100" />
                               <br />
                               More...
                             </Link>
