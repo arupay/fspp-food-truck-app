@@ -3,6 +3,10 @@ const db = require("../db/dbConfig");
 // GET ALL
 const getAllReviews = async (trucks_id) => {
   try {
+    if (trucks_id === "all") {
+      const allReviews = await db.any("SELECT * FROM reviews");
+      return allReviews;
+    }
     const allReviews = await db.any(
       `SELECT * FROM reviews WHERE trucks_id = ${trucks_id}`
     );

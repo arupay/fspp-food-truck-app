@@ -13,7 +13,11 @@ const {
   editTruck,
 } = require("../queries/trucksqueries");
 
-const { formatter, defaultImage } = require("../validations/validations");
+const {
+  formatter,
+  defaultImage,
+  setCoords,
+} = require("../validations/validations");
 
 //GET
 trucks.get("/", async (req, res) => {
@@ -37,7 +41,7 @@ trucks.get("/:id", async (req, res) => {
 });
 
 //POST
-trucks.post("/new", formatter, defaultImage, async (req, res) => {
+trucks.post("/new", setCoords, formatter, defaultImage, async (req, res) => {
   const newTruck = await createTruck(req.body);
   res.status(200).json({ success: true, payload: newTruck[0] });
 });
@@ -55,7 +59,7 @@ trucks.delete("/:id", async (req, res) => {
 });
 
 //UPDATE
-trucks.put("/:id", formatter, defaultImage, async (req, res) => {
+trucks.put("/:id", setCoords, formatter, defaultImage, async (req, res) => {
   const { id } = req.params;
   try {
     const updated = await editTruck(id, req.body);

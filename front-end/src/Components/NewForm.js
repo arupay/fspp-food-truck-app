@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Container } from "react-bootstrap";
-const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -25,37 +24,6 @@ function NewForm() {
     setTruck({ ...truck, [e.target.id]: e.target.value });
   };
 
-  // const getCoords = async (truck) => {
-  //   const location = `${truck.address} ${truck.borough}`;
-  //   try {
-  //     const response = await axios.get(
-  //       "https://maps.googleapis.com/maps/api/geocode/json",
-  //       {
-  //         params: {
-  //           address: location,
-  //           key: MAP_API_KEY,
-  //         },
-  //       }
-  //     );
-  //     return response;
-  //     //  .then((res) => {
-  //     //    console.log("This is the res", res.data.results[0].geometry);
-  //     //    let coords = res.data.results[0].geometry.location;
-  //     //    console.log(coords);
-  //     //    setTruck((prevState) => ({
-  //     //      ...prevState,
-  //     //      lat: 50,
-  //     //      lng: -50,
-  //     //    }));
-  //     //  })
-  //     //  .catch((e) => {
-  //     //    console.log(e);
-  //     //  });
-  //   } catch (err) {
-  //     console.log("err");
-  //   }
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -66,16 +34,14 @@ function NewForm() {
       .catch((e) => {
         console.log(e);
       });
-    console.log(truck);
   };
-
   return (
     <div>
+      {console.log()}
       <span className="index-title">
         <h1 className="index-title-text">add your truck</h1>
       </span>
       <Container>
-        {console.log(truck)}
         <div style={{ display: "block", padding: 30 }}>
           <Form onSubmit={handleSubmit}>
             <Form.Group>

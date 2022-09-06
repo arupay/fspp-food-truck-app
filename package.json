@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@react-google-maps/api": "^2.12.2",
     "cors": "^2.8.5",
     "simple-react-google-maps": "^1.1.2"
   }

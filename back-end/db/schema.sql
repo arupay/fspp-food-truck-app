@@ -12,8 +12,8 @@ CREATE TABLE trucks (
     category TEXT,
     image_url TEXT,
     about TEXT,
-    lat DECIMAL(10,8),
-    lng DECIMAL(11,8)
+    lat DECIMAL(12,9),
+    lng DECIMAL(12,9)
 );
 
 CREATE TABLE reviews (

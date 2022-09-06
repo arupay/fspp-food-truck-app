@@ -20,12 +20,14 @@ function Maps() {
     axios
       .get(`${API}/trucks`)
       .then((res) => {
-        const coords = res.data.payload.map((e) => {
-          return [
-            { name: e.name, image_url: e.image_url, id: e.id },
-            { lat: Number(e.lat), lng: Number(e.lng) },
-          ];
-        });
+        const coords = res.data.payload
+          .filter((e) => e.lat !== null)
+          .map((e) => {
+            return [
+              { name: e.name, image_url: e.image_url, id: e.id },
+              { lat: Number(e.lat), lng: Number(e.lng) },
+            ];
+          });
         setTrucksCoords(coords);
       })
       .catch((err) => {
@@ -36,7 +38,6 @@ function Maps() {
     width: "auto",
     height: "70vh",
   };
-  console.log(truckCoords);
   const options = {
     mapTypeControl: false,
     streetViewControl: false,
@@ -46,7 +47,6 @@ function Maps() {
   const showInfoWindow = () => {
     setInfoWindowOpen(true);
   };
-  console.log(truckCoords);
   return (
     <div>
       <span className="index-title">

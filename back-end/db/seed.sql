@@ -14,16 +14,24 @@ Come get yours', 40.685208, -73.976959 ),
 
 INSERT INTO reviews (trucks_id, reviewer, content, rating )
 VALUES
-('1', 'Dana', 'My friend told me about this taco spot months ago and Ive been dying to make the trek to go and finally went. I mean what can I say it was truly worth the trip. Absolutely delicious!!! Take my word for it....just go and get some!!', 5),
+('1', 'Alex', 'My friend told me about this taco spot months ago and Ive been dying to make the trek to go and finally went. I mean what can I say it was truly worth the trip. Absolutely delicious!!! Take my word for it....just go and get some!!', 5),
 ('1', 'Andy', 'Best Birria Ive ever had.  Service is quick, this location is extremely popular but the line moves quickly. Food is always consistently good. I recommend you try all the items on the menu. The consomé is a must, definitely get the large.
 ', 5),
-('1', 'Aurel', 'Tried it on a whim. Absolutely divine tacos. Consome is amazing as well. Reminds me of Hungarian Goulash soup.
+('1', 'Taylor', 'Tried it on a whim. Absolutely divine tacos. Consome is amazing as well. Reminds me of Hungarian Goulash soup.
 ', 4),
-('2', 'Jeffrey', 'Generous portions, great food, good price. Its incredible how they get the meat so tender. Really takeout friendly. Ignore the other carts and trucks and make a b line straight for any halal guys cart you see.
+('2', 'Kennedy', 'Generous portions, great food, good price. Its incredible how they get the meat so tender. Really takeout friendly. Ignore the other carts and trucks and make a b line straight for any halal guys cart you see.
 ', 5),
 ('2', 'Mika', 'The line was so long but moved up pretty fast. I got a combo platter and its so good! The white sauce is like mayo, adding the right touch to the platter.', 5),
-('2', 'Miguel', 'Its getting worse and worse, by the day. Its probably normal when you scale up. You lose the quality against the quantity. And look at that chicken supply traveling through all  the best conditions possible. Over all the food is ok thanks to the legendary white sauce.', 1),
-('2', 'Mark','Went here after coming out of a radio city event and boy was I glad I did. Definitely lives up to the hype!', 5);
+('2', 'Jordan', 'Its getting worse and worse, by the day. Its probably normal when you scale up. You lose the quality against the quantity. And look at that chicken supply traveling through all  the best conditions possible. Over all the food is ok thanks to the legendary white sauce.', 1),
+('2', 'Avery','Went here after coming out of a radio city event and boy was I glad I did. Definitely lives up to the hype!', 5),
+('3', 'River','wow. super juicy and perfectly seasoned meats. this place is the absolute perfect snack to fill up and or save a minute if youre waiting at the dmv around the corner. ', 5),
+('4', 'Brooklyn','The best jerk chicken is great, their rice peas, sweet chili shrimp and salmon is great to! Prices are a little steep but you get so much food! Always have leftovers after!', 5),
+('5', 'Logan','Got sick after eating it.', 2),
+('6', 'Riley','$14.70 for just falafel rice, no tsziki, only hot sauce... falafels were good. 2 stars bcos its too expensive.', 2),
+('9', 'Jessie', 'When I first laid my eyes on this sandwich, I mean it was aesthetically pleasing but when I took my first bite, wow!!! Totally a mouthful and well damn thats how I like my food! Jimmy two times is my favorite. My only complaint which doesnt even deserve a star removal, is that the prosciutto is not aged enough and is way too chewy when they load it up.', 5),
+('9', 'Marion', '
+Not a good experience.  If you have a clear schedule and a lot of time, it could be worth the try.  If you are busy and looking for a quick lunch, I would not recommend. ', 2),
+('9', 'Chris', 'Ive had this place twice now, first time I got the big Pauly and second time I got the Joey shakes. Both were very large sandwiches and both were delicious. Big pauly is a chicken parm hero thats better than most pizzerias in the city. If you see the truck make it a point to stop by.', 5);
 
 -- use advanced image search to choose images that are square (aspect ratio)
 -- https://www.google.com/advanced_image_search

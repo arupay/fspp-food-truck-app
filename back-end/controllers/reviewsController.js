@@ -11,11 +11,13 @@ const {
 router.get("/", async (req, res) => {
   const { trucks_id } = req.params;
   const allReviews = await getAllReviews(trucks_id);
-  if (allReviews[0]) {
+  if (allReviews.length) {
     res.status(200).json(allReviews);
   } else {
     console.error(allReviews);
-    res.status(500).json({ error: "No reviews yet" });
+    res
+      .status(404)
+      .json({ success: false, payload: `No Reviews Yet For This Truck` });
   }
 });
 
