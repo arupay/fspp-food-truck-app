@@ -22,7 +22,7 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <NavDropdown title="Trucks">
+            <NavDropdown title="Truck Directory">
               <NavDropdown.Item href="/trucks">All Trucks</NavDropdown.Item>
               {borough.map((e, idx) => {
                 return (
@@ -33,9 +33,8 @@ function NavBar() {
               })}
             </NavDropdown>
             <Nav.Link href="/trucks/new">New Truck</Nav.Link>
-            <Nav.Link href="/map">Map</Nav.Link>
+            <Nav.Link href="/map">Find A Truck</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/signin">Login/Register</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

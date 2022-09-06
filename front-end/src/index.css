@@ -66,7 +66,7 @@
   color: grey;
 }
 
-.card {
+#index-card {
   background: #052d44;
   border: 1px solid #010f16;
   color: #FFFFFF;
@@ -81,6 +81,66 @@
 .card:hover {
   transform:scale(1.1);
 }
+
+
+
+
+
+.card-no-border .comment {
+  border: 0px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem
+}
+
+.comment-widgets .comment-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+}
+
+.comment-widgets .comment-row {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding: 15px;
+}
+.comment-text:hover{
+  visibility: hidden;
+}
+.comment-text:hover{
+  visibility: visible;
+}
+
+.round img {
+  border-radius: 100%;
+}
+
+.label-info {
+  background-color: #1976d2;
+}
+
+.mt-100 {
+  margin-top: 100px
+}
+
+.mb-100 {
+  margin-bottom: 100px
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media only screen and (min-width: 768px) {

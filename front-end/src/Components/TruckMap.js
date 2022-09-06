@@ -1,28 +1,12 @@
 import GoogleMaps from "simple-react-google-maps";
+import { Container } from "react-bootstrap";
 const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
 function TruckMap({ latitude, longitude }) {
   const coordinates = { lat: Number(latitude), lng: Number(longitude) };
 
-  // const location = address + " " + borough;
-  // useEffect(() => {
-  //   axios
-  //     .get("https://maps.googleapis.com/maps/api/geocode/json", {
-  //       params: {
-  //         address: location,
-  //         key: MAP_API_KEY,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //       setCoordinates(res.data.results[0].geometry.location);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // }, [location]);
   return (
-    <div>
+    <Container className="mt-1 mb-1">
       {typeof coordinates.lat === "number" && (
         <GoogleMaps
           apiKey={MAP_API_KEY}
@@ -32,7 +16,7 @@ function TruckMap({ latitude, longitude }) {
           markers={coordinates} //optional
         />
       )}
-    </div>
+    </Container>
   );
 }
 

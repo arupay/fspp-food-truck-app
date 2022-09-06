@@ -59,7 +59,7 @@ function Maps() {
               options={options}
               mapContainerStyle={containerStyle}
               zoom={11}
-              center={truckCoords[0][1]}
+              center={{ lat: 40.7118, lng: -74.0131 }}
             >
               {truckCoords.length &&
                 truckCoords.map((e, idx) => {

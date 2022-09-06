@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
+import { Container } from "react-bootstrap";
+import Stars from "./Stars";
 const API = process.env.REACT_APP_API_URL;
 
 function Reviews({ id }) {
@@ -57,22 +59,61 @@ function Reviews({ id }) {
       })
       .catch((c) => console.warn("catch", c));
   };
+  const ratingsCalc = (reviews) => {
+    const avg =
+      reviews.reduce((r, { rating }) => r + Number(rating), 0) / reviews.length;
+    let roundedDown = Math.floor(avg);
+    if (isNaN(avg)) {
+      return 0;
+    }
+    if (avg - roundedDown < 0.5) {
+      return roundedDown;
+    }
+    return roundedDown + 0.5;
+  };
 
   return (
-    <section className="Reviews">
-      <h2>Reviews</h2>
-      <ReviewForm handleSubmit={handleAdd}>
-        <h3>Add a New Review</h3>
-      </ReviewForm>
-      {reviews.map((review) => (
-        <Review
-          key={review.id}
-          review={review}
-          handleDelete={handleDelete}
-          handleSubmit={handleEdit}
-        />
-      ))}
-    </section>
+    <div>
+      <span id="truck" className="index-title">
+        <h1 id="truck-text" className="index-title-text">
+          Reviews <br />
+          <Stars num={ratingsCalc(reviews)} />
+        </h1>
+      </span>
+      <Container className="d-flex justify-content-center ">
+        <div className="row ">
+          <div className="col-md-12">
+            <div className="comment">
+              <div className="card-body">
+                <h4 className="card-title">Latest Reviews</h4>
+                <h6 className="card-subtitle">
+                  {ratingsCalc(reviews).toFixed(1)}/ 5.0 (
+                  {reviews.length !== 1
+                    ? `${reviews.length} reviews`
+                    : `${reviews.length} review`}{" "}
+                  )
+                </h6>
+
+                <div className="comment-widgets">
+                  {reviews.map((review, idx) => (
+                    <Review
+                      idx={idx}
+                      key={review.id}
+                      review={review}
+                      handleDelete={handleDelete}
+                      handleSubmit={handleEdit}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <ReviewForm handleSubmit={handleAdd}>
+              <h3>Add a New Review</h3>
+            </ReviewForm>
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 }
 

@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
-import TruckMap from "./TruckMap";
+import TruckMap from "../Components/TruckMap";
 import Reviews from "./Reviews";
+
 const API = process.env.REACT_APP_API_URL;
 
 function ShowOne() {
@@ -33,6 +34,7 @@ function ShowOne() {
         console.log(e);
       });
   };
+
   return (
     <div>
       <span id="truck" className="index-title">
@@ -51,17 +53,22 @@ function ShowOne() {
           </p>
           <Link to="/trucks">
             <Button variant="outline-danger">Back</Button>
-          </Link>{" "}
+          </Link>
           <Link to={`/trucks/${id}/edit`}>
             <Button variant="outline-danger">Edit</Button>
-          </Link>{" "}
+          </Link>
           <Button variant="outline-danger" onClick={handleDelete}>
             Delete
           </Button>
         </div>
-        {truck.id && <TruckMap latitude={truck.lat} longitude={truck.lng} />}
-        <Reviews id={id} />
       </Container>
+      <span id="truck" className="index-title">
+        <h1 id="truck-text" className="index-title-text">
+          {truck.address} {truck.borough} NY, {truck.zip}
+        </h1>
+      </span>
+      {truck.id && <TruckMap latitude={truck.lat} longitude={truck.lng} />}
+      <Reviews id={id} />
     </div>
   );
 }

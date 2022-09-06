@@ -45,7 +45,7 @@ function ShowAll() {
           {borough === null
             ? trucks.map((truck) => (
                 <Col sm={4} key={truck.id}>
-                  <Card className="truck-card flex-fill mt-2">
+                  <Card id="index-card" className="flex-fill mt-2">
                     <Link to={`/trucks/${truck.id}`}>
                       <Card.Img variant="top" src={truck.image_url} />
                     </Link>
@@ -71,7 +71,7 @@ function ShowAll() {
                 .filter((truck) => truck.borough === borough)
                 .map((truck) => (
                   <Col sm={4} key={truck.id}>
-                    <Card className="flex-fill mt-2">
+                    <Card id="index-card" className="flex-fill mt-2">
                       <Link to={`/trucks/${truck.id}`}>
                         <Card.Img variant="top" src={truck.image_url} />{" "}
                       </Link>
