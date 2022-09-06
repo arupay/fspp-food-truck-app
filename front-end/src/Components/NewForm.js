@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Container } from "react-bootstrap";
 
 const API = process.env.REACT_APP_API_URL;
-
+const boroughs = require("../Components/boroughs");
 function NewForm() {
   const navigate = useNavigate();
   const [truck, setTruck] = useState({
@@ -78,7 +78,7 @@ function NewForm() {
                 required
               />
             </Form.Group>
-            <Form.Group>
+            {/* <Form.Group>
               <Form.Label>Borough</Form.Label>
               <Form.Control
                 type="text"
@@ -89,6 +89,26 @@ function NewForm() {
                 onChange={handleChange}
                 required
               />
+            </Form.Group> */}
+            <Form.Group>
+              <Form.Label>Borough</Form.Label>
+              <Form.Control
+                as="select"
+                value={truck.borough}
+                id="borough"
+                name="borough"
+                onChange={handleChange}
+                required
+              >
+                <option value={null}></option>
+                {boroughs.map((borough, idx) => {
+                  return (
+                    <option key={idx} value={borough}>
+                      {borough}
+                    </option>
+                  );
+                })}
+              </Form.Control>
             </Form.Group>
             <Form.Group>
               <Form.Label>Category</Form.Label>
