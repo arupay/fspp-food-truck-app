@@ -41,13 +41,13 @@ function Review({ review, handleDelete, handleSubmit, idx }) {
             <button
               onClick={toggleView}
               type="button"
-              className="btn btn-warning btn-sm"
+              className="btn btn-warning btn-sm m-1"
             >
               Edit
             </button>
             <button
               type="button"
-              className="btn btn-danger btn-sm"
+              className="btn btn-danger btn-sm m-1"
               onClick={() => handleDelete(review.id)}
             >
               Delete

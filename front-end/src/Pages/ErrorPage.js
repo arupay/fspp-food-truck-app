@@ -8,7 +8,7 @@ function ErrorPage() {
       <div
         className="p-5 text-center bg-image"
         style={{
-          backgroundImage: `url("https://pizzaluca.com/wp-content/uploads/2020/08/pizza-luca-in-brooklyn.jpg")`,
+          backgroundImage: `url("https://ewscripps.brightspotcdn.com/dims4/default/d6fd899/2147483647/strip/true/crop/2048x1152+0+192/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F86%2F43%2Ff3372ff7471ea40a613c50545d91%2Funicorntruckonfire.jpeg")`,
           height: "600px",
           marginTop: "-12px",
         }}

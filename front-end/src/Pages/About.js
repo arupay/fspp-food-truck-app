@@ -23,12 +23,12 @@ function About() {
           }}
         >
           <div className="d-flex justify-content-center align-items-center h-100">
-            <div className="text-white">
+            <div className="text-white m-1">
               <div className="mb-3">
                 Food connects us no matter who we are, and the best food in the
                 world is found right here in New York City. YumTrucks brings
-                together foodies and vendors to create communities and long
-                lasting memories.
+                together foodies and vendors to foster communities and create
+                memories.
               </div>
             </div>
           </div>
@@ -37,52 +37,87 @@ function About() {
       <span className="index-title">
         <h1 className="index-title-text">about the developer</h1>
       </span>
-      <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
+
+      <div className="p-5 text-center">
         <div
-          className="d-flex justify-content-center align-items-center h-100 "
-          style={{ marginTop: "-12px", width: "60%" }}
+          className="mask"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.1)", marginTop: "-50px" }}
         >
-          <div className="text-black">
-            <h3
-              style={{
-                color: "#000000",
-                fontSize: "20px",
-                fontFamily: "'Crete Round',sans-serif",
-                fontStyle: "italic",
-                fontWeight: "400",
-              }}
-            >
-              Augusto Rupay
-            </h3>
-            <div>
-              Hello there, my name is Augusto Rupay and I'm a software developer
-              currently enrolled in Pursuit NYC. YumTrucks is a full stack
-              passion project created using JS, React, SQL, Express, Postgres,
-              Postman, Bootstrap, Google Maps API, & Heroku. Potential future
-              development includes log in capabitlies for foodies and vendors.
-              Reach out to me on LinkedIn.
+          <div
+            className="d-flex justify-content-center align-items-center h-100 "
+            style={{ width: "60%", margin: "auto" }}
+          >
+            <div className="text-black align-items-center ">
+              <div className="p-2">
+                <span className="round">
+                  <img
+                    src={`https://media-exp1.licdn.com/dms/image/C4D03AQG1huY3phy-xg/profile-displayphoto-shrink_200_200/0/1644858764744?e=1668038400&v=beta&t=gBPMOLWh3mGEsxZAc37tOAO42Sihcp8-1Mxfba26_H8`}
+                    alt="user"
+                    width="100"
+                  />
+                </span>
+              </div>
+              <h3
+                style={{
+                  color: "#000000",
+                  fontSize: "20px",
+                  fontFamily: "'Crete Round',sans-serif",
+                  fontStyle: "italic",
+                  fontWeight: "400",
+                }}
+              >
+                Augusto Rupay
+              </h3>
+              <h3
+                style={{
+                  color: "#000000",
+                  fontSize: "14px",
+                  fontFamily: "'Crete Round',sans-serif",
+                  textTransform: "uppercase",
+                  fontWeight: "700",
+                  letterSpacing: "1px",
+                }}
+              >
+                developer
+              </h3>
+
+              <div
+                style={{
+                  fontSize: "13px",
+                  fontWeight: "400",
+                  lineHeight: "23px",
+                }}
+              >
+                I'm a software developer currently enrolled in Pursuit NYC.
+                YumTrucks is a full stack passion project created using JS,
+                React, SQL, Express, Postgres, Postman, Bootstrap, Google Maps
+                API, & Heroku. Potential future development includes log in
+                capabitlies for foodies and vendors. Reach out to me on
+                LinkedIn.
+              </div>
+              <br />
+              <a
+                className="btn btn-outline-dark btn-sm"
+                href="https://www.linkedin.com/in/augusto-rupay-a07a286b/"
+                role="button"
+              >
+                Linkdin
+              </a>
+              <a
+                className="btn btn-outline-dark btn-sm"
+                href="https://github.com/arupay"
+                role="button"
+              >
+                Github
+              </a>
+              <a
+                className="btn btn-outline-dark btn-sm"
+                href="https://github.com/arupay/fspp-food-truck-app"
+                role="button"
+              >
+                Source
+              </a>
             </div>
-            <a
-              className="btn btn-outline-dark btn-sm"
-              href="https://www.linkedin.com/in/augusto-rupay-a07a286b/"
-              role="button"
-            >
-              Linkdin
-            </a>
-            <a
-              className="btn btn-outline-dark btn-sm"
-              href="https://github.com/arupay"
-              role="button"
-            >
-              Github
-            </a>
-            <a
-              className="btn btn-outline-dark btn-sm"
-              href="https://github.com/arupay/fspp-food-truck-app"
-              role="button"
-            >
-              Source
-            </a>
           </div>
         </div>
       </div>

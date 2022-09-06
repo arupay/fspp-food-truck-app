@@ -16,7 +16,7 @@ function NavBar() {
         <Navbar.Brand mb-0="true" h1="true" className="d-inline-block" href="/">
           <img
             width="150"
-            src="https://gcdnb.pbrd.co/images/B8y9IN22cS8j.png"
+            src="https://gcdnb.pbrd.co/images/n6OGseS8H1Wl.png"
             alt=""
           />
         </Navbar.Brand>
