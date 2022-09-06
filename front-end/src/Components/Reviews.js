@@ -80,6 +80,11 @@ function Reviews({ id }) {
           <Stars num={ratingsCalc(reviews)} />
         </h1>
       </span>
+      <Container>
+        <ReviewForm handleSubmit={handleAdd}>
+          <h3>Add a New Review</h3>
+        </ReviewForm>
+      </Container>
       <Container className="d-flex justify-content-center ">
         <div className="row ">
           <div className="col-md-12">
@@ -107,9 +112,6 @@ function Reviews({ id }) {
                 </div>
               </div>
             </div>
-            <ReviewForm handleSubmit={handleAdd}>
-              <h3>Add a New Review</h3>
-            </ReviewForm>
           </div>
         </div>
       </Container>

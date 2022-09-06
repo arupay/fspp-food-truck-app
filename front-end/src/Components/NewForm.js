@@ -78,18 +78,7 @@ function NewForm() {
                 required
               />
             </Form.Group>
-            {/* <Form.Group>
-              <Form.Label>Borough</Form.Label>
-              <Form.Control
-                type="text"
-                id="borough"
-                name="borough"
-                placeholder="Queens"
-                value={truck.borough}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group> */}
+
             <Form.Group>
               <Form.Label>Borough</Form.Label>
               <Form.Control

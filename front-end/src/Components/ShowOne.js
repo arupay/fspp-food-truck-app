@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { Button, Container } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import TruckMap from "../Components/TruckMap";
 import Reviews from "./Reviews";
 
@@ -100,7 +100,7 @@ function ShowOne() {
                 </a>
                 <a
                   className="btn btn-outline-dark btn-sm m-1"
-                  href="#"
+                  href="/trucks"
                   role="button"
                   onClick={handleDelete}
                 >
