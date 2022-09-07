@@ -16,7 +16,7 @@ the 5 boroughs.
 - [Deployed FrontEnd](https://yum-trucks.netlify.app/)
 - [Trello Board](https://trello.com/b/DsRA3t2k/truck-app)
 - [ERD](https://dbdiagram.io/d/63069ffdf1a9b01b0fd9aa1b)
-- [Wireframe]()
+- [Wireframe](https://gcdnb.pbrd.co/images/Ujx5Hm3mfJZv.jpg)
 
 ## Local Set Up
 
