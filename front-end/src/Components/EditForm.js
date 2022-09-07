@@ -133,8 +133,8 @@ function EditForm() {
           <Form.Group>
             <Form.Label>About / Mission </Form.Label>
             <Form.Control
-              type="textarea"
               id="about"
+              as="textarea"
               rows="3"
               name="about"
               value={truck.about}

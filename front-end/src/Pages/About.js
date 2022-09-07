@@ -88,12 +88,12 @@ function About() {
                   lineHeight: "23px",
                 }}
               >
-                I'm a software developer currently enrolled in Pursuit NYC.
+                I'm a software developer currently enrolled in Pursuit .
                 YumTrucks is a full stack passion project created using JS,
                 React, SQL, Express, Postgres, Postman, Bootstrap, Google Maps
                 API, & Heroku. Potential future development includes log in
-                capabitlies for foodies and vendors. Reach out to me on
-                LinkedIn.
+                authentication for foodies and vendors profiles. Reach out to me
+                on LinkedIn.
               </div>
               <br />
               <a

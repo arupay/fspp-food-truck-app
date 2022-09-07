@@ -39,7 +39,7 @@ function ReviewForm(props) {
   return (
     <div className="Edit">
       {props.children}
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} id="addreview">
         <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -64,9 +64,12 @@ function ReviewForm(props) {
             onChange={handleTextChange}
           />
         </Form.Group>
+
         <Form.Group>
           <Form.Label>Content</Form.Label>
           <Form.Control
+            as="textarea"
+            rows="3"
             id="content"
             type="text"
             name="content"

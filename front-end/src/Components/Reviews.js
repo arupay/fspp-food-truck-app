@@ -80,17 +80,17 @@ function Reviews({ id }) {
           <Stars num={ratingsCalc(reviews)} />
         </h1>
       </span>
-      <Container>
-        <ReviewForm handleSubmit={handleAdd}>
-          <h3>Add a New Review</h3>
-        </ReviewForm>
+      <Container sm>
+        <h3>Add Review</h3>
+        <ReviewForm handleSubmit={handleAdd}></ReviewForm>
       </Container>
       <Container className="d-flex justify-content-center ">
         <div className="row ">
           <div className="col-md-12">
             <div className="comment">
               <div className="card-body">
-                <h4 className="card-title">Latest Reviews</h4>
+                <h4 className="card-title">Recent Reviews</h4>
+                <Stars num={ratingsCalc(reviews)} />
                 <h6 className="card-subtitle">
                   {ratingsCalc(reviews).toFixed(1)}/ 5.0 (
                   {reviews.length !== 1

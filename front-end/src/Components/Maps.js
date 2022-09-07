@@ -95,7 +95,13 @@ function Maps() {
             </GoogleMap>
           </LoadScript>
         ) : (
-          "Loading Maps...."
+          <Container className="trucks-index ">
+            <img
+              src="https://mintexpresscarwash.com/images/loader-bluegif.gif"
+              alt=""
+              style={{ paddingTop: "200px" }}
+            />
+          </Container>
         )}
       </Container>
     </div>

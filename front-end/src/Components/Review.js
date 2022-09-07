@@ -10,7 +10,7 @@ function Review({ review, handleDelete, handleSubmit, idx }) {
   };
 
   return (
-    <div className="d-flex flex-row comment-row">
+    <div className={viewEditForm ? "container" : "d-flex flex-row comment-row"}>
       {viewEditForm ? (
         <ReviewForm
           reviewDetails={review}
@@ -18,15 +18,16 @@ function Review({ review, handleDelete, handleSubmit, idx }) {
           handleSubmit={handleSubmit}
         />
       ) : (
+        // https://fakeface.rest/thumb/view?&minimum_age=${
+        //           idx + 20
+        //         }&maximum_age=35
         <div className="d-flex flex-row comment-row">
           <div className="p-2">
             <span className="round">
               <img
-                src={`https://fakeface.rest/thumb/view?&minimum_age=${
-                  idx + 20
-                }&maximum_age=35`}
+                src={`https://robohash.org/${review.reviewer}.png`}
                 alt="user"
-                width="50"
+                width="75"
               />
             </span>
           </div>
