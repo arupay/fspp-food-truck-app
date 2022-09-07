@@ -26,9 +26,12 @@ function About() {
             <div className="text-white m-1">
               <div className="mb-3">
                 Food connects us no matter who we are, and the best food in the
-                world is found right here in New York City. YumTrucks brings
-                together foodies and vendors to foster communities and create
-                memories.
+                world can be found right here in New York City. YumTrucks brings
+                together foodies and food truck endors to to celebrate the food
+                trucks they love. Whether is veggie momo, al pastor tacos, or
+                spicy lamb over rice, you can always find what you're looking
+                for here at Yum Trucks -- your spot for the best food trucks in
+                the 5 boroughs.
               </div>
             </div>
           </div>

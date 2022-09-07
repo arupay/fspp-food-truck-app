@@ -89,7 +89,7 @@ function NewForm() {
                 onChange={handleChange}
                 required
               >
-                <option value={null}></option>
+                <option value={null}> Choose A Borough...</option>
                 {boroughs.map((borough, idx) => {
                   return (
                     <option key={idx} value={borough}>

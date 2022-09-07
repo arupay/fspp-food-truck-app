@@ -25,3 +25,6 @@ const cn = DATABASE_URL
 const db = pgp(cn);
 
 module.exports = db;
+
+////\i ./db/prod_schema.sql
+/////\i ./db/prod_seed.sql
