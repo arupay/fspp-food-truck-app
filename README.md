@@ -21,3 +21,6 @@ _Section in Progress_
 ### Backend Setup
 
 _Section In Progress_
+
+\i ./db/prod_schema.sql
+\i ./db/prod_seed.sql
