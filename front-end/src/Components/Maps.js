@@ -45,7 +45,7 @@ function Maps() {
   };
 
   const showInfoWindow = () => {
-    setInfoWindowOpen(true);
+    setInfoWindowOpen(!infoWindowOpen);
   };
   return (
     <div>
@@ -77,7 +77,7 @@ function Maps() {
                       {infoWindowOpen && (
                         <InfoWindow
                           onCloseClick={() => setInfoWindowOpen(false)}
-                          position={e[1]}
+                          // position={e[1]}
                         >
                           <div>
                             <h6>{e[0].name}</h6>

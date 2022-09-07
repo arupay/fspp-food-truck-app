@@ -84,7 +84,7 @@ function Reviews({ id }) {
         <h3>Add Review</h3>
         <ReviewForm handleSubmit={handleAdd}></ReviewForm>
       </Container>
-      <Container className="d-flex justify-content-center ">
+      <Container className="d-flex justify-content-left m1 ">
         <div className="row ">
           <div className="col-md-12">
             <div className="comment">
