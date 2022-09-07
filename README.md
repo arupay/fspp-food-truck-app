@@ -1,6 +1,6 @@
-# Food Truck App
+# Yum Trucks
 
-<img width="500" alt="YumTruckLogo" src="https://gcdnb.pbrd.co/images/n6OGseS8H1Wl.png">
+<img width="500" alt="YumTruckLogo" src="https://gcdnb.pbrd.co/images/pj4OuJUAmLTl.png?o=1">
 
 Food connects us no matter who we are, and the best food in the
 world can be found right here in New York City. YumTrucks brings
@@ -78,4 +78,25 @@ npm run db:seed
 nodemon server.js
 ```
 
-### Screenshots
+### Screenshots (Desktop)
+
+![All Trucks Page (Index)](https://user-images.githubusercontent.com/96318127/188982622-8a5dc85b-99b1-4bdb-bee5-4656ed61410d.png)
+![Show Truck Part 1](https://user-images.githubusercontent.com/96318127/188983617-29472cc0-6cf8-401b-9a7f-48933933a253.png)
+![Show Truck Part 2 (Reviews)](https://user-images.githubusercontent.com/96318127/188983403-f5363165-f7d9-4158-9ad8-34ec44c7258a.png)
+![Add A Truck Page (Add)](https://user-images.githubusercontent.com/96318127/188983044-7e6e02b8-c093-4e41-a1da-59b00b9c8ea5.png)
+![Find A Truck (Map)](https://user-images.githubusercontent.com/96318127/188984213-81c6598f-284f-4bd5-8f92-732ebdbaa020.png)
+![About](https://user-images.githubusercontent.com/96318127/188984033-e0b29d39-9848-4132-b0f5-73a2e8d2f5aa.png)
+
+### Screenshots (Mobile)
+
+![All Trucks (Index)](https://user-images.githubusercontent.com/96318127/188989113-42163761-a105-47ba-89b1-927414d78b00.png)
+![Show Truck Info](https://user-images.githubusercontent.com/96318127/188988012-d033525f-a9ea-43c0-8c52-6bf7fd340fb8.png)
+![Show Reviews](https://user-images.githubusercontent.com/96318127/188988916-5e9a9961-1d67-4c95-a653-413069a6415e.png)
+![Find A Truck (Map)](https://user-images.githubusercontent.com/96318127/188988586-728819bb-3eee-44cf-b588-1a76439d9849.png)
+![About](https://user-images.githubusercontent.com/96318127/188987639-45701093-cb9d-4e82-b386-a0677e3d2490.png)
+
+<!-- <img width="301" alt="mobile-about" src="https://user-images.githubusercontent.com/96318127/188986714-868ff233-2660-4628-93a9-ad843afc46f5.png">
+<img width="288" alt="mobilereviews" src="https://user-images.githubusercontent.com/96318127/188986715-27386d92-da7b-419a-9f0c-2e70842a6006.png">
+<img width="287" alt="mobile inde" src="https://user-images.githubusercontent.com/96318127/188986718-3f068c17-a175-43ff-a7e0-e301b7b0aaf5.png">
+<img width="289" alt="mobile show" src="https://user-images.githubusercontent.com/96318127/188986720-a9331a4c-415c-4a9d-a577-9dc2e64de21c.png">
+<img width="321" alt="mobile-map" src="https://user-images.githubusercontent.com/96318127/188986722-42f75384-78a8-4930-8408-c7f03b5eb726.png"> -->
