@@ -19,9 +19,9 @@ function ShowOne() {
         setTruck(res.data.payload);
       })
       .catch((err) => {
-        return err;
+        navigate("/not-found");
       });
-  }, [id]);
+  }, [id, navigate]);
 
   const handleDelete = (e) => {
     e.preventDefault();
