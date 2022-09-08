@@ -13,7 +13,6 @@ function Home() {
           src="https://s1.gifyu.com/images/ezgif.com-gif-maker55c41b8f9baa3b98.gif"
           alt=""
           width="80%"
-          style={{ marginTop: "100px" }}
         />
         <br />
       </Container>

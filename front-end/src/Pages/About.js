@@ -9,7 +9,7 @@ function About() {
         className="p-5 text-center bg-image"
         style={{
           backgroundImage: `url("https://pizzaluca.com/wp-content/uploads/2020/08/pizza-luca-in-brooklyn.jpg")`,
-          height: "600px",
+          height: "60vh",
           marginTop: "-12px",
           backgroundSize: "cover",
         }}
@@ -18,13 +18,13 @@ function About() {
           className="mask"
           style={{
             backgroundColor: "rgba(0,0,0,0.6)",
-            width: "60%",
+            width: "70%",
             margin: "auto",
           }}
         >
-          <div className="d-flex justify-content-center align-items-center h-100">
+          <div className="d-flex justify-content-center h-100">
             <div className="text-white m-1">
-              <div className="mb-3">
+              <div className="about-text mb-1">
                 Food connects us no matter who we are, and the best food in the
                 world can be found right here in New York City. YumTrucks brings
                 together foodies and food truck endors to to celebrate the food
@@ -43,8 +43,8 @@ function About() {
 
       <div className="p-5 text-center">
         <div
-          className="mask"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.1)", marginTop: "-50px" }}
+          className="mask p-3"
+          style={{ backgroundColor: "#052d44", marginTop: "-50px" }}
         >
           <div
             className="d-flex justify-content-center align-items-center h-100 "
@@ -62,18 +62,18 @@ function About() {
               </div>
               <h3
                 style={{
-                  color: "#000000",
                   fontSize: "20px",
                   fontFamily: "'Crete Round',sans-serif",
                   fontStyle: "italic",
                   fontWeight: "400",
+                  color: "#FFFFFF",
                 }}
               >
                 Augusto Rupay
               </h3>
               <h3
                 style={{
-                  color: "#000000",
+                  color: "#fec309",
                   fontSize: "14px",
                   fontFamily: "'Crete Round',sans-serif",
                   textTransform: "uppercase",
@@ -89,6 +89,7 @@ function About() {
                   fontSize: "13px",
                   fontWeight: "400",
                   lineHeight: "23px",
+                  color: "#FFFFFF",
                 }}
               >
                 I'm a software developer currently enrolled in Pursuit .
@@ -100,25 +101,18 @@ function About() {
               </div>
               <br />
               <a
-                className="btn btn-outline-dark btn-sm"
+                className="btn btn-outline-warning btn-sm m-2"
                 href="https://www.linkedin.com/in/augusto-rupay-a07a286b/"
                 role="button"
               >
                 Linkdin
               </a>
               <a
-                className="btn btn-outline-dark btn-sm"
+                className="btn btn-outline-warning btn-sm"
                 href="https://github.com/arupay"
                 role="button"
               >
                 Github
-              </a>
-              <a
-                className="btn btn-outline-dark btn-sm"
-                href="https://github.com/arupay/fspp-food-truck-app"
-                role="button"
-              >
-                Source
               </a>
             </div>
           </div>

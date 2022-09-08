@@ -1,4 +1,6 @@
 import axios from "axios";
+import React from "react";
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -108,4 +110,4 @@ function Maps() {
   );
 }
 
-export default Maps;
+export default React.memo(Maps);

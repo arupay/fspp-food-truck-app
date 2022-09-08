@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+import React from "react";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
 const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
@@ -16,12 +17,11 @@ function TruckMap({ latitude, longitude }) {
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={coordinates}
-            zoom={20}
+            zoom={16}
           >
             <MarkerF
               position={coordinates}
               icon={{
-                // url: "https://gcdnb.pbrd.co/images/a8B831n9dfxr.jpg",
                 url: "https://gcdnb.pbrd.co/images/UPbgm8xNJfhS.png",
               }}
             />
@@ -32,4 +32,4 @@ function TruckMap({ latitude, longitude }) {
   );
 }
 
-export default TruckMap;
+export default React.memo(TruckMap);

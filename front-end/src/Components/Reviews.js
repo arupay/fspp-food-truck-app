@@ -80,36 +80,34 @@ function Reviews({ id }) {
           <Stars num={ratingsCalc(reviews)} />
         </h1>
       </span>
-      <Container sm>
+      <Container>
         <h3>Add Review</h3>
         <ReviewForm handleSubmit={handleAdd}></ReviewForm>
       </Container>
       <Container className="d-flex justify-content-left m1 ">
-        <div className="row ">
+        <div className="row">
           <div className="col-md-12">
             <div className="comment">
-              <div className="card-body">
-                <h4 className="card-title">Recent Reviews</h4>
-                <Stars num={ratingsCalc(reviews)} />
-                <h6 className="card-subtitle">
-                  {ratingsCalc(reviews).toFixed(1)}/ 5.0 (
-                  {reviews.length !== 1
-                    ? `${reviews.length} reviews`
-                    : `${reviews.length} review`}{" "}
-                  )
-                </h6>
+              <h4 className="card-title">Recent Reviews</h4>
+              <Stars num={ratingsCalc(reviews)} />
+              <h6 className="card-subtitle">
+                {ratingsCalc(reviews).toFixed(1)}/ 5.0 (
+                {reviews.length !== 1
+                  ? `${reviews.length} reviews`
+                  : `${reviews.length} review`}{" "}
+                )
+              </h6>
 
-                <div className="comment-widgets">
-                  {reviews.map((review, idx) => (
-                    <Review
-                      idx={idx}
-                      key={review.id}
-                      review={review}
-                      handleDelete={handleDelete}
-                      handleSubmit={handleEdit}
-                    />
-                  ))}
-                </div>
+              <div className="comment-widgets">
+                {reviews.map((review, idx) => (
+                  <Review
+                    idx={idx}
+                    key={review.id}
+                    review={review}
+                    handleDelete={handleDelete}
+                    handleSubmit={handleEdit}
+                  />
+                ))}
               </div>
             </div>
           </div>
