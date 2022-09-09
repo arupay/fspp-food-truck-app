@@ -50,7 +50,6 @@ function ShowAll() {
                     <Card id="index-card" className="flex-fill mt-2">
                       <Link to={`/trucks/${truck.id}`}>
                         <Card.Img variant="top" src={truck.image_url} />
-                        <div className="card-img-overlay"></div>
                       </Link>
 
                       <Card.Body>
@@ -77,7 +76,6 @@ function ShowAll() {
                     <Col sm={4} key={truck.id}>
                       <Card id="index-card" className="flex-fill mt-2">
                         <Link to={`/trucks/${truck.id}`}>
-                          <div className="card-img-overlay"></div>
                           <Card.Img
                             variant="top"
                             src={truck.image_url}
