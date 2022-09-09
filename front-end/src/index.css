@@ -75,6 +75,10 @@
   color: grey;
 }
 
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.4); /* Black see-through */
+}
+
 #index-card {
   background: #052d44;
   border: 1px solid #010f16;
@@ -87,8 +91,8 @@
   overflow: hidden;
 }
 
-.card:hover {
-  transform:scale(1.1);
+.card-img-overlay:hover {
+  background: rgba(0, 0, 0, 0); /* Black see-through */
 }
 
 

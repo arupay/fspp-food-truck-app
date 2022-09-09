@@ -50,7 +50,9 @@ function ShowAll() {
                     <Card id="index-card" className="flex-fill mt-2">
                       <Link to={`/trucks/${truck.id}`}>
                         <Card.Img variant="top" src={truck.image_url} />
+                        <div className="card-img-overlay"></div>
                       </Link>
+
                       <Card.Body>
                         <Card.Title className="truck-title">
                           {truck.name}
@@ -63,7 +65,7 @@ function ShowAll() {
                         <Card.Text tag="div" style={{ fontSize: "11px" }}>
                           {truck.category}
 
-                          <span className="borough-tag"> {truck.borough}</span>
+                          <span className="borough-tag">{truck.borough}</span>
                         </Card.Text>
                       </Card.Body>
                     </Card>
@@ -75,7 +77,8 @@ function ShowAll() {
                     <Col sm={4} key={truck.id}>
                       <Card id="index-card" className="flex-fill mt-2">
                         <Link to={`/trucks/${truck.id}`}>
-                          <Card.Img variant="top" src={truck.image_url} />{" "}
+                          <Card.Img variant="top" src={truck.image_url} />
+                          <div className="card-img-overlay"></div>
                         </Link>
                         <Card.Body>
                           <Card.Title className="truck-title">
