@@ -54,7 +54,7 @@ function About() {
               <div className="p-2">
                 <span className="round">
                   <img
-                    src={`https://media-exp1.licdn.com/dms/image/C4D03AQG1huY3phy-xg/profile-displayphoto-shrink_200_200/0/1644858764744?e=1668038400&v=beta&t=gBPMOLWh3mGEsxZAc37tOAO42Sihcp8-1Mxfba26_H8`}
+                    src={`https://media.licdn.com/dms/image/C4D03AQG1huY3phy-xg/profile-displayphoto-shrink_800_800/0/1644858764744?e=1679529600&v=beta&t=aMdLiQfFXFMxTqPv8R4I4p64Xmcfu59VqeMEv4MUhcQ`}
                     alt="user"
                     width="100"
                   />

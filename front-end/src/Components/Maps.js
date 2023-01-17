@@ -70,7 +70,7 @@ function Maps() {
                       key={idx}
                       position={e[1]}
                       icon={{
-                        url: "https://gcdnb.pbrd.co/images/UPbgm8xNJfhS.png",
+                        url: "https://gcdnb.pbrd.co/images/NaSvWDMhan6Q.jpg",
                       }}
                       title={e[0].name}
                       onClick={showInfoWindow}

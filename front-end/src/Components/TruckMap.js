@@ -9,6 +9,7 @@ function TruckMap({ latitude, longitude }) {
     width: "100%",
     height: "50vh",
   };
+  console.log(coordinates);
 
   return (
     <Container>
@@ -22,7 +23,7 @@ function TruckMap({ latitude, longitude }) {
             <MarkerF
               position={coordinates}
               icon={{
-                url: "https://gcdnb.pbrd.co/images/UPbgm8xNJfhS.png",
+                url: "https://gcdnb.pbrd.co/images/NaSvWDMhan6Q.jpg",
               }}
             />
           </GoogleMap>

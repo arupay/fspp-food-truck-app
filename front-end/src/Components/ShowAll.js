@@ -51,7 +51,6 @@ function ShowAll() {
                       <Link to={`/trucks/${truck.id}`}>
                         <Card.Img variant="top" src={truck.image_url} />
                       </Link>
-
                       <Card.Body>
                         <Card.Title className="truck-title">
                           {truck.name}
