@@ -92,12 +92,11 @@ function About() {
                   color: "#FFFFFF",
                 }}
               >
-                I'm a software developer currently enrolled in Pursuit .
-                YumTrucks is a full stack passion project created using JS,
-                React, SQL, Express, Postgres, Postman, Bootstrap, Google Maps
-                API, & Heroku. Potential future development includes log in
-                authentication for foodies and vendors profiles. Reach out to me
-                on LinkedIn.
+                I'm a software developer from Queens, NY . YumTrucks is a full
+                stack passion project created using JS, React, SQL, Express,
+                Postgres, Postman, Bootstrap, Google Maps API, & Render.
+                Potential future development includes log in authentication for
+                foodies and vendors profiles. Reach out to me on LinkedIn.
               </div>
               <br />
               <a
