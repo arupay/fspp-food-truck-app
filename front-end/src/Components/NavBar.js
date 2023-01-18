@@ -1,5 +1,6 @@
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import transparentlogo from "../assets/transparentlogo.png";
 
 function NavBar() {
   const borough = require("./boroughs");
@@ -14,11 +15,7 @@ function NavBar() {
       <Container>
         <Navbar.Toggle />
         <Navbar.Brand mb-0="true" h1="true" className="d-inline-block" href="/">
-          <img
-            width="150"
-            src="https://gcdnb.pbrd.co/images/n6OGseS8H1Wl.png"
-            alt=""
-          />
+          <img width="150" src={transparentlogo} alt="" />
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Nav>

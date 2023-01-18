@@ -13,8 +13,7 @@ INSERT INTO trucks (name, address, zip, borough, category, image_url, about, lat
 ('Tacos El Bronco', '4324 4th Ave.', 11220, 'Brooklyn', 'Latin', 'https://fastly.4sqi.net/img/general/699x268/206755_L6rwRX0eIh8UA40HmWlN2zNY7Noyd4c5tBwqwZ6s17A.jpg', 'At Tacos El Bronquito you''ll find a wide selection of authentic Mexican food we are sure you will love. We are proud to say, that at Tacos El Bronquito you can find authentic hand-made traditional tortillas.', 40.6500796, -74.0092406 ),
 ('Anton''s Dumplings', '151 W 3rd St', 10009, 'Manhattan', 'Russian', 'https://static01.nyt.com/images/2016/05/04/fashion/04HUNGRY-slide-BWKO/04HUNGRY-slide-BWKO-superJumbo.jpg?quality=75&auto=webp&disable=upscale', 'Serving the best Russian dumplings in America. Pelmeni and Perogi (meat and potato dumplings) served in 5 delicious ways: the Classic, Beets & Horseradish, Teriyaki, Chimichurri, and the late-night drunchie favorite, the Smoke Gouda Fondue.', 40.730994, -74.001319);
 
-INSERT INTO reviews (trucks_id, reviewer, content, rating )
-VALUES
+INSERT INTO reviews (trucks_id, reviewer, content, rating ) VALUES
 ('1', 'Alex', 'My friend told me about this taco spot months ago and Ive been dying to make the trek to go and finally went. I mean what can I say it was truly worth the trip. Absolutely delicious!!! Take my word for it....just go and get some!!', 5),
 ('1', 'Andy', 'Best Birria Ive ever had.  Service is quick, this location is extremely popular but the line moves quickly. Food is always consistently good. I recommend you try all the items on the menu. The consomé is a must, definitely get the large.
 ', 5),

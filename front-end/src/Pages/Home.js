@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+import truckstop from "../assets/truckstop.gif";
 
 function Home() {
   return (
@@ -7,13 +8,7 @@ function Home() {
         <h1 className="index-title-text">NYC's best food trucks</h1>
       </span>
       <Container className="homepage">
-        <img
-          // src="https://i.pinimg.com/originals/39/f1/d0/39f1d0a2707646b575cdba91d34f41a5.gif
-          // "
-          src="https://s1.gifyu.com/images/ezgif.com-gif-maker55c41b8f9baa3b98.gif"
-          alt=""
-          width="80%"
-        />
+        <img src={truckstop} alt="" width="80%" />
         <br />
       </Container>
     </div>
