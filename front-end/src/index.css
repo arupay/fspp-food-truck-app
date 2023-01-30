@@ -2,6 +2,9 @@
   font-family: Helvetica;
 }
 
+.main {
+  min-height: calc(100vh - 34px);
+}
 .borough-tag {
   position: absolute;
   top: 30px;
@@ -15,7 +18,7 @@
 }
 
 #truck {
-  background-color: #052d44;;
+  background-color: #052d44;
 }
 
 #truck-text {

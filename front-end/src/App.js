@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //Components
 import NavBar from "./Components/NavBar";
 import Maps from "./Components/Maps";
+import Footer from "./Components/Footer";
 
 //Pages
 import EditPage from "./Pages/EditPage";
@@ -15,7 +16,7 @@ import About from "./Pages/About";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Router>
         <NavBar />
         <Routes>
@@ -28,6 +29,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

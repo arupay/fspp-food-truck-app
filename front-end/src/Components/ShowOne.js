@@ -34,7 +34,6 @@ function ShowOne() {
         console.log(e);
       });
   };
-  console.log(truck);
   return (
     <div>
       <span id="truck" className="index-title">

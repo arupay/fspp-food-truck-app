@@ -2,7 +2,7 @@ import EditForm from "../Components/EditForm";
 
 function EditPage() {
   return (
-    <div>
+    <div className="main">
       <EditForm />
     </div>
   );

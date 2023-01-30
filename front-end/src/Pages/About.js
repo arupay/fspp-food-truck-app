@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div>
+    <div className="main">
       <span className="index-title">
         <h1 className="index-title-text">about yumtrucks</h1>
       </span>

@@ -1,7 +1,11 @@
 import ShowOne from "../Components/ShowOne";
 
 function ShowPage() {
-  return <ShowOne />;
+  return (
+    <div className="main">
+      <ShowOne />
+    </div>
+  );
 }
 
 export default ShowPage;

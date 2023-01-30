@@ -3,7 +3,7 @@ import truckstop from "../assets/truckstop.gif";
 
 function Home() {
   return (
-    <div>
+    <div className="main">
       <span className="index-title">
         <h1 className="index-title-text">NYC's best food trucks</h1>
       </span>

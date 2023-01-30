@@ -1,6 +1,6 @@
 function ErrorPage() {
   return (
-    <div>
+    <div className="main">
       <span className="index-title">
         <h1 className="index-title-text">Uh Oh!</h1>
       </span>

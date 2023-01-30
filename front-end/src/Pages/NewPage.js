@@ -2,7 +2,7 @@ import NewForm from "../Components/NewForm";
 
 function NewPage() {
   return (
-    <div>
+    <div className="main">
       <NewForm />
     </div>
   );

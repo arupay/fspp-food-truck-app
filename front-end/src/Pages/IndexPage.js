@@ -2,7 +2,7 @@ import ShowAll from "../Components/ShowAll";
 
 function IndexPage() {
   return (
-    <section>
+    <section className="main">
       <ShowAll />
     </section>
   );
