@@ -1,3 +1,5 @@
+import { Autocomplete } from "@react-google-maps/api";
+
 function About() {
   return (
     <div className="main">
@@ -43,14 +45,17 @@ function About() {
 
       <div className="p-5 text-center">
         <div
-          className="mask p-3"
-          style={{ backgroundColor: "#052d44", marginTop: "-50px" }}
+          className="mask"
+          style={{
+            backgroundColor: "white",
+            marginTop: "-50px",
+          }}
         >
           <div
             className="d-flex justify-content-center align-items-center h-100 "
             style={{ width: "60%", margin: "auto" }}
           >
-            <div className="text-black align-items-center ">
+            <div className="align-items-center ">
               <div className="p-2">
                 <span className="round">
                   <img
@@ -66,7 +71,7 @@ function About() {
                   fontFamily: "'Crete Round',sans-serif",
                   fontStyle: "italic",
                   fontWeight: "400",
-                  color: "#FFFFFF",
+                  color: "#052d44",
                 }}
               >
                 Augusto Rupay
@@ -81,7 +86,7 @@ function About() {
                   letterSpacing: "1px",
                 }}
               >
-                developer
+                Developer
               </h3>
 
               <div
@@ -89,7 +94,7 @@ function About() {
                   fontSize: "13px",
                   fontWeight: "400",
                   lineHeight: "23px",
-                  color: "#FFFFFF",
+                  color: "#052d44",
                 }}
               >
                 I'm a software developer from Queens, NY, and a big foodie.

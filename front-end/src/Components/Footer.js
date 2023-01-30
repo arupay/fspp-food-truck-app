@@ -7,11 +7,11 @@ function Footer(props) {
     <footer className="py-3">
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-4 col-xs-6">
+          <div className="col-12 col-md-4">
             <img src={transparentlogo} alt="logo" className="footer-logo" />
             <p className="text-muted small">&copy; 2023 YumTrucks</p>
           </div>
-          <div className="col-6 col-md-2 ml-auto col-xs-6">
+          <div className="col-6 col-md-2 ml-auto ">
             <h6>Navigation</h6>
             <ul className="list-unstyled">
               <li>
@@ -25,7 +25,7 @@ function Footer(props) {
               </li>
             </ul>
           </div>
-          <div className="col-6 col-md-2 ml-auto col-xs-6">
+          <div className="col-6 col-md-2 ml-auto ">
             <h6>Maps</h6>
             <ul className="list-unstyled">
               <li>
@@ -33,7 +33,7 @@ function Footer(props) {
               </li>
             </ul>
           </div>
-          <div className="col-12 col-md-4 ml-auto col-xs-6">
+          <div className="col-12 col-md-4 ml-auto ">
             <h6>About</h6>
             <ul className="list-unstyled">
               <li>
