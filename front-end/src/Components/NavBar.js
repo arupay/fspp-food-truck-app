@@ -33,10 +33,13 @@ function NavBar() {
               Add Truck
             </Nav.Link>
             <Nav.Link className="nav-text" href="/map">
-              Find A Truck
+              Map
             </Nav.Link>
             <Nav.Link className="nav-text" href="/about">
               About
+            </Nav.Link>
+            <Nav.Link className="nav-text" href="/login">
+              Log In
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

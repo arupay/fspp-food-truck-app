@@ -10,7 +10,7 @@ function About() {
       <div
         className="p-5 text-center bg-image"
         style={{
-          backgroundImage: `url("https://pizzaluca.com/wp-content/uploads/2020/08/pizza-luca-in-brooklyn.jpg")`,
+          backgroundImage: `url("https://github.com/arupay/fspp-food-truck-app/assets/96318127/7e3cb4b2-6951-4b93-854e-e5edfb6c85b9")`,
           height: "60vh",
           marginTop: "-12px",
           backgroundSize: "cover",
@@ -59,7 +59,7 @@ function About() {
               <div className="p-2">
                 <span className="round">
                   <img
-                    src={`https://media.licdn.com/dms/image/C4D03AQG1huY3phy-xg/profile-displayphoto-shrink_800_800/0/1644858764744?e=1679529600&v=beta&t=aMdLiQfFXFMxTqPv8R4I4p64Xmcfu59VqeMEv4MUhcQ`}
+                    src={`https://github.com/arupay/fspp-food-truck-app/assets/96318127/68aa94c1-d82d-46b1-a4dc-78536e636250`}
                     alt="user"
                     width="100"
                   />

@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import React from "react";
-import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
 const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
 function TruckMap({ latitude, longitude }) {
@@ -9,12 +9,14 @@ function TruckMap({ latitude, longitude }) {
     width: "100%",
     height: "50vh",
   };
+  const {isLoaded} = useJsApiLoader({
+    googleMapsApiKey: process.env.REACT_APP_MAP_API_KEY,
+  })
   console.log(coordinates);
 
   return (
     <Container>
-      {coordinates.lat && (
-        <LoadScript googleMapsApiKey={MAP_API_KEY}>
+      {coordinates.lat && isLoaded &&
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={coordinates}
@@ -23,12 +25,12 @@ function TruckMap({ latitude, longitude }) {
             <MarkerF
               position={coordinates}
               icon={{
-                url: "https://gcdnb.pbrd.co/images/NaSvWDMhan6Q.jpg",
+                url: "https://github.com/arupay/fspp-food-truck-app/assets/96318127/381814d5-737e-4857-b67d-b8969b06cae1",
               }}
             />
           </GoogleMap>
-        </LoadScript>
-      )}
+ 
+      }
     </Container>
   );
 }
