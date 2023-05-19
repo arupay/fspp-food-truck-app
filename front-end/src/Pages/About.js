@@ -1,4 +1,3 @@
-import { Autocomplete } from "@react-google-maps/api";
 
 function About() {
   return (

@@ -18,9 +18,6 @@ function Review({ review, handleDelete, handleSubmit, idx }) {
           handleSubmit={handleSubmit}
         />
       ) : (
-        // https://fakeface.rest/thumb/view?&minimum_age=${
-        //           idx + 20
-        //         }&maximum_age=35
         <div className="d-flex flex-row comment-row">
           <div className="p-2">
             <span className="round">

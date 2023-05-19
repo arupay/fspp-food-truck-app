@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import ReviewStars from "./ReviewStars";
+import { useNavigate } from "react-router";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -22,7 +23,7 @@ function ShowAll() {
     };
     fetching();
   }, [setTrucks, setReviews]);
-
+  const navigate = useNavigate();
   const filterReviews = (reviews, truckId) => {
     const x = reviews.filter((review) => {
       return review.trucks_id === truckId;
@@ -47,25 +48,31 @@ function ShowAll() {
             {borough === null
               ? trucks.map((truck) => (
                   <Col sm={4} key={truck.id}>
-                    <Card id="index-card" className="flex-fill mt-2">
-                      <Link to={`/trucks/${truck.id}`}>
-                        <Card.Img variant="top" src={truck.image_url} />
-                      </Link>
-                      <Card.Body>
-                        <Card.Title className="truck-title">
-                          {truck.name}
-                        </Card.Title>
-                        <Card.Text tag="div" style={{ fontSize: "11px" }}>
-                          <ReviewStars
-                            newReviews={filterReviews(reviews, truck.id)}
-                          />
-                        </Card.Text>
-                        <Card.Text tag="div" style={{ fontSize: "11px" }}>
-                          {truck.category}
-
-                          <span className="borough-tag">{truck.borough}</span>
-                        </Card.Text>
-                      </Card.Body>
+                    <Card
+                      id="index-card"
+                      className="flex-fill background-img-card"
+                      style={{
+                        backgroundImage: `url(${truck.image_url})`,
+                      }}
+                      onClick={() => navigate(`/trucks/${truck.id}`)}
+                    >
+                      <div className="card-img-overlay d-flex flex-column">
+                        <Card.Body className="card-text">
+                          <Link to={`/trucks/${truck.id}`}></Link>
+                          <Card.Title className="truck-title">
+                            {truck.name}
+                          </Card.Title>
+                          <Card.Text tag="div" style={{ fontSize: "16px" }}>
+                            <ReviewStars
+                              newReviews={filterReviews(reviews, truck.id)}
+                            />
+                          </Card.Text>
+                          <Card.Text tag="div" style={{ fontSize: "13px" }}>
+                            {truck.category}
+                            <span className="borough-tag">{truck.borough}</span>
+                          </Card.Text>
+                        </Card.Body>
+                      </div>
                     </Card>
                   </Col>
                 ))
@@ -73,28 +80,33 @@ function ShowAll() {
                   .filter((truck) => truck.borough === borough)
                   .map((truck) => (
                     <Col sm={4} key={truck.id}>
-                      <Card id="index-card" className="flex-fill mt-2">
-                        <Link to={`/trucks/${truck.id}`}>
-                          <Card.Img variant="top" src={truck.image_url} />
-                        </Link>
-                        <Card.Body>
-                          <Card.Title className="truck-title">
-                            {truck.name}
-                          </Card.Title>
-                          <Card.Text tag="div" style={{ fontSize: "11px" }}>
-                            <ReviewStars
-                              newReviews={filterReviews(reviews, truck.id)}
-                            />
-                          </Card.Text>
-                          <Card.Text tag="div" style={{ fontSize: "11px" }}>
-                            {truck.category}
-
-                            <span className="borough-tag">
-                              {" "}
-                              {truck.borough}
-                            </span>
-                          </Card.Text>
-                        </Card.Body>
+                      <Card
+                        id="index-card"
+                        className="flex-fill background-img-card"
+                        style={{
+                          backgroundImage: `url(${truck.image_url})`,
+                        }}
+                        onClick={() => navigate(`/trucks/${truck.id}`)}
+                      >
+                        <div className="card-img-overlay d-flex flex-column">
+                          <Card.Body className="card-text">
+                            <Link to={`/trucks/${truck.id}`}></Link>
+                            <Card.Title className="truck-title">
+                              {truck.name}
+                            </Card.Title>
+                            <Card.Text tag="div" style={{ fontSize: "16px" }}>
+                              <ReviewStars
+                                newReviews={filterReviews(reviews, truck.id)}
+                              />
+                            </Card.Text>
+                            <Card.Text tag="div" style={{ fontSize: "13px" }}>
+                              {truck.category}
+                              <span className="borough-tag">
+                                {truck.borough}
+                              </span>
+                            </Card.Text>
+                          </Card.Body>
+                        </div>
                       </Card>
                     </Col>
                   ))}

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
-
 import { useEffect, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 //Components
 import NavBar from "./Components/NavBar";
@@ -21,8 +22,8 @@ import RenderMapFn from "./Components/RenderMapFn";
 const API = process.env.REACT_APP_API_URL;
 
 function App() {
-  const [trucksCoords, setTrucksCoords]= useState([])
-    useEffect(() => {
+  const [trucksCoords, setTrucksCoords] = useState([]);
+  useEffect(() => {
     axios
       .get(`${API}/trucks`)
       .then((res) => {
@@ -42,6 +43,18 @@ function App() {
   }, []);
   return (
     <div className="app">
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Router>
         <NavBar />
         <Routes>
@@ -50,7 +63,10 @@ function App() {
           <Route path="/trucks/:id" element={<ShowPage />} />
           <Route path="/trucks/new" element={<NewPage />} />
           <Route path="/trucks/:id/edit/" element={<EditPage />} />
-          <Route path="/map" element={<RenderMapFn  trucksCoords={trucksCoords} />} />
+          <Route
+            path="/map"
+            element={<RenderMapFn trucksCoords={trucksCoords} />}
+          />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

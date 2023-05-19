@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Container } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
 
 const API = process.env.REACT_APP_API_URL;
 const boroughs = require("../Components/boroughs");
@@ -29,15 +30,19 @@ function NewForm() {
     axios
       .post(`${API}/trucks/new`, truck)
       .then(() => {
-        navigate(`/trucks`);
+        toast.success("Truck added successfully!");
+        setTimeout(() => {
+          navigate("/trucks");
+        }, 2000);
       })
       .catch((e) => {
+        toast.error("Failed to add the truck. Please try again.");
         console.log(e);
       });
   };
+
   return (
     <div>
-      {console.log()}
       <span className="index-title">
         <h1 className="index-title-text">add your truck</h1>
       </span>
