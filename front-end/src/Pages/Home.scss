@@ -1,0 +1,16 @@
+.header1 {
+    background-image: url(https://cdn.viewing.nyc/assets/media/ee81f4a2218900e814848d9af5d13684/elements/9059a668ed03a57a1a1ff4513b912371/xl/bbfdb41d-9aae-4a3a-86f9-d35548a24309_1x.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    &__text{
+        color:white;
+        font-style: oblique;
+        letter-spacing: 1px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+}

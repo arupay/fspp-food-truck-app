@@ -5,6 +5,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import ReviewStars from "./ReviewStars";
 import { useNavigate } from "react-router";
+import "./ShowAll.scss";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -35,7 +36,7 @@ function ShowAll() {
     <section>
       {borough === null ? (
         <span className="index-title">
-          <h1 className="index-title-text">our food trucks</h1>
+          <h1 className="index-title-text">local trucks</h1>
         </span>
       ) : (
         <span className="index-title">
@@ -43,20 +44,19 @@ function ShowAll() {
         </span>
       )}
       {trucks.length ? (
-        <Container className="trucks-index ">
-          <Row className="row-cols-sm1 row-cols-md4">
+        <Container className="truckindex mt-4">
+          <Row>
             {borough === null
               ? trucks.map((truck) => (
-                  <Col sm={4} key={truck.id}>
+                  <div className="sm-12 col-md-6 col-lg-4 mb-4">
                     <Card
-                      id="index-card"
-                      className="flex-fill background-img-card"
+                      className="backgroundimg"
                       style={{
                         backgroundImage: `url(${truck.image_url})`,
                       }}
                       onClick={() => navigate(`/trucks/${truck.id}`)}
                     >
-                      <div className="card-img-overlay d-flex flex-column">
+                      <div className="card-img-overlay">
                         <Card.Body className="card-text">
                           <Link to={`/trucks/${truck.id}`}></Link>
                           <Card.Title className="truck-title">
@@ -74,7 +74,7 @@ function ShowAll() {
                         </Card.Body>
                       </div>
                     </Card>
-                  </Col>
+                  </div>
                 ))
               : trucks
                   .filter((truck) => truck.borough === borough)

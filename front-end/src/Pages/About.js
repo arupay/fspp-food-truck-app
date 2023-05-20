@@ -1,3 +1,4 @@
+import "./About.scss";
 
 function About() {
   return (
@@ -5,35 +6,14 @@ function About() {
       <span className="index-title">
         <h1 className="index-title-text">about yumtrucks</h1>
       </span>
-
-      <div
-        className="p-5 text-center bg-image"
-        style={{
-          backgroundImage: `url("https://github.com/arupay/fspp-food-truck-app/assets/96318127/7e3cb4b2-6951-4b93-854e-e5edfb6c85b9")`,
-          height: "60vh",
-          marginTop: "-12px",
-          backgroundSize: "cover",
-        }}
-      >
-        <div
-          className="mask"
-          style={{
-            backgroundColor: "rgba(0,0,0,0.6)",
-            width: "70%",
-            margin: "auto",
-          }}
-        >
-          <div className="d-flex justify-content-center h-100">
-            <div className="text-white m-1">
-              <div className="about-text mb-1">
-                Food connects us no matter who we are, and the best food in the
-                world can be found right here in New York City. YumTrucks brings
-                together foodies and food truck endors to to celebrate the food
-                trucks they love. Whether is veggie momo, al pastor tacos, or
-                spicy lamb over rice, you can always find what you're looking
-                for here at Yum Trucks -- your spot for the best food trucks in
-                the 5 boroughs.
-              </div>
+      <div className="aboutimg text-center">
+        <div className="d-flex justify-content-center">
+          <div className="aboutimg__mask">
+            <div className="aboutimg__abouttext text-white m-1">
+              YumTrucks unites foodies and vendors to celebrate the food trucks
+              they love. Whether is veggie momo or birria tacos, you can always
+              find what you're looking for here at Yum Trucks -- New York's
+              premier food truck hub.
             </div>
           </div>
         </div>
