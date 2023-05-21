@@ -79,19 +79,18 @@ function ShowAll() {
               : trucks
                   .filter((truck) => truck.borough === borough)
                   .map((truck) => (
-                    <Col sm={4} key={truck.id}>
+                    <div className="sm-12 col-md-6 col-lg-4 mb-4">
                       <Card
-                        id="index-card"
-                        className="flex-fill background-img-card"
+                        className="backgroundimg"
                         style={{
                           backgroundImage: `url(${truck.image_url})`,
                         }}
                         onClick={() => navigate(`/trucks/${truck.id}`)}
                       >
-                        <div className="card-img-overlay d-flex flex-column">
+                        <div className="card-img-overlay">
                           <Card.Body className="card-text">
                             <Link to={`/trucks/${truck.id}`}></Link>
-                            <Card.Title className="truck-title">
+                            <Card.Title className="backgroundimg__trucktitle">
                               {truck.name}
                             </Card.Title>
                             <Card.Text tag="div" style={{ fontSize: "16px" }}>
@@ -108,7 +107,7 @@ function ShowAll() {
                           </Card.Body>
                         </div>
                       </Card>
-                    </Col>
+                    </div>
                   ))}
           </Row>
         </Container>

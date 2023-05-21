@@ -1,24 +1,24 @@
-import { Container } from "react-bootstrap";
-import truckstop from "../assets/truckstop.gif";
+import truckstop from "../assets/truckstopnoloop.gif";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
+
   return (
     <div className="main">
       <span className="index-title">
-        <h1 className="index-title-text">home</h1>
+        <h1 className="index-title-text">NYC'S BEST FOOD TRUCKS</h1>
       </span>
-      <div className="header1" id="header01-0">
-        <div
-          className="mbr-overlay"
-          style={{ opacity: "0.4", overflow: "hidden", background: "black" }}
-        ></div>
-        <div className="container">
-          <div className="row">
-            <h1 className="header1__text mb-4">YUMTRUCKS</h1>
-          </div>
+      <div className="header1">
+        <div className="header1__content">
+          <img className="header1__content__img" src={truckstop} alt="logo" />
+          <button
+            onClick={() => navigate(`/trucks/`)}
+            class="header1__content__browse"
+          >
+            Trucks
+          </button>
         </div>
       </div>
       <div className="container homecontainer">
@@ -32,9 +32,9 @@ function Home() {
           </div>
           <div className="homecontainer__sectionone__info">
             <h1 className="homecontainer__sectionone__info__heading">
-              The best trucks in the world's greatest city.
+              The greatest trucks in your favorite city.
             </h1>
-            <div className="gradient-line is--red-line"></div>
+            <div className="gradient-line"></div>
             <div className="homecontainer__sectionone__info__par">
               <p className="homecontainer__sectionone__info__par__parbody">
                 Explore the city's diverse flavors, conveniently locate trucks
@@ -46,6 +46,7 @@ function Home() {
                 food trucks.
               </p>
             </div>
+            <button className="header1__content__browse">Create Account</button>
           </div>
         </div>
       </div>
