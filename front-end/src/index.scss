@@ -1,3 +1,5 @@
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 * {
   font-family: Helvetica;
 }
@@ -32,9 +34,9 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fec309;
+  color: #fec309;
   height: 75px;
-  color: #031a25;
+  background-color: #031a25;
   width: 100%;
 }
 
@@ -58,12 +60,6 @@ body{
 .nav-text:hover{
   color: #fec309;
 }
-.truck-title {
-  margin-top:80px;
-  font-size: 25px;
-  font-weight: 800;
-}
-
 .checked {
   color: orange;
 }
@@ -74,7 +70,6 @@ body{
   margin-left: 3vh;
   color: rgb(234, 226, 226);
 }
-
 
 
 

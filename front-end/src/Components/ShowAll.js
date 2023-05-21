@@ -59,7 +59,7 @@ function ShowAll() {
                       <div className="card-img-overlay">
                         <Card.Body className="card-text">
                           <Link to={`/trucks/${truck.id}`}></Link>
-                          <Card.Title className="truck-title">
+                          <Card.Title className="backgroundimg__trucktitle">
                             {truck.name}
                           </Card.Title>
                           <Card.Text tag="div" style={{ fontSize: "16px" }}>
