@@ -1,4 +1,5 @@
 import truckstop from "../assets/truckstopnoloop.gif";
+import aione from "../assets/AItruckimage1.jpeg";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -39,14 +40,41 @@ function Home() {
               <p className="homecontainer__sectionone__info__par__parbody">
                 Explore the city's diverse flavors, conveniently locate trucks
                 with an interactive map, and join a community of food
-                enthusiasts by leaving reviews and recommendations. <br />
-                <br />
+                enthusiasts by leaving reviews and recommendations.
+              </p>
+            </div>
+            <button className="header1__content__browse">Create Account</button>
+          </div>
+        </div>
+        <div
+          className="d-flex justify-content-between homecontainer__sectionone"
+          id="sec-two"
+        >
+          <div className="homecontainer__sectionone__info rlm">
+            <h1 className="homecontainer__sectionone__info__heading">
+              Interactive Maps
+            </h1>
+            <div className="gradient-line"></div>
+            <div className="homecontainer__sectionone__info__par">
+              <p className="homecontainer__sectionone__info__par__parbody">
                 Immerse yourself in the vibrant street food culture of NYC with
                 Yumtruck's central map page, featuring an extensive database of
                 food trucks.
               </p>
             </div>
-            <button className="header1__content__browse">Create Account</button>
+            <button
+              onClick={() => navigate(`/map/`)}
+              className="header1__content__browse"
+            >
+              View Map
+            </button>
+          </div>
+          <div className="d-flex homecontainer__sectionone__imgtwo">
+            <img
+              src={aione}
+              alt="truckinthecity"
+              className="homecontainer__sectionone__imgtwo__imgattr"
+            />
           </div>
         </div>
       </div>

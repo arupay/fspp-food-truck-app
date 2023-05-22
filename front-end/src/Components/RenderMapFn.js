@@ -37,10 +37,13 @@ function Maps({ trucksCoords }) {
   const [selected, setSelected] = useState(null);
   return (
     <div>
+      <span className="index-title">
+        <h1 className="index-title-text">interactive map</h1>
+      </span>
       <GoogleMap
         options={options}
         mapContainerStyle={containerStyle}
-        zoom={10.9}
+        zoom={12.5}
         center={center}
         mapContainerClassName="w-screen h-screen"
       >

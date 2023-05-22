@@ -9,28 +9,27 @@ function TruckMap({ latitude, longitude }) {
     width: "100%",
     height: "50vh",
   };
-  const {isLoaded} = useJsApiLoader({
+  const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_MAP_API_KEY,
-  })
+  });
   console.log(coordinates);
 
   return (
     <Container>
-      {coordinates.lat && isLoaded &&
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={coordinates}
-            zoom={16}
-          >
-            <MarkerF
-              position={coordinates}
-              icon={{
-                url: "https://github.com/arupay/fspp-food-truck-app/assets/96318127/381814d5-737e-4857-b67d-b8969b06cae1",
-              }}
-            />
-          </GoogleMap>
- 
-      }
+      {coordinates.lat && isLoaded && (
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={coordinates}
+          zoom={16}
+        >
+          <MarkerF
+            position={coordinates}
+            icon={{
+              url: "https://github.com/arupay/fspp-food-truck-app/assets/96318127/381814d5-737e-4857-b67d-b8969b06cae1",
+            }}
+          />
+        </GoogleMap>
+      )}
     </Container>
   );
 }
