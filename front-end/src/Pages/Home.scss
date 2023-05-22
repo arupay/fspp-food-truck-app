@@ -3,14 +3,17 @@
     background-image: url(https://images.squarespace-cdn.com/content/v1/53c631e4e4b0c4d68989cbef/1566465375529-G7TNMTRG20I5FBSPUJVG/APC_1217.jpg?format=2500w);
     // background-image:url("https://cdn.vox-cdn.com/thumbor/AoHvVzG17dKU29RkjMhQsQSEUD4=/0x0:2046x1535/1520x1013/filters:focal(0x0:2046x1535):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/46704794/halal-nyc-guian-bolisay.0.0.jpg");
     // background-image:url("https://images.unsplash.com/photo-1509315811345-672d83ef2fbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80");
+    // background-image: url("https://github.com/arupay/fspp-food-truck-app/assets/96318127/7e3cb4b2-6951-4b93-854e-e5edfb6c85b9");
 
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 40%;
+    @media(max-width: 600px) {
+        background-size: 1000px;
+    }
     background-attachment: fixed;
     padding-top: 10rem;
     padding-bottom: 10rem;
-    height: 60vh;
+    height: 50vh;
     background-color: #333;
     position: relative;
     z-index: 1;
