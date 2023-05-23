@@ -15,7 +15,7 @@ function LoginForm(props) {
         <div className="loginsection__container__curview signinbx">
           <div className="loginsection__container__curview__imgbx">
             <img
-              src="https://images.unsplash.com/photo-1656925545880-64c167c195c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+              src="https://restaurantclicks.com/wp-content/uploads/2022/05/food-trucks-nyc.jpg"
               alt="truckimgsignup"
             />
           </div>
@@ -77,7 +77,7 @@ function LoginForm(props) {
           </div>
           <div className="loginsection__container__curview__imgbx signupbx__imgbx">
             <img
-              src="https://images.unsplash.com/photo-1570441262588-2f5027a5e169?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=710&q=80"
+              src="https://media.timeout.com/images/105423519/image.jpg"
               alt=""
             />
           </div>

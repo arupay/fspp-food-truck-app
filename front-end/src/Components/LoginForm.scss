@@ -1,12 +1,15 @@
 .loginsection{
     position: relative;
-    padding: 20px;
+    padding: 10px;
     min-height: 100dvh;
     background-color: #fec309;
+    @media (max-width: 991px){
+        background-color:white;
+    }
     &__container{
         position: relative; //catch absolute child elements
-        width: 900px;
-        height: 600px;
+        width: 90vh;
+        height: 60vh;
         background-color: #fff;
         overflow: hidden;
         box-shadow: 0 15px 50px rgba(0,0,0,0.2); //x, y, blurradius, color
@@ -56,6 +59,7 @@
                 width: 50%;
                 height: 100%;
                 background:#ff0;
+                transition: 0.5s;
                 img{
                   position: absolute; //absolute child
                   top: 0;
@@ -64,6 +68,9 @@
                   height: 100%;
                   object-fit: cover;
                 }
+                @media (max-width: 991px){
+                    display:none;
+                }
             }
             &__formbx{
                 position:relative;
@@ -71,6 +78,7 @@
                 height: 100%;
                 background: #fff;
                 padding: 40px;
+                transition: 0.5s;
                 form h2{
                     font-weight: 600;
                     font-size:1.5em;
@@ -107,7 +115,13 @@
                         background:none;
                     }
                 }
+                @media (max-width: 991px){
+                    width: 100%;
+                }
             }
+        }
+        @media (max-width: 991px){
+            max-width: 400px;
         }
     }
 }
