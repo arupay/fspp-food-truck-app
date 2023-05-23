@@ -1,0 +1,113 @@
+.loginsection{
+    position: relative;
+    padding: 20px;
+    min-height: 100dvh;
+    background-color: #fec309;
+    &__container{
+        position: relative; //catch absolute child elements
+        width: 900px;
+        height: 600px;
+        background-color: #fff;
+        overflow: hidden;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.2); //x, y, blurradius, color
+        .signupbx { //not active
+            pointer-events: none; //disable
+            &__formbx{
+                left:100%;
+            }
+            &__imgbx{
+                left:-100%;
+            }
+        }
+        &.active .signupbx {
+            pointer-events:initial; //default
+            &__formbx{
+                left:0;
+            }
+            &__imgbx{
+                left:0%;
+            }
+        }
+        .signinbx{
+            &__formbx{
+                left:0%;
+            }
+            &__imgbx{
+                left:0%;
+            }
+        }
+        &.active .signinbx{
+            &__formbx{
+                left:100%;
+            }
+            &__imgbx{
+                left:-100%;
+            }
+        }
+        &__curview{
+            position: absolute; //absolute child, to be toggled
+            top: 0;
+            left: 0;
+             width: 100%;
+            height: 100%;    
+            display: flex;
+            &__imgbx{
+                position: relative; //catch absolute child
+                width: 50%;
+                height: 100%;
+                background:#ff0;
+                img{
+                  position: absolute; //absolute child
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+            }
+            &__formbx{
+                position:relative;
+                width: 50%;
+                height: 100%;
+                background: #fff;
+                padding: 40px;
+                form h2{
+                    font-weight: 600;
+                    font-size:1.5em;
+                    letter-spacing: 2px;
+                    text-align: center;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    color: #555;
+                }
+                form input{
+                    position: relative;
+                    width: 100%;
+                    padding: 10px;
+                    background: #f5f5f5;
+                    color: #333;
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                    margin: 8px 0;
+                    font-size: 14px;
+                    letter-spacing: 1px;
+                    font-weight: 300;
+                }
+                .signup{
+                    position: relative;
+                    margin-top:1.5em;
+                    font-size: .7em;
+                    letter-spacing: 1px;
+                    color: #555;
+                    font-weight: 300;
+                    button {
+                        font-weight: 600;
+                        border:none;
+                        background:none;
+                    }
+                }
+            }
+        }
+    }
+}

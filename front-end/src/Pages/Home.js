@@ -18,7 +18,7 @@ function Home() {
             onClick={() => navigate(`/trucks/`)}
             class="header1__content__browse"
           >
-            Trucks
+            trucks
           </button>
         </div>
       </div>
@@ -33,17 +33,17 @@ function Home() {
           </div>
           <div className="homecontainer__sectionone__info">
             <h1 className="homecontainer__sectionone__info__heading">
-              The greatest trucks in your favorite city.
+              The best trucks in your favorite city.
             </h1>
             <div className="gradient-line"></div>
             <div className="homecontainer__sectionone__info__par">
               <p className="homecontainer__sectionone__info__par__parbody">
-                Explore the city's diverse flavors, conveniently locate trucks
+                Explore New York's diverse flavors, conveniently locate trucks
                 with an interactive map, and join a community of food
                 enthusiasts by leaving reviews and recommendations.
               </p>
             </div>
-            <button className="header1__content__browse">Create Account</button>
+            <button className="header1__content__browse">sign up</button>
           </div>
         </div>
         <div

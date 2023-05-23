@@ -39,7 +39,7 @@ function NavBar() {
               About
             </Nav.Link>
             <Nav.Link className="nav-text" href="/login">
-              Log In
+              Sign In
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
