@@ -12,7 +12,6 @@ function TruckMap({ latitude, longitude }) {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_MAP_API_KEY,
   });
-  console.log(coordinates);
 
   return (
     <Container>

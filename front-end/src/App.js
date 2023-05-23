@@ -19,6 +19,7 @@ import NewPage from "./Pages/NewPage";
 import About from "./Pages/About";
 import RenderMapFn from "./Components/RenderMapFn";
 import LoginPage from "./Pages/LoginPage";
+import ScrollToTop from "./Components/ScrollToTop";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -57,6 +58,7 @@ function App() {
         theme="light"
       />
       <Router>
+        <ScrollToTop />
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />

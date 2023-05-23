@@ -36,10 +36,14 @@ function LoginForm(props) {
               >
                 log in
               </button>
-              <p className="text-uppercase signup">
+              <p className="signup">
                 Don't have an account?
-                <button type="button" onClick={() => toggleForm()}>
-                  Sign Up.
+                <button
+                  type="button"
+                  className="text-uppercase"
+                  onClick={() => toggleForm()}
+                >
+                  Join.
                 </button>
               </p>
             </form>
@@ -69,7 +73,11 @@ function LoginForm(props) {
               </button>
               <p className="signup">
                 Already have an account with YumTrucks?
-                <button type="button" onClick={() => toggleForm()}>
+                <button
+                  className="text-uppercase"
+                  type="button"
+                  onClick={() => toggleForm()}
+                >
                   Sign In.
                 </button>
               </p>

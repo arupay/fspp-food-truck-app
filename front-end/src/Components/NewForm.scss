@@ -7,7 +7,7 @@
 	} 
     &__newform{
         background-color: white;
-	    border-radius: 20px;
+	    border-radius: 5px;
 	    box-shadow: 5px 5px 20px 0px rgba(173,173,173,1);
 	    padding: 1.5em; // may remove later
 	    @media screen and (min-width: 768px) {
@@ -50,7 +50,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
 	}
-	
 	.smallgroup {
 		width: 45%;
 	}

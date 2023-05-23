@@ -16,7 +16,7 @@ function Home() {
           <img className="header1__content__img" src={truckstop} alt="logo" />
           <button
             onClick={() => navigate(`/trucks/`)}
-            class="header1__content__browse"
+            className="header1__content__browse"
           >
             trucks
           </button>
@@ -43,7 +43,12 @@ function Home() {
                 enthusiasts by leaving reviews and recommendations.
               </p>
             </div>
-            <button className="header1__content__browse">sign up</button>
+            <button
+              onClick={() => navigate(`/login`)}
+              className="header1__content__browse"
+            >
+              sign up
+            </button>
           </div>
         </div>
         <div

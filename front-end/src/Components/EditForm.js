@@ -24,7 +24,6 @@ function EditForm() {
 
   useEffect(() => {
     axios.get(`${API}/trucks/${id}`).then((res) => {
-      console.log(res);
       setTruck(res.data.payload);
     });
   }, [id]);
@@ -43,12 +42,10 @@ function EditForm() {
       .catch((e) => {
         console.log(e);
       });
-    console.log(truck);
   };
 
   return (
     <Container>
-      {console.log(truck)}
       <h3>Edit Your Truck</h3>
       <div style={{ display: "block", padding: 30 }}>
         <Form onSubmit={handleEdit}>

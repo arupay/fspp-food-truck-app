@@ -1,7 +1,6 @@
 footer {
     background-color: #052d44;
     color: white;
-    position: relative;
   }
 footer a {
     color: white;
@@ -11,10 +10,15 @@ footer a:hover {
   }
 footer h5, footer h6 {
     color: #fec309;
+    margin-bottom: 22px;
+    font-weight: 600;
+    font-size: 15px;
   }
   
-.footer-logo{
-    width: 110px;
+footer .logo {
+    img {
+      width: 50%;
+    }
 }
 
 a{
