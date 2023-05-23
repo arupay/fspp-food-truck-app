@@ -5,6 +5,7 @@
     background-color: #fec309;
     @media (max-width: 991px){
         background-color:white;
+        min-height:0;
     }
     &__container{
         position: relative; //catch absolute child elements

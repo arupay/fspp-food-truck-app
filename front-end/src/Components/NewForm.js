@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Container } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
+import "./NewForm.scss";
 
 const API = process.env.REACT_APP_API_URL;
 const boroughs = require("../Components/boroughs");
@@ -46,10 +47,10 @@ function NewForm() {
       <span className="index-title">
         <h1 className="index-title-text">add your truck</h1>
       </span>
-      <Container>
-        <div style={{ display: "block", padding: 30 }}>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group>
+      <div className="formcontainer">
+        <Form onSubmit={handleSubmit} className="formcontainer__newform">
+          <div className="largegroup">
+            <Form.Group className="smallgroup">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -57,11 +58,11 @@ function NewForm() {
                 name="name"
                 value={truck.name}
                 onChange={handleChange}
-                placeholder="Mom's Momo"
+                placeholder="Truck Name"
                 required
               />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="smallgroup">
               <Form.Label>Nearest Address or Cross Streets</Form.Label>
               <Form.Control
                 type="text"
@@ -69,28 +70,28 @@ function NewForm() {
                 name="address"
                 value={truck.address}
                 onChange={handleChange}
-                placeholder="Roosevelt Ave & 74th St"
+                placeholder="Street Address Or Cross Street"
               />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="smallgroup">
               <Form.Label>Zip</Form.Label>
               <Form.Control
                 type="number"
                 id="zip"
                 name="zip"
                 onChange={handleChange}
-                placeholder="11377"
+                placeholder="Zip Code"
                 required
               />
             </Form.Group>
 
-            <Form.Group>
+            <Form.Group className="smallgroup">
               <Form.Label>Borough</Form.Label>
               <Form.Control
                 as="select"
                 value={truck.borough}
                 id="borough"
-                name="borough"
+                name="NYC Borough"
                 onChange={handleChange}
                 required
               >
@@ -104,30 +105,30 @@ function NewForm() {
                 })}
               </Form.Control>
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="smallgroup">
               <Form.Label>Category</Form.Label>
               <Form.Control
                 type="category"
                 id="category"
                 name="category"
-                placeholder="Asian"
+                placeholder="Cuisine Type"
                 value={truck.category}
                 onChange={handleChange}
                 required
               />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="smallgroup">
               <Form.Label>Link an Image</Form.Label>
               <Form.Control
                 type="text"
                 id="image_url"
                 name="image_url"
-                placeholder="...foodtruck.jpg"
+                placeholder="..imageurl.jpg"
                 value={truck.image_url}
                 onChange={handleChange}
               />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="textarea-div">
               <Form.Label>About / Mission </Form.Label>
               <Form.Control
                 as="textarea"
@@ -136,16 +137,18 @@ function NewForm() {
                 name="about"
                 value={truck.about}
                 onChange={handleChange}
-                placeholder="We strive to deliver the best of the Himalayas..."
+                placeholder="About the vendor..."
                 required
               />
             </Form.Group>
-            <Button variant="outline-danger" type="submit" className="mt-3">
-              Submit
-            </Button>
-          </Form>
-        </div>
-      </Container>
+            <div className="text-center m-auto">
+              <button type="submit" className="newtrucksubmit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </Form>
+      </div>
     </div>
   );
 }

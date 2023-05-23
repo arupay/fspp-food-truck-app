@@ -1,0 +1,77 @@
+.formcontainer{
+    margin: 0;
+	height: 100%;
+	padding: 1.5em;
+	@media screen and (min-width: 768px) {
+		padding: 3em;
+	} 
+    &__newform{
+        background-color: white;
+	    border-radius: 20px;
+	    box-shadow: 5px 5px 20px 0px rgba(173,173,173,1);
+	    padding: 1.5em; // may remove later
+	    @media screen and (min-width: 768px) {
+		padding: 2.5em;
+	    }
+        label {
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 550;
+            font-size:.75em;
+            letter-spacing: 2px;
+            width: 100%;
+            margin-bottom: 10px;
+            color: #444
+
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            background: #f5f5f5;
+            color: #333;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            margin: 8px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+    }
+}
+.textarea-div {
+	width: 100%;
+    min-height: 200px;
+}
+@media screen and (min-width: 700px) {
+	.largegroup {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+	}
+	
+	.smallgroup {
+		width: 45%;
+	}
+}
+
+.newtrucksubmit{
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 2.5em;
+    background-color: #fec309;
+    border-radius: 1em;
+    padding: 0 3em;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #031a25;
+    border: 4px solid #031a25;
+    font-weight: 900;
+        &:hover{
+            background-color: #031a25;
+            color: #fec309;
+            border: 4px solid #fec309;
+        }
+}
