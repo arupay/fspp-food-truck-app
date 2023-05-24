@@ -9,7 +9,9 @@ function NavBar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const borough = require("./boroughs");
-  const userLogOut = async (e) => {
+
+  const handleLogOut = () => {
+    toast.success("logged out succesfully");
     logout();
   };
 
@@ -47,12 +49,12 @@ function NavBar() {
             <Nav.Link className="nav-text" href="/about">
               About
             </Nav.Link>
-            <Nav.Link className="nav-text" href="/login">
-              {user?.email ? (
-                <div onClick={() => userLogOut()}>Logout</div>
-              ) : (
-                "SIGN IN"
-              )}
+            <Nav.Link
+              className="nav-text"
+              href="/login"
+              onClick={() => handleLogOut()}
+            >
+              {user?.email ? "sign out" : "sign in"}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

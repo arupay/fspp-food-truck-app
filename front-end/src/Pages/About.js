@@ -1,6 +1,9 @@
 import "./About.scss";
+import { useNavigate } from "react-router-dom";
+import { SocialIcon } from "react-social-icons";
 
 function About() {
+  const navigate = useNavigate();
   return (
     <div className="main">
       <span className="index-title">
@@ -18,11 +21,56 @@ function About() {
           </div>
         </div>
       </div>
-      <span className="index-title">
-        <h1 className="index-title-text">about the developer</h1>
-      </span>
 
-      <div className="p-5 text-center">
+      {/*ABOUT DEVELOPER */}
+      <div className="container aboutcontainer">
+        <div className="d-flex justify-content-center aboutcontainer__sectionone">
+          <div className=" aboutcontainer__sectionone__img m-5">
+            <img
+              src="https://github.com/arupay/fspp-food-truck-app/assets/96318127/68aa94c1-d82d-46b1-a4dc-78536e636250"
+              alt=""
+              className="aboutcontainer__sectionone__img__imgattr"
+            />
+          </div>
+          <div className="aboutcontainer__sectionone__info">
+            <div className="aboutcontainer__sectionone__info__heading">
+              Augusto Rupay
+              <div id="socials">
+                <SocialIcon
+                  url="https://www.linkedin.com/in/augusto-rupay-a07a286b/"
+                  className="socialicon"
+                />
+                <SocialIcon
+                  url="https://github.com/arupay"
+                  className="socialicon"
+                />
+                <SocialIcon
+                  url="mailto:augustorupay@pursuit.org"
+                  className="email"
+                />
+              </div>
+            </div>
+            <h3 className="aboutcontainer__sectionone__info__title">
+              Developer
+            </h3>
+            <div className="gradient-line"></div>
+            <div className="aboutcontainer__sectionone__info__par">
+              <p className="aboutcontainer__sectionone__info__par__parbody">
+                Hello, I'm a Queens-based software developer with a passion for
+                food and community. Inspired by the vibrant culinary culture of
+                Woodside and Jackson Heights, two melting pot neighborhoods I've
+                proudly called home, I created YumTrucks. Drawing from my
+                personal experiences and deep-rooted Peruvian heritage, this app
+                was designed to celebrate the flavors that unites people in the
+                heart of these dynamic neighborhoods and many others across New
+                York City.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="p-5 text-center">
         <div
           className="mask"
           style={{
@@ -101,7 +149,7 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
