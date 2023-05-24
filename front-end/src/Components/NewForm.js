@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "./NewForm.scss";
 
 const API = process.env.REACT_APP_API_URL;

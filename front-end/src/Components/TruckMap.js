@@ -1,7 +1,6 @@
 import { Container } from "react-bootstrap";
 import React from "react";
 import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
-const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
 function TruckMap({ latitude, longitude }) {
   const coordinates = { lat: Number(latitude), lng: Number(longitude) };

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Container, Card, Row, Col } from "react-bootstrap";
+import { Container, Card, Row } from "react-bootstrap";
 import ReviewStars from "./ReviewStars";
 import { useNavigate } from "react-router";
 import "./ShowAll.scss";
@@ -47,8 +47,8 @@ function ShowAll() {
         <Container className="truckindex mt-4">
           <Row>
             {borough === null
-              ? trucks.map((truck) => (
-                  <div className="sm-12 col-md-6 col-lg-4 mb-4">
+              ? trucks.map((truck, i) => (
+                  <div className="sm-12 col-md-6 col-lg-4 mb-4" key={i}>
                     <Card
                       className="backgroundimg"
                       style={{
@@ -78,8 +78,8 @@ function ShowAll() {
                 ))
               : trucks
                   .filter((truck) => truck.borough === borough)
-                  .map((truck) => (
-                    <div className="sm-12 col-md-6 col-lg-4 mb-4">
+                  .map((truck, i) => (
+                    <div className="sm-12 col-md-6 col-lg-4 mb-4" key={i}>
                       <Card
                         className="backgroundimg"
                         style={{
@@ -112,7 +112,7 @@ function ShowAll() {
           </Row>
         </Container>
       ) : (
-        <Container className="trucks-index ">
+        <Container className="trucks-index text-center">
           <img
             src="https://mintexpresscarwash.com/images/loader-bluegif.gif"
             alt=""

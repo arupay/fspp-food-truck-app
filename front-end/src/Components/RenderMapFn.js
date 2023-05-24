@@ -6,7 +6,6 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import { Container, Button } from "react-bootstrap";
 
 const RenderMapFn = ({ trucksCoords }) => {
   const { isLoaded } = useJsApiLoader({
@@ -31,7 +30,6 @@ const options = {
   fullscreenControl: false,
 };
 function Maps({ trucksCoords }) {
-  const navigate = useNavigate();
   const center = useMemo(() => ({ lat: 40.7118, lng: -74.0131 }), []);
 
   const [selected, setSelected] = useState(null);

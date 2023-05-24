@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
+import { AuthProvider } from "./context/AuthContext";
 import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -59,22 +60,24 @@ function App() {
       />
       <Router>
         <ScrollToTop />
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/trucks" element={<IndexPage />} />
-          <Route path="/trucks/:id" element={<ShowPage />} />
-          <Route path="/trucks/new" element={<NewPage />} />
-          <Route path="/trucks/:id/edit/" element={<EditPage />} />
-          <Route
-            path="/map"
-            element={<RenderMapFn trucksCoords={trucksCoords} />}
-          />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-        <Footer />
+        <AuthProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/trucks" element={<IndexPage />} />
+            <Route path="/trucks/:id" element={<ShowPage />} />
+            <Route path="/trucks/new" element={<NewPage />} />
+            <Route path="/trucks/:id/edit/" element={<EditPage />} />
+            <Route
+              path="/map"
+              element={<RenderMapFn trucksCoords={trucksCoords} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          <Footer />
+        </AuthProvider>
       </Router>
     </div>
   );

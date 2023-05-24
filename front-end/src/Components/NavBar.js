@@ -1,9 +1,18 @@
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
+import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import transparentlogo from "../assets/transparentlogo.png";
 
 function NavBar() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const borough = require("./boroughs");
+  const userLogOut = async (e) => {
+    logout();
+  };
+
   return (
     <Navbar
       bg="light"
@@ -39,7 +48,11 @@ function NavBar() {
               About
             </Nav.Link>
             <Nav.Link className="nav-text" href="/login">
-              Sign In
+              {user?.email ? (
+                <div onClick={() => userLogOut()}>Logout</div>
+              ) : (
+                "SIGN IN"
+              )}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
