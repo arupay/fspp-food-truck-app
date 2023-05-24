@@ -7,9 +7,9 @@
 	} 
     &__newform{
         background-color: white;
-	    border-radius: 5px;
-	    box-shadow: 5px 5px 20px 0px rgba(173,173,173,1);
-	    padding: 1.5em; // may remove later
+	    // border-radius: 5px;
+	    // box-shadow: 5px 5px 20px 0px rgba(173,173,173,1);
+
 	    @media screen and (min-width: 768px) {
 		padding: 2.5em;
 	    }
@@ -21,7 +21,7 @@
             font-size:.75em;
             letter-spacing: 2px;
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #444
 
         }
@@ -33,7 +33,7 @@
             border: none;
             outline: none;
             box-shadow: none;
-            margin: 8px 0;
+            margin-bottom: 20px;
             font-size: 14px;
             letter-spacing: 1px;
             font-weight: 300;
@@ -42,7 +42,6 @@
 }
 .textarea-div {
 	width: 100%;
-    min-height: 200px;
 }
 @media screen and (min-width: 700px) {
 	.largegroup {

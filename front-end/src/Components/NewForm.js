@@ -132,7 +132,7 @@ function NewForm() {
               <Form.Label>About / Mission </Form.Label>
               <Form.Control
                 as="textarea"
-                rows="3"
+                rows="6"
                 id="about"
                 name="about"
                 value={truck.about}
