@@ -1,6 +1,8 @@
 import "./About.scss";
 import { useNavigate } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
+import largebg from "../assets/aboutbglarge.jpg";
+import smallbg from "../assets/aboutbgsm.jpg";
 
 function About() {
   const navigate = useNavigate();
@@ -94,11 +96,10 @@ function About() {
                 food and community. Yumtrucks was inspired by the vibrant
                 communities of Woodside and Jackson Heights, two melting pot
                 neighborhoods I've had the privilege to call home. Drawing from
-                my personal experiences and Peruvian heritage, I create web apps
-                that to celebrate the flavors that unites people in the heart of
-                these dynamic neighborhoods and many others across New York
-                City. Feel free to send questions my way on Linkdn, or just say
-                hi!
+                personal experiences and my Peruvian heritage, I created
+                YumTrucks to celebrate flavors that unites people in the heart
+                of dynamic neighborhoods across New York City. Feel free to send
+                questions my way on Linkdn, or just say hi!
               </p>
             </div>
           </div>

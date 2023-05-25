@@ -1,10 +1,16 @@
+
+
 .aboutimg {
     background-image: url(https://github.com/arupay/fspp-food-truck-app/assets/96318127/7e3cb4b2-6951-4b93-854e-e5edfb6c85b9);
+    // background-image:url("../assets/aboutbglarge.jpg");
     height: 60vh;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: 30% 50%;
     background-attachment: fixed;
+    @media (max-width: 500px){
+        background-image:url("../assets/aboutbgsm.jpg");
+    }
     &__mask{
         background-color: rgba(83, 69, 69, 0.6);
         margin-top: 100px;
@@ -29,7 +35,7 @@
         align-items: center;
         padding-top: 3.0em;
         padding-bottom: 2em;
-        @media (max-width: 991px) {
+        @media (max-width: 480px) {
             flex-direction: column;
 		    padding-top: 3em;
 		    padding-bottom: 2em;
