@@ -16,6 +16,12 @@ CREATE TABLE trucks (
     lng DECIMAL(12,9)
 );
 
+CREATE TABLE users{
+    id SERIAL PRIMARY KEY,
+    email TEXT NOT NULL,
+    username TEXT,    
+};
+
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     reviewer TEXT,
@@ -23,5 +29,7 @@ CREATE TABLE reviews (
     rating NUMERIC,
     CHECK (rating >= 0 AND rating <= 5),
     trucks_id INTEGER REFERENCES trucks (id)
+    username INTEGER REFERENCES users (username)
     ON DELETE CASCADE
 );
+

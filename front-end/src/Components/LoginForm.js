@@ -8,6 +8,7 @@ import "./LoginForm.scss";
 function LoginForm(props) {
   const { login, register } = useAuth();
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
@@ -122,9 +123,17 @@ function LoginForm(props) {
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                type="text"
+                type="email"
                 name="email"
                 placeholder="email"
+                required
+              ></input>
+              <input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                type="text"
+                name="username"
+                placeholder="username"
                 required
               ></input>
               <input
