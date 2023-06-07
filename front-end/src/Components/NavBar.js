@@ -1,15 +1,13 @@
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
-import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import transparentlogo from "../assets/transparentlogo.png";
 
-function NavBar() {
+function NavBar({ useAuth }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const borough = require("./boroughs");
-
   const handleLogOut = () => {
     toast.success("logged out succesfully");
     logout();

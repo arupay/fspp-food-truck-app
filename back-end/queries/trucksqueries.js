@@ -23,8 +23,9 @@ const getOneTruck = async (id) => {
 const createTruck = async (truck) => {
   try {
     const newTruck = await db.any(
-      "INSERT INTO trucks (name, address, zip, borough, category, image_url, about, lat, lng) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
+      "INSERT INTO trucks (added_by, name, address, zip, borough, category, image_url, about, lat, lng) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
       [
+        truck.added_by,
         truck.name,
         truck.address,
         truck.zip,

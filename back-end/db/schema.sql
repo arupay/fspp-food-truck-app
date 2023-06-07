@@ -3,8 +3,15 @@ CREATE DATABASE dev_trucks;
 
 \c dev_trucks;
 
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email TEXT NOT NULL,
+    username TEXT
+);
+
 CREATE TABLE trucks (
     id SERIAL PRIMARY KEY,
+    added_by INTEGER REFERENCES users (id),
     name TEXT NOT NULL,
     address TEXT,
     zip INT,
@@ -16,20 +23,20 @@ CREATE TABLE trucks (
     lng DECIMAL(12,9)
 );
 
-CREATE TABLE users{
-    id SERIAL PRIMARY KEY,
-    email TEXT NOT NULL,
-    username TEXT,    
-};
-
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     reviewer TEXT,
     content TEXT,
     rating NUMERIC,
     CHECK (rating >= 0 AND rating <= 5),
-    trucks_id INTEGER REFERENCES trucks (id)
-    username INTEGER REFERENCES users (username)
+    trucks_id INTEGER REFERENCES trucks (id) ON DELETE CASCADE,
+    userid INTEGER REFERENCES users (id)
     ON DELETE CASCADE
 );
 
+
+CREATE TABLE favorite_trucks (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
+    truck_id INTEGER REFERENCES trucks (id) ON DELETE CASCADE
+);

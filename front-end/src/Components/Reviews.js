@@ -80,10 +80,9 @@ function Reviews({ id }) {
           <Stars num={ratingsCalc(reviews)} />
         </h1>
       </span>
-      <Container>
-        <h3>Add Review</h3>
-        <ReviewForm handleSubmit={handleAdd}></ReviewForm>
-      </Container>
+
+      <ReviewForm handleSubmit={handleAdd}></ReviewForm>
+
       <Container className="d-flex justify-content-left m1 ">
         <div className="row">
           <div className="col-md-12">
@@ -97,7 +96,6 @@ function Reviews({ id }) {
                   : `${reviews.length} review`}{" "}
                 )
               </h6>
-
               <div className="comment-widgets">
                 {reviews.map((review, idx) => (
                   <Review
