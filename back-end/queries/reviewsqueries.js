@@ -39,20 +39,21 @@ const createReview = async (trucks_id, { reviewer, content, rating }) => {
       "INSERT INTO reviews (reviewer, content, rating, trucks_id) VALUES($1, $2, $3, $4) RETURNING *",
       [reviewer, content, rating, trucks_id]
     );
-    return newReview;
+    return getAllReviews;
   } catch (error) {
     console.log(error.message || error);
     return error;
   }
 };
 
-const updateReview = async (id, trucks_id, { reviewer, content, rating }) => {
+const updateReview = async (id, trucks_id, { content, rating }) => {
   try {
     const updateReview = await db.one(
-      "UPDATE reviews SET reviewer=$1, content=$2, rating=$3, trucks_id=$4 where id=$5 RETURNING *",
-      [reviewer, content, rating, trucks_id, id]
+      "UPDATE reviews SET content=$1, rating=$2 WHERE id=$3 RETURNING *",
+      [content, rating, id]
     );
-    return updateReview;
+    return getAllReviews(trucks_id);
+    //returns all reviews for specific truck id
   } catch (error) {
     console.log(error.message || error);
     return error;
