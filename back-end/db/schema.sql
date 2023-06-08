@@ -25,12 +25,11 @@ CREATE TABLE trucks (
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    reviewer TEXT,
+    reviewer INTEGER REFERENCES users (id)ON DELETE CASCADE,
     content TEXT,
     rating NUMERIC,
     CHECK (rating >= 0 AND rating <= 5),
-    trucks_id INTEGER REFERENCES trucks (id) ON DELETE CASCADE,
-    userid INTEGER REFERENCES users (id)
+    trucks_id INTEGER REFERENCES trucks (id)
     ON DELETE CASCADE
 );
 

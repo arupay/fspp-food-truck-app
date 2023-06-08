@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
   if (allReviews.length) {
     res.status(200).json(allReviews);
   } else {
-    console.error(allReviews);
     res
       .status(404)
       .json({ success: false, payload: `No Reviews Yet For This Truck` });

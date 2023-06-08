@@ -8,7 +8,7 @@ import Reviews from "./Reviews";
 
 const API = process.env.REACT_APP_API_URL;
 
-function ShowOne() {
+function ShowOne({ loggedUser }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [truck, setTruck] = useState([]);
@@ -59,7 +59,6 @@ function ShowOne() {
             >
               <div className="text-black align-items-center ">
                 <div className="p-2"></div>
-
                 <h3
                   style={{
                     color: "#000000",
@@ -72,7 +71,6 @@ function ShowOne() {
                 >
                   {truck.category}
                 </h3>
-
                 <div
                   style={{
                     fontSize: "15px",
@@ -82,29 +80,25 @@ function ShowOne() {
                 >
                   {truck.about}
                 </div>
-                <br />
-                <a
-                  className="btn btn-outline-dark btn-sm m-1"
-                  href="/trucks"
-                  role="button"
-                >
-                  Back
-                </a>
-                <a
-                  className="btn btn-outline-dark btn-sm m-1"
-                  href={`/trucks/${id}/edit`}
-                  role="button"
-                >
-                  Edit Truck
-                </a>
-                <a
-                  className="btn btn-outline-dark btn-sm m-1"
-                  href="/trucks"
-                  role="button"
-                  onClick={handleDelete}
-                >
-                  Delete Truck
-                </a>
+                {loggedUser.id === truck.added_by && (
+                  <div>
+                    <a
+                      className="btn btn-outline-dark btn-sm m-1"
+                      href={`/trucks/${id}/edit`}
+                      role="button"
+                    >
+                      Edit Truck
+                    </a>
+                    <a
+                      className="btn btn-outline-dark btn-sm m-1"
+                      href="/trucks"
+                      role="button"
+                      onClick={handleDelete}
+                    >
+                      Delete Truck
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -116,7 +110,7 @@ function ShowOne() {
         </h1>
       </span>
       {truck.id && <TruckMap latitude={truck.lat} longitude={truck.lng} />}
-      <Reviews id={id} />
+      <Reviews id={id} loggedUser={loggedUser} />
     </div>
   );
 }

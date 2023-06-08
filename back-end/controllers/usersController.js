@@ -14,14 +14,17 @@ router.get("/", async (req, res) => {
 });
 
 // Get one user
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
+router.get("/:email", async (req, res) => {
+  const { email } = req.params;
+
   try {
-    const user = await getOneUser(id);
+    const user = await getOneUser(email);
     if (user) {
       res.json(user);
     } else {
-      res.status(404).json({ error: `User with id ${id} does not exist.` });
+      res
+        .status(404)
+        .json({ error: `User with email ${email} does not exist.` });
     }
   } catch (error) {
     console.error(error);

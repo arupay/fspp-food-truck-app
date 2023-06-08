@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReviewForm from "./ReviewForm";
 import Stars from "./Stars";
 
-function Review({ review, handleDelete, handleSubmit, idx }) {
+function Review({ review, handleDelete, handleSubmit, reviewer, loggedUser }) {
   const [viewEditForm, toggleEditForm] = useState(false);
 
   const toggleView = () => {
@@ -22,34 +22,38 @@ function Review({ review, handleDelete, handleSubmit, idx }) {
           <div className="p-2">
             <span className="round">
               <img
-                src={`https://robohash.org/${review.reviewer}.png`}
+                src={`https://robohash.org/${review.username}.png`}
                 alt="user"
                 width="75"
               />
             </span>
           </div>
           <div className="comment-text w-100">
-            <h5>{review.reviewer}</h5>
+            <h5>{review.username}</h5>
             <div className="comment-footer">
               <span className="rating">
                 <Stars num={review.rating} />
               </span>
             </div>
             <p className="m-b-5 m-t-10">{review.content}</p>
-            <button
-              onClick={toggleView}
-              type="button"
-              className="btn btn-warning btn-sm m-1"
-            >
-              Edit
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger btn-sm m-1"
-              onClick={() => handleDelete(review.id)}
-            >
-              Delete
-            </button>
+            {loggedUser.id === reviewer && (
+              <div className="protected">
+                <button
+                  onClick={toggleView}
+                  type="button"
+                  className="btn btn-warning btn-sm m-1"
+                >
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger btn-sm m-1"
+                  onClick={() => handleDelete(review.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

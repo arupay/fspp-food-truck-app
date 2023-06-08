@@ -10,9 +10,9 @@ const getUsers = async () => {
   }
 };
 
-const getOneUser = async (id) => {
+const getOneUser = async (email) => {
   try {
-    const oneUser = await db.any("SELECT * FROM users WHERE id = $1", id);
+    const oneUser = await db.any("SELECT * FROM users WHERE email = $1", email);
     return oneUser;
   } catch (error) {
     console.log(error.message || error);

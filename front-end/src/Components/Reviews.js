@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import Stars from "./Stars";
 const API = process.env.REACT_APP_API_URL;
 
-function Reviews({ id }) {
+function Reviews({ id, loggedUser }) {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
@@ -100,10 +100,12 @@ function Reviews({ id }) {
                 {reviews.map((review, idx) => (
                   <Review
                     idx={idx}
+                    reviewer={review.reviewer}
                     key={review.id}
                     review={review}
                     handleDelete={handleDelete}
                     handleSubmit={handleEdit}
+                    loggedUser={loggedUser}
                   />
                 ))}
               </div>

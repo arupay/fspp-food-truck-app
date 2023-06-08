@@ -1,9 +1,9 @@
 import ShowOne from "../Components/ShowOne";
 
-function ShowPage() {
+function ShowPage({ loggedUser }) {
   return (
     <div className="main">
-      <ShowOne />
+      <ShowOne loggedUser={loggedUser} />
     </div>
   );
 }

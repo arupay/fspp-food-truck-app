@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthProvider } from "./context/AuthContext";
 import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useAuth } from "./context/AuthContext";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -27,9 +27,25 @@ import ScrollToTop from "./Components/ScrollToTop";
 const API = process.env.REACT_APP_API_URL;
 
 function App() {
-  const [logged, setLogged] = useState(null);
+  const [loggedUser, setLoggedUser] = useState({});
   const [trucksCoords, setTrucksCoords] = useState([]);
+  const auth = getAuth();
   useEffect(() => {
+    const userSession = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const email = user.email;
+        axios
+          .get(`${API}/users/${email}/`)
+          .then((res) => {
+            setLoggedUser(res.data[0]);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      } else {
+        setLoggedUser({});
+      }
+    });
     axios
       .get(`${API}/trucks`)
       .then((res) => {
@@ -46,15 +62,9 @@ function App() {
       .catch((err) => {
         return err;
       });
-  }, []);
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      setLogged(uid);
-    } else {
-    }
-  });
+    return () => userSession();
+  }, [auth]);
+  console.log(loggedUser);
   return (
     <div className="app">
       <ToastContainer
@@ -76,7 +86,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/trucks" element={<IndexPage />} />
-            <Route path="/trucks/:id" element={<ShowPage />} />
+            <Route
+              path="/trucks/:id"
+              element={<ShowPage loggedUser={loggedUser} />}
+            />
             <Route element={<PrivateRoute />}>
               <Route path="/trucks/new" element={<NewPage />} />
             </Route>
