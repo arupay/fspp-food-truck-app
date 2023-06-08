@@ -64,7 +64,7 @@ function App() {
       });
     return () => userSession();
   }, [auth]);
-  console.log(loggedUser);
+
   return (
     <div className="app">
       <ToastContainer

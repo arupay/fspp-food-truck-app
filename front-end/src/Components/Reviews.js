@@ -23,8 +23,8 @@ function Reviews({ id, loggedUser }) {
     axios
       .post(`${API}/trucks/${id}/reviews`, newReview)
       .then(
-        (response) => {
-          setReviews([response.data, ...reviews]);
+        (res) => {
+          setReviews((prev) => [res.data, ...prev]);
         },
         (error) => console.error(error)
       )
@@ -35,12 +35,12 @@ function Reviews({ id, loggedUser }) {
       .delete(`${API}/trucks/${id}/reviews/${id}`)
       .then(
         (response) => {
-          const copyReviewArray = [...reviews];
-          const indexDeletedReview = copyReviewArray.findIndex((review) => {
+          const indexDeletedReview = [...reviews].findIndex((review) => {
             return review.id === id;
           });
-          copyReviewArray.splice(indexDeletedReview, 1);
-          setReviews(copyReviewArray);
+          setReviews((prev) =>
+            prev.filter((review) => review.id === indexDeletedReview)
+          );
         },
         (error) => console.error(error)
       )
@@ -49,13 +49,8 @@ function Reviews({ id, loggedUser }) {
   const handleEdit = (updatedReview) => {
     axios
       .put(`${API}/trucks/${id}/reviews/${updatedReview.id}`, updatedReview)
-      .then((response) => {
-        const copyReviewArray = [...reviews];
-        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
-          return review.id === updatedReview.id;
-        });
-        copyReviewArray[indexUpdatedReview] = response.data;
-        setReviews(copyReviewArray);
+      .then((res) => {
+        setReviews(res.data);
       })
       .catch((c) => console.warn("catch", c));
   };
@@ -80,8 +75,9 @@ function Reviews({ id, loggedUser }) {
           <Stars num={ratingsCalc(reviews)} />
         </h1>
       </span>
+      {/**THIS IS REVIEW FORM  */}
 
-      <ReviewForm handleSubmit={handleAdd}></ReviewForm>
+      <ReviewForm loggedUser={loggedUser} handleSubmit={handleAdd}></ReviewForm>
 
       <Container className="d-flex justify-content-left m1 ">
         <div className="row">
@@ -93,10 +89,11 @@ function Reviews({ id, loggedUser }) {
                 {ratingsCalc(reviews).toFixed(1)}/ 5.0 (
                 {reviews.length !== 1
                   ? `${reviews.length} reviews`
-                  : `${reviews.length} review`}{" "}
+                  : `${reviews.length} review`}
                 )
               </h6>
               <div className="comment-widgets">
+                {/**THIS IS REVIEWS MAPPED */}
                 {reviews.map((review, idx) => (
                   <Review
                     idx={idx}

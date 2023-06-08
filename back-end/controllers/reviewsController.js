@@ -62,7 +62,7 @@ router.delete("/:id", async (req, res) => {
     if (deletedReview.id) {
       res.status(200).json(deleteReview);
     } else {
-      res.status(404).json({ error: "Bookmark not found" });
+      res.status(404).json({ error: "review not found" });
     }
   } else {
     console.error(deletedReview);

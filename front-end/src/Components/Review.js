@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReviewForm from "./ReviewForm";
 import Stars from "./Stars";
 
-function Review({ review, handleDelete, handleSubmit, reviewer, loggedUser }) {
+function Review({ review, handleDelete, handleSubmit, loggedUser }) {
   const [viewEditForm, toggleEditForm] = useState(false);
 
   const toggleView = () => {
@@ -11,6 +11,7 @@ function Review({ review, handleDelete, handleSubmit, reviewer, loggedUser }) {
 
   return (
     <div className={viewEditForm ? "container" : "d-flex flex-row comment-row"}>
+      {/**THIS TOGGABLE EDIT FORM */}
       {viewEditForm ? (
         <ReviewForm
           reviewDetails={review}
@@ -19,6 +20,8 @@ function Review({ review, handleDelete, handleSubmit, reviewer, loggedUser }) {
         />
       ) : (
         <div className="d-flex flex-row comment-row">
+          {/**THIS IS INDIVIDUAL CSS REVIEW  */}
+
           <div className="p-2">
             <span className="round">
               <img
@@ -27,16 +30,25 @@ function Review({ review, handleDelete, handleSubmit, reviewer, loggedUser }) {
                 width="75"
               />
             </span>
+            <div
+              style={{
+                fontSize: "13px",
+                fontWeight: "800",
+                textAlign: "center",
+                marginTop: "10px",
+              }}
+            >
+              {review.username}
+            </div>
           </div>
           <div className="comment-text w-100">
-            <h5>{review.username}</h5>
             <div className="comment-footer">
               <span className="rating">
                 <Stars num={review.rating} />
               </span>
             </div>
             <p className="m-b-5 m-t-10">{review.content}</p>
-            {loggedUser.id === reviewer && (
+            {loggedUser.id === review.reviewer && (
               <div className="protected">
                 <button
                   onClick={toggleView}
