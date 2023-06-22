@@ -5,7 +5,6 @@ import { Form, Button, Container } from "react-bootstrap";
 function ReviewForm(props) {
   const { reviewDetails, loggedUser } = props;
   const { id } = useParams();
-
   const [review, setReview] = useState({
     content: "",
     rating: "",
@@ -35,22 +34,7 @@ function ReviewForm(props) {
 
   return (
     <Container>
-      {loggedUser ? (
-        <div
-          className="logInOverLay"
-          style={{
-            margin: "10px 0",
-            width: "100%",
-            height: "150px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "lightgrey",
-          }}
-        >
-          Login/Sign Up To Leave A Review
-        </div>
-      ) : (
+      {loggedUser.email ? (
         <div>
           <h3>Add Review</h3>
           <div className="Edit">
@@ -88,6 +72,21 @@ function ReviewForm(props) {
               </Button>
             </Form>
           </div>
+        </div>
+      ) : (
+        <div
+          className="logInOverLay"
+          style={{
+            margin: "10px 0",
+            width: "100%",
+            height: "150px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "lightgrey",
+          }}
+        >
+          Login/Sign Up To Leave A Review
         </div>
       )}
     </Container>

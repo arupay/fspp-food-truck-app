@@ -17,6 +17,7 @@ function Review({ review, handleDelete, handleSubmit, loggedUser }) {
           reviewDetails={review}
           toggleView={toggleView}
           handleSubmit={handleSubmit}
+          loggedUser={loggedUser}
         />
       ) : (
         <div className="d-flex flex-row comment-row">

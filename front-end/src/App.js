@@ -4,7 +4,6 @@ import { AuthProvider } from "./context/AuthContext";
 import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { useAuth } from "./context/AuthContext";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 //Components
@@ -82,7 +81,7 @@ function App() {
       <Router>
         <ScrollToTop />
         <AuthProvider>
-          <NavBar useAuth={useAuth} />
+          <NavBar loggedUser={loggedUser} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/trucks" element={<IndexPage />} />

@@ -3,9 +3,10 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import transparentlogo from "../assets/transparentlogo.png";
+import { useAuth } from "../context/AuthContext";
 
-function NavBar({ useAuth }) {
-  const { user, logout } = useAuth();
+function NavBar({ loggedUser }) {
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const borough = require("./boroughs");
   const handleLogOut = () => {
@@ -52,7 +53,7 @@ function NavBar({ useAuth }) {
               href="/login"
               onClick={() => handleLogOut()}
             >
-              {user?.email ? "sign out" : "sign in"}
+              {loggedUser.email ? "sign out" : "sign in"}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

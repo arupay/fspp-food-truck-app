@@ -20,7 +20,22 @@ const getOneUser = async (email) => {
   }
 };
 
+const createUser = async (user) => {
+  const { email, username } = user;
+  try {
+    const newUser = await db.any(
+      "INSERT into users (email, username) VALUES ($1,$2) RETURNING *",
+      [email, username]
+    );
+    return newUser;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
 module.exports = {
   getUsers,
   getOneUser,
+  createUser,
 };

@@ -55,12 +55,11 @@ router.put("/:id", async (req, res) => {
 
 //DELETE
 router.delete("/:id", async (req, res) => {
-  // ?????
   const { id } = req.params;
   const deletedReview = await deleteReview(id);
   if (deletedReview) {
     if (deletedReview.id) {
-      res.status(200).json(deleteReview);
+      res.status(200).json(deletedReview);
     } else {
       res.status(404).json({ error: "review not found" });
     }

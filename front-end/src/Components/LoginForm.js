@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
-
+import axios from "axios";
 import "./LoginForm.scss";
+const API = process.env.REACT_APP_API_URL;
 
 function LoginForm(props) {
   const { login, register } = useAuth();
@@ -53,6 +54,10 @@ function LoginForm(props) {
       if (password !== confirm) {
         setError("Passwords must match!");
       } else {
+        axios
+          .post(`${API}/users/`, { email, username })
+          .then(() => {})
+          .catch((error) => console.error("catch", error));
         await register(email, password)
           .then((res) => {
             toast.success("Registered successfully!");

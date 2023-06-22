@@ -7,6 +7,7 @@ import Stars from "./Stars";
 const API = process.env.REACT_APP_API_URL;
 
 function Reviews({ id, loggedUser }) {
+  console.log(loggedUser);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
@@ -17,30 +18,35 @@ function Reviews({ id, loggedUser }) {
       .catch((err) => {
         return err;
       });
-  }, [id]);
+  }, [id, loggedUser]);
 
   const handleAdd = (newReview) => {
     axios
-      .post(`${API}/trucks/${id}/reviews`, newReview)
+      .post(`${API}/trucks/${id}/reviews`, {
+        reviewer: loggedUser.id,
+        ...newReview,
+      })
       .then(
         (res) => {
-          setReviews((prev) => [res.data, ...prev]);
+          console.log("THIS is the posted review response", res);
+          setReviews(res.data);
         },
         (error) => console.error(error)
       )
       .catch((c) => console.warn("catch", c));
   };
+  console.log(reviews);
   const handleDelete = (id) => {
     axios
       .delete(`${API}/trucks/${id}/reviews/${id}`)
       .then(
         (response) => {
-          const indexDeletedReview = [...reviews].findIndex((review) => {
+          const copyReviewArray = [...reviews];
+          const indexDeletedReview = copyReviewArray.findIndex((review) => {
             return review.id === id;
           });
-          setReviews((prev) =>
-            prev.filter((review) => review.id === indexDeletedReview)
-          );
+          copyReviewArray.splice(indexDeletedReview, 1);
+          setReviews(copyReviewArray);
         },
         (error) => console.error(error)
       )

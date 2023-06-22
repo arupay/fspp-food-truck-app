@@ -4,8 +4,10 @@ INSERT INTO users (email, username) VALUES
 ('abc123@gmail.com', 'Deacon'),
 ('doug@gmail.com', 'Doug'),
 ('carrie@gmail.com', 'Carrie'),
-('arthur@example.com', 'Arthur'),
-('spence@example.com', 'Spence');
+('arthur@gmail.com', 'Arthur'),
+('spence@gmail.com', 'Spence'),
+('holly@gmail.com', 'Holly');
+
 
 INSERT INTO trucks (added_by, name, address, zip, borough, category, image_url, about, lat, lng) VALUES
 (1,'Birria-landia', '77-99 Roosevelt Ave', 11372, 'Queens', 'Latin', 'https://github.com/arupay/fspp-food-truck-app/assets/96318127/5e1912d5-497d-4e5f-9c80-a0517b5f70f6', 'Birria-Landia is a taco food truck that began in the Jackson Heights neighborhood of Queens, New York in the summer of 2019 and quickly became a favorite of locals and critics alike, earning a high rating from The New York Times.', 40.746942, -73.890501),

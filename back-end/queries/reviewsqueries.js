@@ -39,7 +39,7 @@ const createReview = async (trucks_id, { reviewer, content, rating }) => {
       "INSERT INTO reviews (reviewer, content, rating, trucks_id) VALUES($1, $2, $3, $4) RETURNING *",
       [reviewer, content, rating, trucks_id]
     );
-    return newReview;
+    return getAllReviews(trucks_id);
   } catch (error) {
     console.log(error.message || error);
     return error;
