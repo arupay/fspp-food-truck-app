@@ -11,7 +11,7 @@ CREATE TABLE users (
 
 CREATE TABLE trucks (
     id SERIAL PRIMARY KEY,
-    added_by INTEGER REFERENCES users (id),
+    added_by INTEGER REFERENCES users (id) NOT NULL,
     name TEXT NOT NULL,
     address TEXT,
     zip INT,
@@ -25,7 +25,7 @@ CREATE TABLE trucks (
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    reviewer INTEGER REFERENCES users (id)ON DELETE CASCADE,
+    reviewer INTEGER NOT NULL REFERENCES users (id)ON DELETE CASCADE,
     content TEXT,
     rating NUMERIC,
     CHECK (rating >= 0 AND rating <= 5),
