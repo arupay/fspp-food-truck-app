@@ -8,7 +8,7 @@ import "./NewForm.scss";
 
 const API = process.env.REACT_APP_API_URL;
 const boroughs = require("../Components/boroughs");
-function NewForm() {
+function NewForm({ loggedUser }) {
   const navigate = useNavigate();
   const [truck, setTruck] = useState({
     name: "",
@@ -29,7 +29,7 @@ function NewForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${API}/trucks/new`, truck)
+      .post(`${API}/trucks/new`, { ...truck, added_by: loggedUser.id })
       .then(() => {
         toast.success("Truck added successfully!");
         setTimeout(() => {

@@ -90,7 +90,10 @@ function App() {
               element={<ShowPage loggedUser={loggedUser} />}
             />
             <Route element={<PrivateRoute />}>
-              <Route path="/trucks/new" element={<NewPage />} />
+              <Route
+                path="/trucks/new"
+                element={<NewPage loggedUser={loggedUser} />}
+              />
             </Route>
             <Route path="/trucks/:id/edit/" element={<EditPage />} />
             <Route

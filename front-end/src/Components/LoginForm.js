@@ -82,7 +82,7 @@ function LoginForm(props) {
             />
           </div>
           <div className="d-flex justify-content-center align-items-center loginsection__container__curview__formbx signinbx__formbx">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="loginform">
               {/* bootstrap control form? come back to this */}
               <h2 className="text-uppercase">Sign In</h2>
               <input

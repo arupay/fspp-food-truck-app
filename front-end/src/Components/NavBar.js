@@ -49,6 +49,7 @@ function NavBar({ loggedUser }) {
               About
             </Nav.Link>
             <Nav.Link
+              id="login"
               className="nav-text"
               href="/login"
               onClick={() => handleLogOut()}

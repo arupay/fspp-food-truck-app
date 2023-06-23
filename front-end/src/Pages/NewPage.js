@@ -1,9 +1,9 @@
 import NewForm from "../Components/NewForm";
 
-function NewPage() {
+function NewPage({ loggedUser }) {
   return (
     <div className="main">
-      <NewForm />
+      <NewForm loggedUser={loggedUser} />
     </div>
   );
 }
