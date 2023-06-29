@@ -53,7 +53,6 @@ const updateReview = async (id, trucks_id, { content, rating }) => {
       [content, rating, id]
     );
     return getAllReviews(trucks_id);
-    //returns all reviews for specific truck id
   } catch (error) {
     console.log(error.message || error);
     return error;
