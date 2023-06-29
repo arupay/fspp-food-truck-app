@@ -7,13 +7,13 @@ import Stars from "./Stars";
 const API = process.env.REACT_APP_API_URL;
 
 function Reviews({ id, loggedUser }) {
-  console.log(loggedUser);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
       .get(`${API}/trucks/${id}/reviews`)
       .then((res) => {
-        setReviews(res.data);
+        let sorted = res.data.sort((a, b) => a.id - b.id);
+        setReviews(sorted);
       })
       .catch((err) => {
         return err;
@@ -28,8 +28,9 @@ function Reviews({ id, loggedUser }) {
       })
       .then(
         (res) => {
-          console.log("THIS is the posted review response", res);
-          setReviews(res.data);
+          let sorted = res.data.sort((a, b) => a.id - b.id);
+          setReviews(sorted);
+          window.scrollTo(0, document.body.scrollHeight);
         },
         (error) => console.error(error)
       )
@@ -56,7 +57,8 @@ function Reviews({ id, loggedUser }) {
     axios
       .put(`${API}/trucks/${id}/reviews/${updatedReview.id}`, updatedReview)
       .then((res) => {
-        setReviews(res.data);
+        let sorted = res.data.sort((a, b) => a.id - b.id);
+        setReviews(sorted);
       })
       .catch((c) => console.warn("catch", c));
   };

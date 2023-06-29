@@ -28,6 +28,7 @@ const API = process.env.REACT_APP_API_URL;
 function App() {
   const [loggedUser, setLoggedUser] = useState({});
   const [trucksCoords, setTrucksCoords] = useState([]);
+  console.log(loggedUser);
   const auth = getAuth();
   useEffect(() => {
     const userSession = onAuthStateChanged(auth, (user) => {

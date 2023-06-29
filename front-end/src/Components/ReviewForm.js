@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
+import "./ReviewForm.scss";
 
 function ReviewForm(props) {
   const { reviewDetails, loggedUser } = props;
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [review, setReview] = useState({
     content: "",
     rating: "",
   });
-
   const handleTextChange = (event) => {
     setReview({ ...review, [event.target.id]: event.target.value });
   };
@@ -36,25 +38,52 @@ function ReviewForm(props) {
     <Container>
       {loggedUser.email ? (
         <div>
-          <h3>Add Review</h3>
-          <div className="Edit">
+          <div className="formcontainer">
             {props.children}
-            <Form onSubmit={handleSubmit} id="addreview">
-              <Form.Group>
-                <Form.Label>Rating</Form.Label>
-                <Form.Control
-                  id="rating"
-                  type="number"
-                  name="rating"
-                  min="0"
-                  max="5"
-                  step="1"
-                  value={review.rating}
-                  onChange={handleTextChange}
-                />
-              </Form.Group>
-
-              <Form.Group>
+            <Form
+              onSubmit={handleSubmit}
+              className="formcontainer__newform p-1"
+            >
+              <div className="largegroup">
+                <div className="smallgroup">
+                  <div
+                    style={{
+                      fontSize: ".75em",
+                      textTransform: "uppercase",
+                      display: "block",
+                      marginBottom: "5px",
+                      fontWeight: "550",
+                      letterSpacing: "2px",
+                      width: "100%",
+                      marginBottom: "8px",
+                      color: "#444",
+                    }}
+                  >
+                    {loggedUser.username}
+                  </div>
+                  <span className="round">
+                    <img
+                      src={`https://robohash.org/${loggedUser.username}.png`}
+                      alt="user"
+                      width="50"
+                    />
+                  </span>
+                </div>
+                <Form.Group className="smallgroup">
+                  <Form.Label>Rating</Form.Label>
+                  <Form.Control
+                    id="rating"
+                    type="number"
+                    name="rating"
+                    min="0"
+                    max="5"
+                    step="1"
+                    value={review.rating}
+                    onChange={handleTextChange}
+                  />
+                </Form.Group>
+              </div>
+              <Form.Group className="textarea-div">
                 <Form.Label>Content</Form.Label>
                 <Form.Control
                   as="textarea"
@@ -74,19 +103,10 @@ function ReviewForm(props) {
           </div>
         </div>
       ) : (
-        <div
-          className="logInOverLay"
-          style={{
-            margin: "10px 0",
-            width: "100%",
-            height: "150px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "lightgrey",
-          }}
-        >
-          Login/Sign Up To Leave A Review
+        <div className="logInOverLay">
+          <span onClick={() => navigate(`/login`)}>
+            Login To Leave A Review
+          </span>
         </div>
       )}
     </Container>

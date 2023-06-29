@@ -10,7 +10,4 @@ describe("Successful user log in", () => {
     cy.get("button[name='submit']").contains("log in").click();
     cy.url().should("include", "/trucks");
   });
-  // it("Has a login button", () => {
-  //   cy.get("#login").contains("sign in");
-  // });
 });

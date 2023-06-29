@@ -29,7 +29,6 @@ function LoginForm(props) {
     if (!confirm.length) {
       await login(email, password)
         .then((res) => {
-          console.log(res, error);
           toast.success("Logged in successfully!");
           setTimeout(() => {
             navigate("/trucks");
