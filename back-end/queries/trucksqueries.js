@@ -12,7 +12,10 @@ const getTrucks = async () => {
 
 const getOneTruck = async (id) => {
   try {
-    const oneTruck = await db.any("SELECT * FROM trucks WHERE id = $1", id);
+    const oneTruck = await db.any(
+      "SELECT t.*, u.username AS added_by_username FROM trucks AS t JOIN users AS u ON t.added_by = u.id WHERE t.id = $1",
+      id
+    );
     return oneTruck;
   } catch (error) {
     console.log(error.message || error);

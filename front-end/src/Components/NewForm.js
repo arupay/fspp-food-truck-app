@@ -48,7 +48,10 @@ function NewForm({ loggedUser }) {
         <h1 className="index-title-text">add your truck</h1>
       </span>
       <div className="formcontainer">
-        <Form onSubmit={handleSubmit} className="formcontainer__newform">
+        <Form
+          onSubmit={handleSubmit}
+          className="addtruckform formcontainer__newform"
+        >
           <div className="largegroup">
             <Form.Group className="smallgroup">
               <Form.Label>Name</Form.Label>

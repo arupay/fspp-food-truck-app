@@ -10,17 +10,7 @@ body{
 .main {
   min-height: calc(100vh);
 }
-.borough-tag {
-  position: absolute;
-  top: 30px;
-  right: -60px;
-  transform: rotate(-315deg);
-  background-color: #fec309;
-  color: #031a25;
-  width: 200px;
-  font-size: 16px;
-  font-weight: 600;
-}
+
 
 #truck {
   background-color: #052d44;
@@ -41,13 +31,14 @@ body{
 }
 
 .index-title-text{
-  margin: 0px;
+  margin: 20px;
   box-sizing: border-box;
   display: block;
   font-size:19px;
   letter-spacing: 2px;
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .nav-text {

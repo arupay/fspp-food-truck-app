@@ -39,7 +39,11 @@ function NavBar({ loggedUser }) {
                 );
               })}
             </NavDropdown>
-            <Nav.Link className="nav-text" href="/trucks/new">
+            <Nav.Link
+              id="test_addTruck"
+              className="nav-text"
+              href="/trucks/new"
+            >
               Add Truck
             </Nav.Link>
             <Nav.Link className="nav-text" href="/map">

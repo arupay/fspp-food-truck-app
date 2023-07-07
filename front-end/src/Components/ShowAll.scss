@@ -38,15 +38,25 @@
         transition: all .3s linear;
     }
     &__trucktitle {
-    margin-top:80px;
-    font-size: 25px;
-    font-weight: 800;
+        margin-top:80px;
+        font-size: 32px;
+        font-weight: 600;
     
     }
-    // &:hover  &__trucktitle{
-    //     color:#fec309;
-    // }
+
 }
+
+.borough-tag {
+    position: absolute;
+    top: 30px;
+    right: -60px;
+    transform: rotate(-315deg);
+    background-color: #fec309;
+    color: #031a25;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+  }
 
 .card-img-overlay {
     background: linear-gradient(0deg, rgba(34, 32, 32, 0.5) 25%, rgb(57, 59, 65) 100%);

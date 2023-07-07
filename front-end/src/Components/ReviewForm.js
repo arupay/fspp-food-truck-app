@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
+// import { Rating } from "@smastrom/react-rating";
 import "./ReviewForm.scss";
 
 function ReviewForm(props) {
   const { reviewDetails, loggedUser } = props;
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const [rating, setRating] = useState(0);
   const [review, setReview] = useState({
     content: "",
-    rating: "",
+    rating: 0,
   });
   const handleTextChange = (event) => {
     setReview({ ...review, [event.target.id]: event.target.value });
@@ -33,7 +34,6 @@ function ReviewForm(props) {
       rating: "",
     });
   };
-
   return (
     <Container>
       {loggedUser.email ? (
@@ -70,6 +70,12 @@ function ReviewForm(props) {
                   </span>
                 </div>
                 <Form.Group className="smallgroup">
+                  {/* <Form.Label>Rating</Form.Label>
+                  <Rating
+                    style={{ maxWidth: 150 }}
+                    value={rating}
+                    onChange={setRating}
+                  /> */}
                   <Form.Label>Rating</Form.Label>
                   <Form.Control
                     id="rating"

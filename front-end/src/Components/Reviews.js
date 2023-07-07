@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import axios from "axios";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
@@ -6,7 +6,8 @@ import { Container } from "react-bootstrap";
 import Stars from "./Stars";
 const API = process.env.REACT_APP_API_URL;
 
-function Reviews({ id, loggedUser }) {
+const Reviews = forwardRef((props, ref) => {
+  const { id, loggedUser } = props;
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
@@ -36,7 +37,6 @@ function Reviews({ id, loggedUser }) {
       )
       .catch((c) => console.warn("catch", c));
   };
-  console.log(reviews);
   const handleDelete = (id) => {
     axios
       .delete(`${API}/trucks/${id}/reviews/${id}`)
@@ -76,7 +76,7 @@ function Reviews({ id, loggedUser }) {
   };
 
   return (
-    <div>
+    <div ref={ref}>
       <span id="truck" className="index-title">
         <h1 id="truck-text" className="index-title-text">
           Reviews <br />
@@ -120,6 +120,6 @@ function Reviews({ id, loggedUser }) {
       </Container>
     </div>
   );
-}
+});
 
 export default Reviews;

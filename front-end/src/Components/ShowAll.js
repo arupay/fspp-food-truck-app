@@ -48,7 +48,7 @@ function ShowAll() {
           <Row>
             {borough === null
               ? trucks.map((truck, i) => (
-                  <div className="sm-12 col-md-6 col-lg-4 mb-4" key={i}>
+                  <div className="sm-12 col-md-6 col-lg-4 mb-3" key={i}>
                     <Card
                       className="backgroundimg"
                       style={{
@@ -57,7 +57,7 @@ function ShowAll() {
                       onClick={() => navigate(`/trucks/${truck.id}`)}
                     >
                       <div className="card-img-overlay">
-                        <Card.Body className="card-text">
+                        <Card.Body>
                           <Link to={`/trucks/${truck.id}`}></Link>
                           <Card.Title className="backgroundimg__trucktitle">
                             {truck.name}
@@ -69,10 +69,10 @@ function ShowAll() {
                           </Card.Text>
                           <Card.Text tag="div" style={{ fontSize: "13px" }}>
                             {truck.category}
-                            <span className="borough-tag">{truck.borough}</span>
                           </Card.Text>
                         </Card.Body>
                       </div>
+                      <span className="borough-tag">{truck.borough}</span>
                     </Card>
                   </div>
                 ))
@@ -88,7 +88,7 @@ function ShowAll() {
                         onClick={() => navigate(`/trucks/${truck.id}`)}
                       >
                         <div className="card-img-overlay">
-                          <Card.Body className="card-text">
+                          <Card.Body>
                             <Link to={`/trucks/${truck.id}`}></Link>
                             <Card.Title className="backgroundimg__trucktitle">
                               {truck.name}
@@ -100,12 +100,10 @@ function ShowAll() {
                             </Card.Text>
                             <Card.Text tag="div" style={{ fontSize: "13px" }}>
                               {truck.category}
-                              <span className="borough-tag">
-                                {truck.borough}
-                              </span>
                             </Card.Text>
                           </Card.Body>
                         </div>
+                        <span className="borough-tag">{truck.borough}</span>
                       </Card>
                     </div>
                   ))}

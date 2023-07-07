@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import "@smastrom/react-rating/style.css";
 
 //Components
 import NavBar from "./Components/NavBar";
