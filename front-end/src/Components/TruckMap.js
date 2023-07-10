@@ -13,7 +13,7 @@ function TruckMap({ latitude, longitude }) {
   });
 
   return (
-    <Container>
+    <Container className="my-3">
       {coordinates.lat && isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}

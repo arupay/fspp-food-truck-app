@@ -16,7 +16,7 @@ function Home() {
           <img className="header1__content__img" src={truckstop} alt="logo" />
         </div>
       </div>
-      <div className=" homecontainer">
+      <div className="container homecontainer">
         <div className="d-flex justify-content-between homecontainer__sectionone">
           <div className="d-flex homecontainer__sectionone__img">
             <img

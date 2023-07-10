@@ -9,7 +9,7 @@
     background-size: cover;
     background-position: 30% 50%;
     background-attachment: fixed;
-    @media (max-width: 1366px) {
+    @media (max-width: 500) {
         background-size: fill;
         background-position: 50%;
         background-attachment: scroll; //no parallax for mobile;

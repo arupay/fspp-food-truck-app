@@ -24,12 +24,17 @@ const containerStyle = {
   height: "100dvh",
 };
 
+function shortenString(str) {
+  return str.length <= 60 ? str : str.slice(0, 60) + "...";
+}
+
 const options = {
   mapTypeControl: false,
   streetViewControl: false,
   fullscreenControl: false,
 };
 function Maps({ trucksCoords }) {
+  const navigate = useNavigate();
   const center = useMemo(() => ({ lat: 40.7118, lng: -74.0131 }), []);
 
   const [selected, setSelected] = useState(null);
@@ -67,13 +72,22 @@ function Maps({ trucksCoords }) {
             }}
             position={{ lat: selected[1].lat, lng: selected[1].lng }}
           >
-            <div>
-              <h3>{selected[0].name}</h3>
-              <Link to={`/trucks/${selected[0].id}`}>
-                <img src={selected[0].image_url} alt="" width="100" />
-                <br />
-                More...
-              </Link>
+            <div onClick={() => navigate(`/trucks/${selected[0].id}`)}>
+              <div
+                style={{
+                  fontSize: "15px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  fontWeight: "600",
+                  marginBottom: "5px",
+                }}
+              >
+                {selected[0].name}
+              </div>
+              <img src={selected[0].image_url} alt="" width="125" />
+              <div style={{ fontSize: "10px", marginTop: "7px" }}>
+                {shortenString(selected[0].about)}
+              </div>
             </div>
           </InfoWindow>
         ) : null}

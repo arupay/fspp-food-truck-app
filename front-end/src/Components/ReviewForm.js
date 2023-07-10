@@ -42,10 +42,10 @@ function ReviewForm(props) {
             {props.children}
             <Form
               onSubmit={handleSubmit}
-              className="formcontainer__newform p-1"
+              className="formcontainer__newform p-0"
             >
               <div className="largegroup">
-                <div className="smallgroup">
+                <div className="smallgroup pb-3">
                   <div
                     style={{
                       fontSize: ".75em",
@@ -69,7 +69,7 @@ function ReviewForm(props) {
                     />
                   </span>
                 </div>
-                <Form.Group className="smallgroup">
+                <Form.Group className="smallgroup pb-3">
                   {/* <Form.Label>Rating</Form.Label>
                   <Rating
                     style={{ maxWidth: 150 }}

@@ -86,14 +86,23 @@ function ShowOne({ loggedUser }) {
             {loggedUser.id === truck.added_by && (
               <>
                 <FiEdit2
+                  className="truck-icons"
                   size="2em"
                   onClick={() => navigate(`/trucks/${id}/edit`)}
                 />
-                <AiOutlineDelete size="2em" onClick={handleDelete} />
+                <AiOutlineDelete
+                  className="truck-icons"
+                  size="2em"
+                  onClick={handleDelete}
+                />
               </>
             )}
-            <AiOutlineComment size="2em" onClick={handleReviewScroll} />
-            <MdOutlineAddAPhoto size="2em" />
+            <AiOutlineComment
+              size="2em"
+              className="truck-icons"
+              onClick={handleReviewScroll}
+            />
+            <MdOutlineAddAPhoto className="truck-icons" size="2em" />
           </div>
         </div>
       </Container>

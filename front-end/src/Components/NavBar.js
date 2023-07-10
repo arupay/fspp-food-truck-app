@@ -30,10 +30,15 @@ function NavBar({ loggedUser }) {
         <Navbar.Collapse className="justify-content-end">
           <Nav>
             <NavDropdown className="nav-text" title="The Truck Stop">
-              <NavDropdown.Item href="/trucks">All Trucks</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate(`/trucks`)}>
+                All Trucks
+              </NavDropdown.Item>
               {borough.map((e, idx) => {
                 return (
-                  <NavDropdown.Item href={`/trucks?borough=${e}`} key={idx}>
+                  <NavDropdown.Item
+                    onClick={() => navigate(`/trucks?borough=${e}`)}
+                    key={idx}
+                  >
                     {e}
                   </NavDropdown.Item>
                 );
@@ -42,14 +47,14 @@ function NavBar({ loggedUser }) {
             <Nav.Link
               id="test_addTruck"
               className="nav-text"
-              href="/trucks/new"
+              onClick={() => navigate(`/trucks/new`)}
             >
               Add Truck
             </Nav.Link>
-            <Nav.Link className="nav-text" href="/map">
+            <Nav.Link className="nav-text" onClick={() => navigate(`/map`)}>
               Map
             </Nav.Link>
-            <Nav.Link className="nav-text" href="/about">
+            <Nav.Link className="nav-text" onClick={() => navigate(`/about`)}>
               About
             </Nav.Link>
             <Nav.Link

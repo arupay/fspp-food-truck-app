@@ -23,6 +23,7 @@ import About from "./Pages/About";
 import RenderMapFn from "./Components/RenderMapFn";
 import LoginPage from "./Pages/LoginPage";
 import ScrollToTop from "./Components/ScrollToTop";
+import ImageUpload from "./Pages/ImageUpload";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -54,7 +55,13 @@ function App() {
           .filter((e) => e.lat !== null)
           .map((e) => {
             return [
-              { name: e.name, image_url: e.image_url, id: e.id },
+              {
+                name: e.name,
+                address: e.address,
+                about: e.about,
+                image_url: e.image_url,
+                id: e.id,
+              },
               { lat: Number(e.lat), lng: Number(e.lng) },
             ];
           });
@@ -103,6 +110,7 @@ function App() {
               element={<RenderMapFn trucksCoords={trucksCoords} />}
             />
             <Route path="/about" element={<About />} />
+            <Route path="/uploadtest" element={<ImageUpload />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
