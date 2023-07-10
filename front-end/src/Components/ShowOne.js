@@ -36,6 +36,7 @@ function ShowOne({ loggedUser }) {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
+
   const handleDelete = (e) => {
     e.preventDefault();
     axios

@@ -8,7 +8,6 @@ function ReviewForm(props) {
   const { reviewDetails, loggedUser } = props;
   const { id } = useParams();
   const navigate = useNavigate();
-  const [rating, setRating] = useState(0);
   const [review, setReview] = useState({
     content: "",
     rating: 0,
@@ -55,7 +54,6 @@ function ReviewForm(props) {
                       fontWeight: "550",
                       letterSpacing: "2px",
                       width: "100%",
-                      marginBottom: "8px",
                       color: "#444",
                     }}
                   >

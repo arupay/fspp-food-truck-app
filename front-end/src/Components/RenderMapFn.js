@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   GoogleMap,
   useJsApiLoader,
@@ -43,55 +43,68 @@ function Maps({ trucksCoords }) {
       <span className="index-title">
         <h1 className="index-title-text">interactive map</h1>
       </span>
-      <GoogleMap
-        options={options}
-        mapContainerStyle={containerStyle}
-        zoom={12.5}
-        center={center}
-        mapContainerClassName="w-screen h-screen"
-      >
-        {trucksCoords.map((e, idx) => {
-          return (
-            <Marker
-              key={idx}
-              position={{ lat: e[1].lat, lng: e[1].lng }}
-              onClick={() => {
-                setSelected(e);
-              }}
-              title={`${e[0].name}`}
-              icon={
-                "https://github.com/arupay/fspp-food-truck-app/assets/96318127/381814d5-737e-4857-b67d-b8969b06cae1"
-              }
-            />
-          );
-        })}
-        {selected !== null ? (
-          <InfoWindow
-            onCloseClick={() => {
-              setSelected(null);
-            }}
-            position={{ lat: selected[1].lat, lng: selected[1].lng }}
-          >
-            <div onClick={() => navigate(`/trucks/${selected[0].id}`)}>
-              <div
-                style={{
-                  fontSize: "15px",
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  fontWeight: "600",
-                  marginBottom: "5px",
+      <div className="container">
+        <GoogleMap
+          options={options}
+          mapContainerStyle={containerStyle}
+          zoom={12.5}
+          center={center}
+          mapContainerClassName="w-screen h-screen"
+        >
+          {trucksCoords.map((e, idx) => {
+            return (
+              <Marker
+                key={idx}
+                position={{ lat: e[1].lat, lng: e[1].lng }}
+                onClick={() => {
+                  setSelected(e);
                 }}
-              >
-                {selected[0].name}
+                title={`${e[0].name}`}
+                icon={
+                  "https://github.com/arupay/fspp-food-truck-app/assets/96318127/381814d5-737e-4857-b67d-b8969b06cae1"
+                }
+              />
+            );
+          })}
+          {selected !== null ? (
+            <InfoWindow
+              onCloseClick={() => {
+                setSelected(null);
+              }}
+              position={{ lat: selected[1].lat, lng: selected[1].lng }}
+            >
+              <div onClick={() => navigate(`/trucks/${selected[0].id}`)}>
+                <div
+                  style={{
+                    fontSize: "15px",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    fontWeight: "600",
+                    marginBottom: "5px",
+                  }}
+                >
+                  {selected[0].name}
+                </div>
+                <img src={selected[0].image_url} alt="truckiamge" />
+                <div
+                  style={{
+                    fontSize: "11px",
+                    marginTop: "5px",
+                    fontStyle: "italic",
+                    fontWeight: 500,
+                  }}
+                >
+                  {selected[0].address}
+                </div>
+
+                <div style={{ fontSize: "11px", marginTop: "7px" }}>
+                  {shortenString(selected[0].about)}
+                </div>
               </div>
-              <img src={selected[0].image_url} alt="" width="125" />
-              <div style={{ fontSize: "10px", marginTop: "7px" }}>
-                {shortenString(selected[0].about)}
-              </div>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
+            </InfoWindow>
+          ) : null}
+        </GoogleMap>
+      </div>
     </div>
   );
 }

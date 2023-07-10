@@ -97,9 +97,13 @@ body{
   font-family: Arial, Helvetica, sans-serif;
   max-width: 200px !important;
   background: white;
-  color:#052d44;
+  color: black;
   padding: 1em;
   text-align: center;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
-  border: 1px solid #666;
+  border: 2px solid #031a25;
+  img {
+    height:125px;
+    border-radius: 5px;
+  }
 }

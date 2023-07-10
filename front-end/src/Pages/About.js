@@ -1,11 +1,8 @@
 import "./About.scss";
-import { useNavigate } from "react-router-dom";
+
 import { SocialIcon } from "react-social-icons";
-import largebg from "../assets/aboutbglarge.jpg";
-import smallbg from "../assets/aboutbgsm.jpg";
 
 function About() {
-  const navigate = useNavigate();
   return (
     <div className="main">
       <span className="index-title">
@@ -50,7 +47,10 @@ function About() {
             </div>
           </div>
           <div className=" aboutcontainer__sectionone__img m-4">
-            <img src="https://skillicons.dev/icons?i=react,firebase,nodejs,express,postgres,sass,bootstrap&perline=3&theme=light" />
+            <img
+              src="https://skillicons.dev/icons?i=react,firebase,nodejs,express,postgres,sass,bootstrap&perline=3&theme=light"
+              alt="skills"
+            />
           </div>
         </div>
       </div>
