@@ -2,7 +2,14 @@ const db = require("../db/dbConfig.js");
 
 const getTrucks = async () => {
   try {
-    const trucks = await db.any("SELECT * FROM trucks");
+    const trucks = await db.any(`
+      SELECT t.*, 
+             ROUND(AVG(r.rating) * 2) / 2.0 AS average_score,
+             COUNT(r.id) AS total_reviews
+      FROM trucks t
+      LEFT JOIN reviews r ON t.id = r.trucks_id
+      GROUP BY t.id;
+    `);
     return trucks;
   } catch (error) {
     console.log(error.message || error);

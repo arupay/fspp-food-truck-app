@@ -5,10 +5,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: lightGrey; 
+    color: #031a25;
+    font-weight: 800;
+    text-transform: uppercase;
+    background-color: rgb(233, 222, 222);
 }
-.large
+.submit-check{
+    min-height: 50px;
 
+}
+
+.checkIcon {
+    border: none; /* Remove the border */
+    background-color: transparent; /* Make the background transparent */
+    padding: 0; /* Remove padding */
+}
+  
+.validComment {
+    color: green;
+    animation: bounce 0.5s;
+  }
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .invalidComment {
+    visibility: hidden;
+  }
 .addreview {
 padding: 15px;
 }

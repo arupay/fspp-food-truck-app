@@ -24,7 +24,12 @@ function NavBar({ loggedUser }) {
     >
       <Container>
         <Navbar.Toggle />
-        <Navbar.Brand mb-0="true" h1="true" className="d-inline-block" href="/">
+        <Navbar.Brand
+          mb-0="true"
+          h1="true"
+          className="d-inline-block"
+          onClick={() => navigate(`/`)}
+        >
           <img width="150" src={transparentlogo} alt="" />
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">

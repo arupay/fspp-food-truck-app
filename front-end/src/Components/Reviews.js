@@ -3,6 +3,7 @@ import axios from "axios";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
 import { Container } from "react-bootstrap";
+import { toast } from "react-toastify";
 import Stars from "./Stars";
 const API = process.env.REACT_APP_API_URL;
 
@@ -27,15 +28,16 @@ const Reviews = forwardRef((props, ref) => {
         reviewer: loggedUser.id,
         ...newReview,
       })
-      .then(
-        (res) => {
-          let sorted = res.data.sort((a, b) => a.id - b.id);
-          setReviews(sorted);
-          window.scrollTo(0, document.body.scrollHeight);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
+      .then((res) => {
+        toast.success("Review added successfully");
+        let sorted = res.data.sort((a, b) => a.id - b.id);
+        setReviews(sorted);
+        window.scrollTo(0, document.body.scrollHeight);
+      })
+      .catch((c) => {
+        toast.error("Failed to add review, please try again later.");
+        console.log(c);
+      });
   };
   const handleDelete = (id) => {
     axios
@@ -87,8 +89,8 @@ const Reviews = forwardRef((props, ref) => {
 
       <ReviewForm loggedUser={loggedUser} handleSubmit={handleAdd}></ReviewForm>
 
-      <Container className="d-flex justify-content-left m1 ">
-        <div className="row">
+      <Container className="d-flex justify-content-left mb-3">
+        <div className="row w-100">
           <div className="col-md-12">
             <div className="comment">
               <h4 className="card-title">Recent Reviews</h4>

@@ -7,6 +7,8 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 
+import Stars from "./Stars";
+
 const RenderMapFn = ({ trucksCoords }) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_MAP_API_KEY,
@@ -73,7 +75,12 @@ function Maps({ trucksCoords }) {
               }}
               position={{ lat: selected[1].lat, lng: selected[1].lng }}
             >
-              <div onClick={() => navigate(`/trucks/${selected[0].id}`)}>
+              <div
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={() => navigate(`/trucks/${selected[0].id}`)}
+              >
                 <div
                   style={{
                     fontSize: "15px",
@@ -85,6 +92,7 @@ function Maps({ trucksCoords }) {
                 >
                   {selected[0].name}
                 </div>
+                <Stars num={selected[0].average_score} />
                 <img src={selected[0].image_url} alt="truckiamge" />
                 <div
                   style={{
@@ -97,7 +105,13 @@ function Maps({ trucksCoords }) {
                   {selected[0].address}
                 </div>
 
-                <div style={{ fontSize: "11px", marginTop: "7px" }}>
+                <div
+                  style={{
+                    fontSize: "11px",
+                    marginTop: "7px",
+                    textAlign: "left",
+                  }}
+                >
                   {shortenString(selected[0].about)}
                 </div>
               </div>

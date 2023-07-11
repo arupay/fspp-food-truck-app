@@ -75,7 +75,7 @@ function ShowOne({ loggedUser }) {
             </div>
           </div>
           <div
-            className="gradient-line aboutThisTruck__gradient-line"
+            className="gradient-line aboutThisTruck-gradient-line"
             id="truck-line"
           ></div>
           <div className="aboutThisTruck__cuisineType">{truck.category}</div>

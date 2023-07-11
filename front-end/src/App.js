@@ -61,6 +61,7 @@ function App() {
                 about: e.about,
                 image_url: e.image_url,
                 id: e.id,
+                average_score: e.average_score,
               },
               { lat: Number(e.lat), lng: Number(e.lng) },
             ];

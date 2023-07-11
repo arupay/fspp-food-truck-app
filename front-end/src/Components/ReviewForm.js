@@ -1,19 +1,27 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Button, Container } from "react-bootstrap";
-// import { Rating } from "@smastrom/react-rating";
+import { Form, Container } from "react-bootstrap";
+// import { Rating } from "@smastrom/react-rating"
+import { AiOutlineCheckCircle } from "react-icons/ai";
 import "./ReviewForm.scss";
 
 function ReviewForm(props) {
   const { reviewDetails, loggedUser } = props;
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isValid, setIsValid] = useState(true);
+
   const [review, setReview] = useState({
     content: "",
-    rating: 0,
+    rating: "",
   });
   const handleTextChange = (event) => {
     setReview({ ...review, [event.target.id]: event.target.value });
+    const isRatingValid = review.rating >= 1 && review.rating <= 5;
+    const isContentValid = review.content.length >= 3;
+    if (isRatingValid && isContentValid) {
+      setIsValid(false);
+    }
   };
 
   useEffect(() => {
@@ -32,16 +40,17 @@ function ReviewForm(props) {
       content: "",
       rating: "",
     });
+    setIsValid(true);
   };
   return (
     <Container>
-      {loggedUser.email ? (
+      {loggedUser.email && (
         <div>
           <div className="formcontainer">
             {props.children}
             <Form
               onSubmit={handleSubmit}
-              className="formcontainer__newform p-0"
+              className="formcontainer__newform p-0 position-relative"
             >
               <div className="largegroup">
                 <div className="smallgroup pb-3">
@@ -79,9 +88,10 @@ function ReviewForm(props) {
                     id="rating"
                     type="number"
                     name="rating"
-                    min="0"
+                    min="1"
                     max="5"
                     step="1"
+                    required
                     value={review.rating}
                     onChange={handleTextChange}
                   />
@@ -94,23 +104,26 @@ function ReviewForm(props) {
                   rows="3"
                   id="content"
                   type="text"
+                  required
                   name="content"
                   value={review.content}
                   placeholder="What do you think..."
                   onChange={handleTextChange}
                 />
               </Form.Group>
-              <Button variant="outline-danger" type="submit" className="mt-3">
-                Submit
-              </Button>
+              <div className="submit-check"></div>
+              <button
+                type="submit"
+                className={`checkIcon position-absolute bottom-0 end-50`}
+                disabled={isValid}
+              >
+                <AiOutlineCheckCircle
+                  size="3em"
+                  className={isValid ? "invalidComment" : "validComment"}
+                />
+              </button>
             </Form>
           </div>
-        </div>
-      ) : (
-        <div className="logInOverLay">
-          <span onClick={() => navigate(`/login`)}>
-            Login To Leave A Review
-          </span>
         </div>
       )}
     </Container>

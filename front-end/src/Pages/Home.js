@@ -1,5 +1,6 @@
 import truckstop from "../assets/truckstopnoloop.gif";
-import aione from "../assets/AItruckimage1.jpeg";
+import image1 from "../assets/main-image-1.jpeg";
+import image2 from "../assets/main-image-2.jpeg";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +21,7 @@ function Home() {
         <div className="d-flex justify-content-between homecontainer__sectionone">
           <div className="d-flex homecontainer__sectionone__img">
             <img
-              src="https://cdn.vox-cdn.com/thumbor/AoHvVzG17dKU29RkjMhQsQSEUD4=/0x0:2046x1535/1520x1013/filters:focal(0x0:2046x1535):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/46704794/halal-nyc-guian-bolisay.0.0.jpg"
+              src="https://th.bing.com/th/id/OIG.r3tgoz__VK2KW3vXVFoF?pid=ImgGn"
               alt=""
               className="homecontainer__sectionone__img__imgattr"
             />
@@ -70,7 +71,7 @@ function Home() {
           </div>
           <div className="d-flex homecontainer__sectionone__imgtwo">
             <img
-              src={aione}
+              src={image2}
               alt="truckinthecity"
               className="homecontainer__sectionone__imgtwo__imgattr"
             />

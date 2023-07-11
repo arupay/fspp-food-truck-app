@@ -71,7 +71,9 @@ body{
 }
 
 .comment-widgets .comment-row:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.03);
+
+
   cursor: pointer;
 }
 
@@ -103,7 +105,7 @@ body{
   box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
   border: 2px solid #031a25;
   img {
-    height:125px;
+    width:125px;
     border-radius: 5px;
   }
 }
