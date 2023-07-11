@@ -56,11 +56,11 @@ function ShowOne({ loggedUser }) {
         </h1>
       </span>
       <Container className="aboutThisTruck my-3 ">
-        <div className="aboutThisTruck__imgctr d-flex">
+        <div className="aboutThisTruck__imgctr">
           <img
             alt="truck"
             src={truck.image_url}
-            className="aboutThisTruck__imgctr__imgAttr"
+            className="aboutThisTruck__imgctr aboutThisTruck__imgctr__imgAttr"
           />
         </div>
         <div className="aboutThisTruck__right d-flex flex-column justify-content-center align-items-center">

@@ -81,7 +81,9 @@ body{
   border-bottom: 1px solid rgba(120, 130, 140, 0.13);
   padding: 15px;
 }
-
+.comment-text {
+  font-family: Helvetica;
+}
 .comment-text:hover{
   visibility: visible;
 }

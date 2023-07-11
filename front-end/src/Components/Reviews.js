@@ -93,14 +93,17 @@ const Reviews = forwardRef((props, ref) => {
         <div className="row w-100">
           <div className="col-md-12">
             <div className="comment">
-              <h5 className="card-title mt-3">Recent Reviews</h5>
+              <h5 className="card-title mt-3">Recent reviews</h5>
               <Stars num={ratingsCalc(reviews)} />
               <h6 className="card-subtitle">
-                {ratingsCalc(reviews).toFixed(1)}/ 5.0 (
-                {reviews.length !== 1
-                  ? `${reviews.length} reviews`
-                  : `${reviews.length} review`}
-                )
+                {ratingsCalc(reviews).toFixed(1)} out of 5.0{" "}
+                <span className="text-muted small">
+                  (
+                  {reviews.length !== 1
+                    ? `${reviews.length} reviews`
+                    : `${reviews.length} review`}
+                  )
+                </span>
               </h6>
               <div className="comment-widgets">
                 {/**THIS IS REVIEWS MAPPED */}
