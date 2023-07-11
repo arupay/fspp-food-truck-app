@@ -6,7 +6,6 @@ import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "./NewForm.scss";
 import addtruckimg from "../assets/addtruck2.jpg";
-
 const API = process.env.REACT_APP_API_URL;
 const boroughs = require("../Components/boroughs");
 function NewForm({ loggedUser }) {
@@ -37,9 +36,17 @@ function NewForm({ loggedUser }) {
           navigate("/trucks");
         }, 2000);
       })
-      .catch((e) => {
-        toast.error("Failed to add the truck. Please try again.");
-        console.log(e);
+      .catch((error) => {
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.error
+        ) {
+          toast.error(error.response.data.error);
+        } else {
+          toast.error("Failed to add the truck. Please try again.");
+        }
+        console.error(error);
       });
   };
 

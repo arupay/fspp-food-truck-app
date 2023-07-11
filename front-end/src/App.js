@@ -30,7 +30,6 @@ const API = process.env.REACT_APP_API_URL;
 function App() {
   const [loggedUser, setLoggedUser] = useState({});
   const [trucksCoords, setTrucksCoords] = useState([]);
-  console.log(loggedUser);
   const auth = getAuth();
   useEffect(() => {
     const userSession = onAuthStateChanged(auth, (user) => {
@@ -73,7 +72,6 @@ function App() {
       });
     return () => userSession();
   }, [auth]);
-
   return (
     <div className="app">
       <ToastContainer
@@ -104,8 +102,11 @@ function App() {
                 path="/trucks/new"
                 element={<NewPage loggedUser={loggedUser} />}
               />
+              <Route
+                path="/trucks/:id/edit/"
+                element={<EditPage loggedUser={loggedUser} />}
+              />
             </Route>
-            <Route path="/trucks/:id/edit/" element={<EditPage />} />
             <Route
               path="/map"
               element={<RenderMapFn trucksCoords={trucksCoords} />}

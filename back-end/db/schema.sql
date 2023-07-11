@@ -28,7 +28,8 @@ CREATE TABLE reviews (
     reviewer INTEGER NOT NULL REFERENCES users (id)ON DELETE CASCADE,
     content TEXT,
     rating NUMERIC,
-    CHECK (rating >= 0 AND rating <= 5),
+    created_on TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CHECK (rating >= 1 AND rating <= 5),
     trucks_id INTEGER REFERENCES trucks (id)
     ON DELETE CASCADE
 );

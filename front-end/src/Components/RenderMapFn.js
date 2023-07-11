@@ -37,7 +37,7 @@ const options = {
 };
 function Maps({ trucksCoords }) {
   const navigate = useNavigate();
-  const center = useMemo(() => ({ lat: 40.7118, lng: -74.0131 }), []);
+  const center = useMemo(() => ({ lat: 40.7533, lng: -73.9069 }), []);
 
   const [selected, setSelected] = useState(null);
   return (
@@ -49,7 +49,7 @@ function Maps({ trucksCoords }) {
         <GoogleMap
           options={options}
           mapContainerStyle={containerStyle}
-          zoom={12.5}
+          zoom={13}
           center={center}
           mapContainerClassName="w-screen h-screen"
         >

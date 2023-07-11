@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    max-height: 550px;
+    max-height: 700px;
     @media (max-width: 500px) {
         flex-direction: column;
         max-height:900px;
@@ -44,7 +44,7 @@
     }
     &__addedBy{
         padding-top: 10px;
-        font-size: 15px;
+        font-size: 17px;
         text-align: center;
         font-weight: 700;
         letter-spacing: 2px;
@@ -56,7 +56,7 @@
     &__cuisineType{
         width: 95%;
         padding-left: 15px;
-        font-size: 17px;
+        font-size: 19px;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 2px;
@@ -68,7 +68,7 @@
     &__address{
         width: 95%;
         padding-left: 15px;
-        font-size: 14px;
+        font-size: 16px;
         text-transform: uppercase;
         font-weight: 500;
         letter-spacing: 2px;
@@ -80,7 +80,7 @@
     &__about{
         width: 95%;
         padding: 15px;
-        font-size: 15px;
+        font-size: 17px;
         font-weight: 350;
         font-style: italic;
         @media(max-width: 500px){
@@ -129,8 +129,8 @@
 .addedbyimg{
     background-color: #fec309;
     border-radius: 50%;
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
     @media(max-width: 993px){
         height: 100px;
         width: 100px;

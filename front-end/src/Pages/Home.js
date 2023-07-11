@@ -53,7 +53,7 @@ function Home() {
         >
           <div className="homecontainer__sectionone__info rlm">
             <h1 className="homecontainer__sectionone__info__heading">
-              Interactive Maps
+              Discover with TruckMaps
             </h1>
             <div className="gradient-line"></div>
             <div className="homecontainer__sectionone__info__par">
@@ -89,7 +89,7 @@ function Home() {
           </div>
           <div className="homecontainer__sectionone__info">
             <h1 className="homecontainer__sectionone__info__heading">
-              Join the foodtruck community.
+              Join the conversation
             </h1>
             <div className="gradient-line"></div>
             <div className="homecontainer__sectionone__info__par">

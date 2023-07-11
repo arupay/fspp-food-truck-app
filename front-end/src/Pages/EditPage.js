@@ -1,9 +1,9 @@
 import EditForm from "../Components/EditForm";
 
-function EditPage() {
+function EditPage({ loggedUser }) {
   return (
     <div className="main">
-      <EditForm />
+      <EditForm loggedUser={loggedUser} />
     </div>
   );
 }

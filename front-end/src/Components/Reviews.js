@@ -14,7 +14,9 @@ const Reviews = forwardRef((props, ref) => {
     axios
       .get(`${API}/trucks/${id}/reviews`)
       .then((res) => {
-        let sorted = res.data.sort((a, b) => a.id - b.id);
+        let sorted = res.data.sort(
+          (a, b) => new Date(b.created_on) - new Date(a.created_on)
+        );
         setReviews(sorted);
       })
       .catch((err) => {
@@ -30,7 +32,9 @@ const Reviews = forwardRef((props, ref) => {
       })
       .then((res) => {
         toast.success("Review added successfully");
-        let sorted = res.data.sort((a, b) => a.id - b.id);
+        let sorted = res.data.sort(
+          (a, b) => new Date(b.created_on) - new Date(a.created_on)
+        );
         setReviews(sorted);
         window.scrollTo(0, document.body.scrollHeight);
       })
@@ -59,7 +63,9 @@ const Reviews = forwardRef((props, ref) => {
     axios
       .put(`${API}/trucks/${id}/reviews/${updatedReview.id}`, updatedReview)
       .then((res) => {
-        let sorted = res.data.sort((a, b) => a.id - b.id);
+        let sorted = res.data.sort(
+          (a, b) => new Date(b.created_on) - new Date(a.created_on)
+        );
         setReviews(sorted);
       })
       .catch((c) => console.warn("catch", c));

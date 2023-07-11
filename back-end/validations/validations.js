@@ -1,6 +1,6 @@
 const axios = require("axios");
 const defaultImgUrl =
-  "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image";
+  "https://th.bing.com/th/id/OIG.5qFAzT8uFaVmRYqwFv_H?pid=ImgGn";
 
 const defaultImage = (req, res, next) => {
   req.body.image_url.length ? null : (req.body.image_url = defaultImgUrl);
@@ -25,6 +25,24 @@ const formatter = (req, res, next) => {
   }
 };
 
+// const setCoords = async (req, res, next) => {
+//   const location = `${req.body.address} ${req.body.borough} ${req.body.zip}`;
+//   await axios
+//     .get("https://maps.googleapis.com/maps/api/geocode/json", {
+//       params: {
+//         address: location,
+//         key: process.env.MAP_API_KEY,
+//       },
+//     })
+//     .then((res) => {
+//       let coords = res.data.results[0].geometry.location;
+//       req.body = { ...req.body, lng: coords.lng, lat: coords.lat };
+//     })
+//     .catch((err) => {
+//       return err;
+//     });
+//   next();
+// };
 const setCoords = async (req, res, next) => {
   const location = `${req.body.address} ${req.body.borough} ${req.body.zip}`;
   await axios
@@ -34,14 +52,39 @@ const setCoords = async (req, res, next) => {
         key: process.env.MAP_API_KEY,
       },
     })
-    .then((res) => {
-      let coords = res.data.results[0].geometry.location;
-      req.body = { ...req.body, lng: coords.lng, lat: coords.lat };
+    .then((response) => {
+      const results = response.data.results;
+      if (results.length > 0) {
+        const addressComponents = results[0].address_components;
+        const nyTruck = addressComponents.some((component) => {
+          return (
+            component.types.includes("administrative_area_level_1") &&
+            component.short_name === "NY"
+          );
+        });
+        if (nyTruck) {
+          const coords = results[0].geometry.location;
+          req.body = { ...req.body, lng: coords.lng, lat: coords.lat };
+          next();
+        } else {
+          res.status(400).json({
+            error: "Only NYC food trucks can be added at this time.",
+          });
+        }
+      } else {
+        res
+          .status(400)
+          .json({ error: "Invalid address or location not found." });
+      }
     })
     .catch((err) => {
-      return err;
+      console.error(err);
+      res
+        .status(500)
+        .json({
+          error: "Error occurred while geocoding. Please try again later",
+        });
     });
-  next();
 };
 
 module.exports = { formatter, defaultImage, setCoords };
