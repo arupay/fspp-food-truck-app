@@ -139,12 +139,12 @@
     background-image: linear-gradient(90deg, rgba(224, 228, 211, 0.891), rgba(245, 231, 39, 0.951));
 }
 .truck-icons {
-    transition: transform 1.0s ease-in-out;
+    transition: transform .5s ease-in-out;
 }
 
 .truck-icons:hover {
     color: #fec309;
-    transform: rotateY(180deg) scale(1.1);
+    transform: scale(1.5);
 }
 .aboutThisTruck-gradient-line{
     @media(max-width: 500px){

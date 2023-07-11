@@ -68,7 +68,7 @@ function NavBar({ loggedUser }) {
               href="/login"
               onClick={() => handleLogOut()}
             >
-              {loggedUser.email ? "sign out" : "sign in"}
+              {loggedUser.email ? "sign out" : "log in"}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

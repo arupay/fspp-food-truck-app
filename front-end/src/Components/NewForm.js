@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "./NewForm.scss";
+import addtruckimg from "../assets/addtruck2.jpg";
 
 const API = process.env.REACT_APP_API_URL;
 const boroughs = require("../Components/boroughs");

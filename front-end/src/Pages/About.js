@@ -48,7 +48,7 @@ function About() {
           </div>
           <div className=" aboutcontainer__sectionone__img m-4">
             <img
-              src="https://skillicons.dev/icons?i=react,firebase,nodejs,express,postgres,sass,bootstrap&perline=3&theme=light"
+              src="https://skillicons.dev/icons?i=react,firebase,nodejs,express,aws,postgres,sass,bootstrap&perline=3&theme=light"
               alt="skills"
             />
           </div>
