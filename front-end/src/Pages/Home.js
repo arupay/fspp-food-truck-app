@@ -1,11 +1,11 @@
 import truckstop from "../assets/truckstopnoloop.gif";
-import image1 from "../assets/main-image-1.jpeg";
+import image4 from "../assets/main-image-4.jpeg";
 import image2 from "../assets/main-image-2.jpeg";
 import image3 from "../assets/main-image-3.jpeg";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Home({ loggedUser }) {
   const navigate = useNavigate();
 
   return (
@@ -20,7 +20,7 @@ function Home() {
         <div className="d-flex justify-content-between homecontainer__sectionone">
           <div className="d-flex homecontainer__sectionone__img">
             <img
-              src="https://th.bing.com/th/id/OIG.r3tgoz__VK2KW3vXVFoF?pid=ImgGn"
+              src={image4}
               alt=""
               className="homecontainer__sectionone__img__imgattr"
             />
@@ -100,7 +100,13 @@ function Home() {
               </p>
             </div>
             <button
-              onClick={() => navigate(`/login`)}
+              onClick={() => {
+                if (loggedUser && loggedUser.id) {
+                  navigate("/trucks");
+                } else {
+                  navigate("/login");
+                }
+              }}
               className="header1__content__browse"
             >
               Sign Up

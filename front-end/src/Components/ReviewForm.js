@@ -44,7 +44,7 @@ function ReviewForm(props) {
   };
   return (
     <Container>
-      {loggedUser.email && (
+      {loggedUser && loggedUser.email ? (
         <div>
           <div className="formcontainer">
             {props.children}
@@ -124,6 +124,12 @@ function ReviewForm(props) {
               </button>
             </Form>
           </div>
+        </div>
+      ) : (
+        <div className="logInOverLay">
+          <span onClick={() => navigate(`/login`)}>
+            Login To Leave A Review
+          </span>
         </div>
       )}
     </Container>

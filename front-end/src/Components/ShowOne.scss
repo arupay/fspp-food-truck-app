@@ -31,6 +31,7 @@
         }
     &__right{
         width: 50%;
+        position:relative;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         background-color: rgb(233, 222, 222);
@@ -91,7 +92,7 @@
 
     }
     &__icons{
-        padding-bottom: 10px;
+        padding:10px;
     }
     @media (max-width: 500px) {
         &__address {

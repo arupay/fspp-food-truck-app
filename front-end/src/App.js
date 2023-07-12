@@ -91,7 +91,7 @@ function App() {
         <AuthProvider>
           <NavBar loggedUser={loggedUser} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home loggedUser={loggedUser} />} />
             <Route
               path="/trucks"
               element={<IndexPage loggedUser={loggedUser} />}

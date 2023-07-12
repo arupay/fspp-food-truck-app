@@ -40,3 +40,12 @@ CREATE TABLE favorite_trucks (
     user_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
     truck_id INTEGER REFERENCES trucks (id) ON DELETE CASCADE
 );
+
+CREATE TABLE photos (
+    id SERIAL PRIMARY KEY,
+    truck_id INTEGER REFERENCES trucks (id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
+    image_url TEXT NOT NULL,
+    caption TEXT,
+    uploaded_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

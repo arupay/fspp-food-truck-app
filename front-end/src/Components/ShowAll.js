@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Container, Card, Row } from "react-bootstrap";
 import ReviewStars from "./ReviewStars";
@@ -16,7 +16,7 @@ function ShowAll({ loggedUser }) {
   const [faveList, setFaveList] = useState([]);
   const [searchParams] = useSearchParams();
   const borough = searchParams.get("borough");
-  const fetchFavoriteTrucks = async () => {
+  const fetchFavoriteTrucks = useCallback(async () => {
     if (loggedUser && loggedUser.id) {
       try {
         const { data } = await axios.get(`${API}/favorite/${loggedUser.id}`);
@@ -25,7 +25,7 @@ function ShowAll({ loggedUser }) {
         console.log(error); // Handle the error or display an error message
       }
     }
-  };
+  }, [loggedUser]);
   useEffect(() => {
     const fetching = async () => {
       const { data } = await axios.get(`${API}/trucks`);
@@ -33,7 +33,7 @@ function ShowAll({ loggedUser }) {
       fetchFavoriteTrucks();
     };
     fetching();
-  }, [setTrucks, loggedUser]);
+  }, [setTrucks, loggedUser, fetchFavoriteTrucks]);
 
   const navigate = useNavigate();
   const renderTitle = () => {
@@ -53,7 +53,7 @@ function ShowAll({ loggedUser }) {
     event.stopPropagation();
     if (loggedUser && loggedUser.id) {
       axios
-        .post(`${API}/favorite/`, {
+        .post(`${API}/favorite`, {
           user_id: loggedUser.id,
           truck_id: truckId,
         })
