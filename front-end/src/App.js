@@ -92,7 +92,10 @@ function App() {
           <NavBar loggedUser={loggedUser} />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/trucks" element={<IndexPage />} />
+            <Route
+              path="/trucks"
+              element={<IndexPage loggedUser={loggedUser} />}
+            />
             <Route
               path="/trucks/:id"
               element={<ShowPage loggedUser={loggedUser} />}

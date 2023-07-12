@@ -41,7 +41,6 @@ function EditForm({ loggedUser }) {
           navigate(`/trucks`);
         })
         .catch((e) => {
-          console.log(e);
           toast.error("Error updating truck");
         });
     } else {

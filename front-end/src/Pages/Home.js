@@ -14,9 +14,7 @@ function Home() {
         <h1 className="index-title-text">NYC'S BEST FOOD TRUCKS</h1>
       </span>
       <div className="header1">
-        <div className="header1__content">
-          <img className="header1__content__img" src={truckstop} alt="logo" />
-        </div>
+        <div className="header1__content"></div>
       </div>
       <div className="container homecontainer">
         <div className="d-flex justify-content-between homecontainer__sectionone">

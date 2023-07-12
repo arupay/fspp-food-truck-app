@@ -1,9 +1,9 @@
 import ShowAll from "../Components/ShowAll";
 
-function IndexPage() {
+function IndexPage({ loggedUser }) {
   return (
     <section className="main">
-      <ShowAll />
+      <ShowAll loggedUser={loggedUser} />
     </section>
   );
 }

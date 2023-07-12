@@ -1,8 +1,10 @@
 import React from "react";
 import "./Footer.scss";
 import transparentlogo from "../assets/transparent-logo-inverted.png";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Footer(props) {
+  const navigate = useNavigate();
   return (
     <footer className="py-3">
       <div className="container">
@@ -42,7 +44,7 @@ function Footer(props) {
                 <a href="/about">Our Story</a>
               </li>
               <li>
-                <a href="/https://www.linkedin.com/in/augusto-rupay-a07a286b/">
+                <a href="https://www.linkedin.com/in/augusto-rupay-a07a286b/">
                   The Developer
                 </a>
               </li>

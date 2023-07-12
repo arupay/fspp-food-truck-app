@@ -57,6 +57,31 @@
     font-size: 16px;
     font-weight: 600;
   }
+.hearticon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.hearticon {
+    transition: transform 0.3s;
+  }
+  
+.hearticon.bounce {
+    animation: heartBounce 0.5s;
+  }
+  
+  @keyframes heartBounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
 
 .card-img-overlay {
     background: linear-gradient(0deg, rgba(34, 32, 32, 0.5) 25%, rgb(57, 59, 65) 100%);
@@ -72,5 +97,6 @@
     
 }
    
+
 
   
