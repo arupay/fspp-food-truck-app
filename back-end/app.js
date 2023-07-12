@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const trucksController = require("./controllers/trucksController");
 const usersController = require("./controllers/usersController");
+const favoriteController = require("./controllers/favoriteController");
 
 //CONFIGURATION
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/trucks", trucksController);
 app.use("/users", usersController);
+app.use("/favorite", favoriteController);
 
 //Routes
 app.get("/", (req, res) => {
