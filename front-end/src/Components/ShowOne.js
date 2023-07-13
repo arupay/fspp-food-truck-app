@@ -7,18 +7,25 @@ import TruckMap from "../Components/TruckMap";
 import Reviews from "./Reviews";
 import "./ShowOne.scss";
 import { FiEdit2 } from "react-icons/fi";
-import { AiOutlineDelete, AiOutlineComment } from "react-icons/ai";
-import { MdOutlineAddAPhoto } from "react-icons/md";
+import {
+  AiOutlineDelete,
+  AiOutlineComment,
+  AiOutlineCloudUpload,
+} from "react-icons/ai";
+import { BsImages } from "react-icons/bs";
 import ImageUpload from "../Pages/ImageUpload";
+import TruckImageGallery from "./TruckImageGallery";
 import { toast } from "react-toastify";
-import ReactModal from "react-modal";
+import Modal from "react-modal";
 const API = process.env.REACT_APP_API_URL;
 
 function ShowOne({ loggedUser }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const reviewRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFileUploadModalOpen, setIsFileUploadModalOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [reviews, setReviews] = useState([]);
   const [truck, setTruck] = useState([]);
   useEffect(() => {
     axios
@@ -29,22 +36,18 @@ function ShowOne({ loggedUser }) {
       .catch((err) => {
         navigate("/not-found");
       });
-  }, [id, navigate]);
-
-  const handleOpenModal = () => {
-    if (loggedUser && loggedUser.id) {
-      setIsModalOpen(true);
-    } else {
-      toast.info("You must sign up or log in to add photos", {
-        position: toast.POSITION.BOTTOM_RIGHT,
+    axios
+      .get(`${API}/trucks/${id}/reviews`)
+      .then((res) => {
+        let sorted = res.data.sort(
+          (a, b) => new Date(b.created_on) - new Date(a.created_on)
+        );
+        setReviews(sorted);
+      })
+      .catch((err) => {
+        return err;
       });
-      navigate("/login");
-    }
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  }, [id, navigate, loggedUser]);
 
   const handleReviewScroll = () => {
     const reviewElement = reviewRef.current;
@@ -54,13 +57,60 @@ function ShowOne({ loggedUser }) {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
-  const customModalStyles = {
+  const ratingsCalc = (reviews) => {
+    const avg =
+      reviews.reduce((r, { rating }) => r + Number(rating), 0) / reviews.length;
+    let roundedDown = Math.floor(avg);
+    if (isNaN(avg)) {
+      return 0;
+    }
+    if (avg - roundedDown < 0.5) {
+      return roundedDown;
+    }
+    return roundedDown + 0.5;
+  };
+  //GALLERY MODAL LOGIC
+  Modal.setAppElement("#root");
+  function openGalleryModal() {
+    document.body.style.overflow = "hidden"; // Disable scroll
+    setIsGalleryOpen(true);
+  }
+  function afterOpenModal() {}
+  function closeGalleryModal() {
+    document.body.style.overflow = "visible"; // Disable scroll
+    setIsGalleryOpen(false);
+  }
+  // const customGalleryStyles = {
+  //   content: {
+  //     marginTop: "150px",
+  //   },
+  // };
+
+  //File Upload MODAL LOGIC
+
+  const handleFileUploadOpenModal = () => {
+    if (loggedUser && loggedUser.id) {
+      setIsFileUploadModalOpen(true);
+    } else {
+      toast.info("You must sign up or log in to add photos", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+      navigate("/login");
+    }
+  };
+
+  const handleCloseFileUploadModal = () => {
+    setIsFileUploadModalOpen(false);
+  };
+
+  const customUploadModalStyle = {
     content: {
       width: "400px", // Adjust the width as desired
       height: "300px", // Adjust the height as desired
       margin: "auto",
     },
   };
+
   const handleDelete = (e) => {
     e.preventDefault();
     axios
@@ -80,14 +130,17 @@ function ShowOne({ loggedUser }) {
         </h1>
       </span>
       <Container className="aboutThisTruck my-3 ">
-        <div className="aboutThisTruck__imgctr">
+        <div className="aboutThisTruck__imgctr position-relative">
           <img
             alt="truck"
             src={truck.image_url}
             className="aboutThisTruck__imgctr aboutThisTruck__imgctr__imgAttr"
           />
+          <div className="gallery-modal-button" onClick={openGalleryModal}>
+            <BsImages size="2em" /> Photos
+          </div>
         </div>
-        <div className="aboutThisTruck__right d-flex flex-column justify-content-center align-items-center">
+        <div className="aboutThisTruck__right d-flex flex-column justify-content-between align-items-center">
           <div className="pt-2 aboutThisTruck__rightimage">
             <img
               className="addedbyimg"
@@ -107,31 +160,35 @@ function ShowOne({ loggedUser }) {
             {truck.address} {truck.borough}, NY, {truck.zip}
           </div>
           <div className="aboutThisTruck__about">{truck.about}</div>
-          <div className="d-flex justify-content-around w-100 my-2 aboutThisTruck__icons">
+          <div className="d-flex justify-content-around w-100  truck_icons">
             {loggedUser.id === truck.added_by && (
-              <>
+              <div className="truck-icon">
                 <FiEdit2
-                  className="truck-icons"
+                  title="edit"
                   size="2em"
                   onClick={() => navigate(`/trucks/${id}/edit`)}
                 />
-                <AiOutlineDelete
-                  className="truck-icons"
-                  size="2em"
-                  onClick={handleDelete}
-                />
-              </>
+                Edit
+              </div>
             )}
-            <AiOutlineComment
-              size="2em"
-              className="truck-icons"
-              onClick={handleReviewScroll}
-            />
-            <MdOutlineAddAPhoto
-              className="truck-icons"
-              size="2em"
-              onClick={handleOpenModal}
-            />
+            {loggedUser.id === truck.added_by && (
+              <div className="truck-icon">
+                <AiOutlineDelete size="2em" onClick={handleDelete} />
+                Delete
+              </div>
+            )}
+
+            <div className="truck-icon">
+              <AiOutlineComment size="2em" onClick={handleReviewScroll} />
+              Comment
+            </div>
+            <div className="truck-icon">
+              <AiOutlineCloudUpload
+                size="2em"
+                onClick={handleFileUploadOpenModal}
+              />
+              Upload Photo
+            </div>
           </div>
         </div>
       </Container>
@@ -141,16 +198,61 @@ function ShowOne({ loggedUser }) {
         </h1>
       </span>
       {truck.id && <TruckMap latitude={truck.lat} longitude={truck.lng} />}
+      {/**GALLERY MODAL */}
+      <Reviews
+        ref={reviewRef}
+        id={id}
+        loggedUser={loggedUser}
+        reviews={reviews}
+        setReviews={setReviews}
+        ratingsCalc={ratingsCalc}
+      />
+      <Modal
+        isOpen={isGalleryOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeGalleryModal}
+        className={`shadow p-4`}
+        style={{
+          overlay: {
+            position: "fixed",
+            zIndex: 1020,
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(50, 50, 50, .9)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          content: {
+            background: "white",
+            width: "50rem",
+            maxWidth: "calc(100vw)",
+            maxHeight: "calc(100vh)",
+            overflowY: "auto",
+            position: "relative",
+            border: "1px solid #ccc",
+            borderRadius: "1rem",
+          },
+        }}
+      >
+        <TruckImageGallery
+          closeModal={closeGalleryModal}
+          truck={truck}
+          ratingsCalc={ratingsCalc}
+          reviews={reviews}
+        />
 
-      <Reviews ref={reviewRef} id={id} loggedUser={loggedUser} />
-      <ReactModal
-        isOpen={isModalOpen}
-        onRequestClose={handleCloseModal}
-        style={customModalStyles}
-        // Add any necessary props or styles to configure the modal
+        {/**PHOTO UPLOAD MODAL */}
+      </Modal>
+      <Modal
+        isOpen={isFileUploadModalOpen}
+        onRequestClose={handleCloseFileUploadModal}
+        style={customUploadModalStyle}
       >
         <ImageUpload userId={loggedUser.id} truckId={id} />
-      </ReactModal>
+      </Modal>
     </div>
   );
 }

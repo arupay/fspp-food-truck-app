@@ -1,6 +1,10 @@
 const express = require("express");
 const photosController = express.Router();
-const { getAllPhotos, postPhoto } = require("../queries/photosqueries");
+const {
+  getAllPhotos,
+  postPhoto,
+  getPhotosByTruckId,
+} = require("../queries/photosqueries");
 
 // Get all photos
 photosController.get("/", async (req, res) => {
@@ -10,6 +14,17 @@ photosController.get("/", async (req, res) => {
   } catch (error) {
     console.log(error.message || error);
     res.status(500).json({ success: false, error: error.message || error });
+  }
+});
+
+photosController.get("/truck/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const photos = await getPhotosByTruckId(id);
+    res.status(200).json({ success: true, payload: photos });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, error: error });
   }
 });
 

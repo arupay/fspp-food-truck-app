@@ -11,6 +11,18 @@ const getAllPhotos = async () => {
   }
 };
 
+const getPhotosByTruckId = async (truckId) => {
+  try {
+    const photos = await db.any("SELECT * FROM photos WHERE truck_id = $1", [
+      truckId,
+    ]);
+    return photos;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
+
 const postPhoto = async (image_url, truck_id, user_id, caption = null) => {
   try {
     const query = `
@@ -34,4 +46,5 @@ const postPhoto = async (image_url, truck_id, user_id, caption = null) => {
 module.exports = {
   getAllPhotos,
   postPhoto,
+  getPhotosByTruckId,
 };

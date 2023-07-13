@@ -8,21 +8,21 @@ import Stars from "./Stars";
 const API = process.env.REACT_APP_API_URL;
 
 const Reviews = forwardRef((props, ref) => {
-  const { id, loggedUser } = props;
-  const [reviews, setReviews] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/trucks/${id}/reviews`)
-      .then((res) => {
-        let sorted = res.data.sort(
-          (a, b) => new Date(b.created_on) - new Date(a.created_on)
-        );
-        setReviews(sorted);
-      })
-      .catch((err) => {
-        return err;
-      });
-  }, [id, loggedUser]);
+  const { id, loggedUser, reviews, setReviews, ratingsCalc } = props;
+  // const [reviews, setReviews] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API}/trucks/${id}/reviews`)
+  //     .then((res) => {
+  //       let sorted = res.data.sort(
+  //         (a, b) => new Date(b.created_on) - new Date(a.created_on)
+  //       );
+  //       setReviews(sorted);
+  //     })
+  //     .catch((err) => {
+  //       return err;
+  //     });
+  // }, [id, loggedUser]);
 
   const handleAdd = (newReview) => {
     axios
@@ -69,18 +69,6 @@ const Reviews = forwardRef((props, ref) => {
         setReviews(sorted);
       })
       .catch((c) => console.warn("catch", c));
-  };
-  const ratingsCalc = (reviews) => {
-    const avg =
-      reviews.reduce((r, { rating }) => r + Number(rating), 0) / reviews.length;
-    let roundedDown = Math.floor(avg);
-    if (isNaN(avg)) {
-      return 0;
-    }
-    if (avg - roundedDown < 0.5) {
-      return roundedDown;
-    }
-    return roundedDown + 0.5;
   };
 
   return (

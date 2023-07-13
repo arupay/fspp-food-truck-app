@@ -1,0 +1,108 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    background-color: rgb(246, 238, 238);
+    padding: 0 20px 0 20px; /* top right bottom left */
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+      padding:10px;
+    }
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+  }
+
+  .gallery-item {
+    position:relative;
+    height: 400px;
+    transition: transform 0.5s ease;
+  }
+  
+  
+  .gallery-item img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+  }
+
+  .gallerytop {
+    width: 100%;
+    min-height: 75px;
+    display: flex;
+    position :relative;
+    @media (max-width: 500px) {
+        min-height: 50px;
+        padding-bottom: 10px;
+      }
+    &__title{
+        font-size: 27px;
+        letter-spacing: 2px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800px;
+        padding-left: 20px;
+        padding-top: 5px;
+        @media (max-width: 500px) {
+            font-size:15px;
+          }
+
+    }
+    &__backbutton {
+        font-family: Helvettica;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        &__text{
+          text-transform: uppercase;
+          font-weight:600;
+        }
+        @media (max-width: 500px) {
+            position:absolute;
+            top: 0;
+            right: 0;
+            align-self: center;
+            font-size:15px;
+          }
+      }
+  }
+  .emptyalbumctr__img{
+    width: 500px;
+    @media (max-width: 500px) {
+      width: 300px;
+    }
+  }
+
+.truckimageinfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    text-align:center;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.7); 
+    border-top: 2px solid whitesmoke;
+    transition: transform 0.5s ease-out;
+}
+
+.truckimageinfo__caption {
+  font-size: 5px; 
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.9s ease;
+}
+
+.truckimageinfo:hover .truckimageinfo__caption {
+  font-size: 16px;
+  padding: 10px 0px;
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -18,7 +18,7 @@ function ImageUpload(props) {
     formData.append("file", file);
     formData.append("caption", caption);
     formData.append("user_id", props.userId);
-    formData.append("truckId", props.truckId);
+    formData.append("truck_id", props.truckId);
 
     try {
       const response = await axios.post(`${API}/multer/upload`, formData);

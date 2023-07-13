@@ -27,34 +27,33 @@ INSERT INTO trucks (added_by, name, address, zip, borough, category, image_url, 
 (1, 'Lomito Spot','86- 13 Northern Blvd', 11372, 'Queens', 'Latin', 'https://s3-media0.fl.yelpcdn.com/bphoto/OhMopfykk-XbSAO69gxH1A/o.jpg','Experience a gastronomic delight at Lomito Spot, a Colombian/Latin food truck located on Northern Blvd in Jackson Heights, Queens. The friendly and prompt staff serve up incredibly delicious food, with the Lomitos Arabe stealing the show. Made to order, this flavorful dish features tender meat, a perfectly toasted wrap, and an amazing sauce.',40.7562389, -73.8811161 );
 
 INSERT INTO reviews (trucks_id, reviewer, content, rating, created_on) VALUES
-('1', 2, 'My friend told me about this taco spot months ago and Ive been dying to make the trek to go and finally went. I mean what can I say it was truly worth the trip. Absolutely delicious!!! Take my word for it....just go and get some!!', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
-('1', 3, 'Best Birria Ive ever had.  Service is quick, this location is extremely popular but the line moves quickly. Food is always consistently good. I recommend you try all the items on the menu. The consomé is a must, definitely get the large.
+(1, 2, 'My friend told me about this taco spot months ago and Ive been dying to make the trek to go and finally went. I mean what can I say it was truly worth the trip. Absolutely delicious!!! Take my word for it....just go and get some!!', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
+(1, 3, 'Best Birria Ive ever had.  Service is quick, this location is extremely popular but the line moves quickly. Food is always consistently good. I recommend you try all the items on the menu. The consomé is a must, definitely get the large.
 ', 5, CURRENT_TIMESTAMP - INTERVAL '2 day'),
-('1',4, 'Tried it on a whim. Absolutely divine tacos. Consome is amazing as well. Reminds me of Hungarian Goulash soup.
+(1,4, 'Tried it on a whim. Absolutely divine tacos. Consome is amazing as well. Reminds me of Hungarian Goulash soup.
 ', 4, CURRENT_TIMESTAMP - INTERVAL '3 day'),
-('2', 2, 'Generous portions, great food, good price. Its incredible how they get the meat so tender. Really takeout friendly. Ignore the other carts and trucks and make a b line straight for any halal guys cart you see.
+(2, 2, 'Generous portions, great food, good price. Its incredible how they get the meat so tender. Really takeout friendly. Ignore the other carts and trucks and make a b line straight for any halal guys cart you see.
 ', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
-('2', 4, 'The line was so long but moved up pretty fast. I got a combo platter and its so good! The white sauce is like mayo, adding the right touch to the platter.', 5, CURRENT_TIMESTAMP - INTERVAL '2 day'),
-('2', 3, 'Its getting worse and worse, by the day. Its probably normal when you scale up. You lose the quality against the quantity. And look at that chicken supply traveling through all  the best conditions possible. Over all the food is ok thanks to the legendary white sauce.', 1, CURRENT_TIMESTAMP - INTERVAL '4 day'),
-('2', 5,'Went here after coming out of a radio city event and boy was I glad I did. Definitely lives up to the hype!', 5, CURRENT_TIMESTAMP - INTERVAL '3 day'),
-('3', 1,'wow. super juicy and perfectly seasoned meats. this place is the absolute perfect snack to fill up and or save a minute if youre waiting at the dmv around the corner. ', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
-('4', 3,'The best jerk chicken is great, their rice peas, sweet chili shrimp and salmon is great to! Prices are a little steep but you get so much food! Always have leftovers after!', 5, CURRENT_TIMESTAMP - INTERVAL '4 day'),
-('5', 5,'Got sick after eating it.', 2, CURRENT_TIMESTAMP - INTERVAL '2 day'),
-('6', 4,'$14.70 for just falafel rice, no tsziki, only hot sauce... falafels were good. 2 stars bcos its too expensive.', 2, CURRENT_TIMESTAMP - INTERVAL '3 day'),
+(2, 4, 'The line was so long but moved up pretty fast. I got a combo platter and its so good! The white sauce is like mayo, adding the right touch to the platter.', 5, CURRENT_TIMESTAMP - INTERVAL '2 day'),
+(2, 3, 'Its getting worse and worse, by the day. Its probably normal when you scale up. You lose the quality against the quantity. And look at that chicken supply traveling through all  the best conditions possible. Over all the food is ok thanks to the legendary white sauce.', 1, CURRENT_TIMESTAMP - INTERVAL '4 day'),
+(2, 5,'Went here after coming out of a radio city event and boy was I glad I did. Definitely lives up to the hype!', 5, CURRENT_TIMESTAMP - INTERVAL '3 day'),
+(3, 1,'wow. super juicy and perfectly seasoned meats. this place is the absolute perfect snack to fill up and or save a minute if youre waiting at the dmv around the corner. ', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
+(4, 3,'The best jerk chicken is great, their rice peas, sweet chili shrimp and salmon is great to! Prices are a little steep but you get so much food! Always have leftovers after!', 5, CURRENT_TIMESTAMP - INTERVAL '4 day'),
+(5, 5,'Got sick after eating it.', 2, CURRENT_TIMESTAMP - INTERVAL '2 day'),
+(5, 4,'$14.70 for just falafel rice, no tsziki, only hot sauce... falafels were good. 2 stars bcos its too expensive.', 2, CURRENT_TIMESTAMP - INTERVAL '3 day'),
 (7,1,'Mom''s Momo food truck is the real deal when it comes to dumplings. My only complaint is that they''re so addictive—I can''t stop popping these delicious dumplings like bubble wrap!',5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
 (8, 1, 'Uncle Gussy is a hidden gem in Manhattan for Greek food enthusiasts like me. The flavors are authentic, and the quality of the ingredients is exceptional.', 5, CURRENT_TIMESTAMP - INTERVAL '2 day'),
 (8, 2, 'I had a disappointing experience,the service was also slow, which added to my frustration. Overall, it did not live up to my expectations.', 2, CURRENT_TIMESTAMP - INTERVAL '3 day'),
-('9', 3, 'When I first laid my eyes on this sandwich, I mean it was aesthetically pleasing but when I took my first bite, wow!!! Totally a mouthful and well damn thats how I like my food! Jimmy two times is my favorite. My only complaint which doesnt even deserve a star removal, is that the prosciutto is not aged enough and is way too chewy when they load it up.', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
-('9', 4, '
-Not a good experience.  If you have a clear schedule and a lot of time, it could be worth the try.  If you are busy and looking for a quick lunch, I would not recommend. ', 2, CURRENT_TIMESTAMP - INTERVAL '2 day'),
-('9', 2, 'Ive had this place twice now, first time I got the big Pauly and second time I got the Joey shakes. Both were very large sandwiches and both were delicious. Big pauly is a chicken parm hero thats better than most pizzerias in the city. If you see the truck make it a point to stop by.', 5, CURRENT_TIMESTAMP - INTERVAL '3 day'),
-('10', 2, 'I''ve been a regular customer here . Its delicious. Their fish taco, Mexican sausage taco and carne enchilada (spicy pork) are my favorite. Usually three tacos fills me up. They are actually really big and wrapped in two soft tortillas . It'' very savory and satisfying', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
-('11', 2,'We asked Anton''s dumplings to do an event at Big Deal Casino and they were out of this world! In spite of having a work emergency, they showed up and feed our guests delicious dumplings. Thanks guys!', 5,CURRENT_TIMESTAMP - INTERVAL '2 day'),
-('11', 3, 'These are the PERFECT delivery food. The dumplings are well-cooked, not doughy, and I love the original flavors. The large comes with about 30 bite sized dumplings! Love it!', 4, CURRENT_TIMESTAMP - INTERVAL '3 day'),
+(9, 3, 'When I first laid my eyes on this sandwich, I mean it was aesthetically pleasing but when I took my first bite, wow!!! Totally a mouthful and well damn thats how I like my food! Jimmy two times is my favorite. My only complaint which doesnt even deserve a star removal, is that the prosciutto is not aged enough.', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
+(9, 4, 'Not a good experience.  If you have a clear schedule and a lot of time, it could be worth the try.  If you are busy and looking for a quick lunch, I would not recommend. ', 2, CURRENT_TIMESTAMP - INTERVAL '2 day'),
+(9, 2, 'Ive had this place twice now, first time I got the big Pauly and second time I got the Joey shakes. Both were very large sandwiches and both were delicious. Big pauly is a chicken parm hero thats better than most pizzerias in the city. If you see the truck make it a point to stop by.', 5, CURRENT_TIMESTAMP - INTERVAL '3 day'),
+(10, 2, 'I''ve been a regular customer here . Its delicious. Their fish taco, Mexican sausage taco and carne enchilada (spicy pork) are my favorite. Usually three tacos fills me up. They are actually really big and wrapped in two soft tortillas . It'' very savory and satisfying', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
+(11, 2,'We asked Anton''s dumplings to do an event at Big Deal Casino and they were out of this world! In spite of having a work emergency, they showed up and feed our guests delicious dumplings. Thanks guys!', 5,CURRENT_TIMESTAMP - INTERVAL '2 day'),
+(11, 3, 'These are the PERFECT delivery food. The dumplings are well-cooked, not doughy, and I love the original flavors. The large comes with about 30 bite sized dumplings! Love it!', 4, CURRENT_TIMESTAMP - INTERVAL '3 day'),
 (12, 2, 'I stumbled upon this food truck while exploring the neighborhood, and Im so glad I did! The Brunch Box serves mouthwatering American cuisine with a unique twist. Their dishes are packed with flavor and made with fresh ingredients. Highly recommended!', 5, CURRENT_TIMESTAMP - INTERVAL '1 day'),
 (12, 3, 'As a food enthusiast, Ive tried numerous food trucks, but The Brunch Box truly stands out. The quality of their food is exceptional, and the service is top-notch. Whether youre craving a hearty breakfast or a delicious lunch, this truck wont disappoint. I cant wait to go back!', 4, CURRENT_TIMESTAMP - INTERVAL '2 day'),
 (12, 4, 'The Brunch Box is my go-to food truck for a quick and satisfying meal. Their menu offers a great variety of American dishes that are perfect for any time of the day. The portions are generous, and the prices are reasonable. Dont miss out on their mouthwatering sandwiches!', 4, CURRENT_TIMESTAMP - INTERVAL '3 day'),
-(13, 5, 'The BBQ Truck in Elmhurst is a hidden gem for Chinese BBQ lovers. The food is outstanding, and the aroma is irresistible. The chicken sticks are tender, juicy, and packed with flavor. The small tables create a cozy atmosphere that enhances the dining experience. I cant wait to go back and try more of their delectable skewers!', 4, CURRENT_TIMESTAMP - INTERVAL '1 day'),
+(13, 5, 'The BBQ Truck in Elmhurst is a hidden gem for Chinese BBQ lovers. The food is outstanding, and the aroma is irresistible. The chicken sticks are tender, juicy, and packed with flavor. The small tables create a cozy atmosphere that enhances the dining experience. ', 4, CURRENT_TIMESTAMP - INTERVAL '1 day'),
 (13, 2, 'I recently visited the BBQ Truck in Queens, and it was a delightful experience. The Chinese BBQ skewers they offer are absolutely mouthwatering. The flavors are rich and authentic, taking me back to the streets of China. The cozy ambiance adds to the overall charm of this food truck. Highly recommended for BBQ enthusiasts!', 5, CURRENT_TIMESTAMP - INTERVAL '2 day'),
 (14, 3, 'I had an amazing dining experience at Graffitery food truck in Staten Island. Their Kings Platter is a must-try! The variety of flavors in this dish is incredible, from the creamy cheese sauce on the Chopped Chees to the juicy and flavorful Nashville Hot Chicken. Each bite was a delight, and I cant wait to go back for more!', 5, CURRENT_TIMESTAMP - INTERVAL '3 day'),
 (14, 2, 'Unfortunately, my experience at Graffitery food truck was disappointing. The food did not live up to my expectations. The flavors were bland, and the portion sizes were small compared to the prices. The Nashville Hot Chicken lacked the promised spiciness.', 2,CURRENT_TIMESTAMP - INTERVAL '1 day'),
@@ -68,3 +67,12 @@ VALUES
 (1, 3),
 (1, 5),
 (1, 7);
+
+INSERT INTO photos (truck_id, user_id, image_url, caption, uploaded_at)
+VALUES
+(15, 1, 'https://s3-media0.fl.yelpcdn.com/bphoto/JaF7wNkRFTSizA6RGmrdLA/o.jpg', 'Cant believe how good this was omg def coming back', '2023-01-05 14:23:11'),
+(15, 1, 'https://s3-media0.fl.yelpcdn.com/bphoto/YrBODeKK1-flWH-Yx5lS4w/o.jpg', 'Lomito being prepared', '2023-01-07 16:45:32'),
+(15, 1, 'https://s3-media0.fl.yelpcdn.com/bphoto/bWjNJSdQWrpZvuWrHAuJYw/o.jpg', 'Tasty tacos de lomito', '2023-01-12 18:34:19'),
+(15, 1, 'https://s3-media0.fl.yelpcdn.com/bphoto/WpifUQMda0m5qFpWh9Wv7g/o.jpg', 'Delicious lomito meal', '2023-01-15 21:14:36'),
+(15, 1, 'https://s3-media0.fl.yelpcdn.com/bphoto/JeVdlZ8hE-vyAKIzlXujrg/o.jpg', 'yum', '2023-01-12 18:34:19'),
+(15, 1, 'https://s3-media0.fl.yelpcdn.com/bphoto/QHqwGLrUFAV51crc-AQ26A/o.jpg', 'wow', '2023-01-15 21:14:36');

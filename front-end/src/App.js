@@ -23,6 +23,7 @@ import About from "./Pages/About";
 import RenderMapFn from "./Components/RenderMapFn";
 import LoginPage from "./Pages/LoginPage";
 import ScrollToTop from "./Components/ScrollToTop";
+import TruckImageGallery from "./Components/TruckImageGallery";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -116,6 +117,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<ErrorPage />} />
+            <Route path="/gallery" element={<TruckImageGallery />} />
           </Routes>
           <Footer />
         </AuthProvider>

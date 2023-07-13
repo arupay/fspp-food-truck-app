@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    max-height: 700px;
+    height: 600px;
     @media (max-width: 500px) {
         flex-direction: column;
-        max-height:900px;
+        height:800px;
 
     }
     &__imgctr{
@@ -19,7 +19,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 50% 0%;
+            object-position: 50% 50%;
             position:relative;
          }
          @media(max-width: 500px){
@@ -34,7 +34,7 @@
         position:relative;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        background-color: rgb(233, 222, 222);
+        background-color: rgb(238, 234, 234);
         @media (max-width: 991px){
             width: 100%;
             border-top-right-radius: 0px;
@@ -50,7 +50,7 @@
         font-weight: 700;
         letter-spacing: 2px;
         @media(max-width: 500px){
-            padding-top:5px;
+            padding:5px 0;
             font-size: 13px;
         }
     }
@@ -87,12 +87,8 @@
         @media(max-width: 500px){
             padding: 10px;
             font-size: 12.5px;
-    
         }
 
-    }
-    &__icons{
-        padding:10px;
     }
     @media (max-width: 500px) {
         &__address {
@@ -124,7 +120,11 @@
       }
 }
 
-
+.truck_icons{
+    align-self: flex-start;
+    padding-bottom: 10px;
+    // bottom:0;
+}
 
 
 .addedbyimg{
@@ -145,17 +145,47 @@
     width: 90%;
     background-image: linear-gradient(90deg, rgba(224, 228, 211, 0.891), rgba(245, 231, 39, 0.951));
 }
-.truck-icons {
+.truck-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    font-size: 15px;
     transition: transform .5s ease-in-out;
+    @media(max-width: 500px){
+        font-size: 12px;
+    }
 }
 
-.truck-icons:hover {
-    color: #fec309;
-    transform: scale(1.5);
+.truck-icon:hover {
+    transform: scale(1.2);
 }
 .aboutThisTruck-gradient-line{
     @media(max-width: 500px){
         margin-top:1em;
         margin-bottom:1em;
     }
+}
+
+.gallery-modal-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 18px; 
+    color: white;
+    text-align:center;
+    padding: 10px;
+    /* overlay background */
+    background-color: rgba(0,0,0,0.5); 
+    border-top: 2px solid whitesmoke;
+    transition: transform 0.2s ease-out;
+
+  }
+.gallery-modal-button:hover {
+    transform: scale(1.2);
+}
+
+.customoverlay {
+    background-color: rgba(226, 63, 63, 0.5); /* light grey */
 }

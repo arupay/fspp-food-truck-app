@@ -123,7 +123,7 @@ function LoginForm(props) {
         <div className="loginsection__container__curview signupbx">
           <div className="d-flex justify-content-center align-items-center loginsection__container__curview__formbx signupbx__formbx">
             <form onSubmit={handleSubmit}>
-              <h2 className="text-uppercase">Create An Account</h2>
+              <h2 className="text-uppercase">Register</h2>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
