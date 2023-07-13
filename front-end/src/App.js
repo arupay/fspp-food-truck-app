@@ -23,7 +23,6 @@ import About from "./Pages/About";
 import RenderMapFn from "./Components/RenderMapFn";
 import LoginPage from "./Pages/LoginPage";
 import ScrollToTop from "./Components/ScrollToTop";
-import ImageUpload from "./Pages/ImageUpload";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -115,7 +114,6 @@ function App() {
               element={<RenderMapFn trucksCoords={trucksCoords} />}
             />
             <Route path="/about" element={<About />} />
-            <Route path="/uploadtest" element={<ImageUpload />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>

@@ -9,14 +9,16 @@ import "./ShowOne.scss";
 import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineDelete, AiOutlineComment } from "react-icons/ai";
 import { MdOutlineAddAPhoto } from "react-icons/md";
-
+import ImageUpload from "../Pages/ImageUpload";
+import { toast } from "react-toastify";
+import ReactModal from "react-modal";
 const API = process.env.REACT_APP_API_URL;
 
 function ShowOne({ loggedUser }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const reviewRef = useRef(null);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [truck, setTruck] = useState([]);
   useEffect(() => {
     axios
@@ -28,6 +30,22 @@ function ShowOne({ loggedUser }) {
         navigate("/not-found");
       });
   }, [id, navigate]);
+
+  const handleOpenModal = () => {
+    if (loggedUser && loggedUser.id) {
+      setIsModalOpen(true);
+    } else {
+      toast.info("You must sign up or log in to add photos", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+      navigate("/login");
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleReviewScroll = () => {
     const reviewElement = reviewRef.current;
     if (reviewElement) {
@@ -36,7 +54,13 @@ function ShowOne({ loggedUser }) {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
-
+  const customModalStyles = {
+    content: {
+      width: "400px", // Adjust the width as desired
+      height: "300px", // Adjust the height as desired
+      margin: "auto",
+    },
+  };
   const handleDelete = (e) => {
     e.preventDefault();
     axios
@@ -103,7 +127,11 @@ function ShowOne({ loggedUser }) {
               className="truck-icons"
               onClick={handleReviewScroll}
             />
-            <MdOutlineAddAPhoto className="truck-icons" size="2em" />
+            <MdOutlineAddAPhoto
+              className="truck-icons"
+              size="2em"
+              onClick={handleOpenModal}
+            />
           </div>
         </div>
       </Container>
@@ -115,6 +143,14 @@ function ShowOne({ loggedUser }) {
       {truck.id && <TruckMap latitude={truck.lat} longitude={truck.lng} />}
 
       <Reviews ref={reviewRef} id={id} loggedUser={loggedUser} />
+      <ReactModal
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseModal}
+        style={customModalStyles}
+        // Add any necessary props or styles to configure the modal
+      >
+        <ImageUpload userId={loggedUser.id} truckId={id} />
+      </ReactModal>
     </div>
   );
 }

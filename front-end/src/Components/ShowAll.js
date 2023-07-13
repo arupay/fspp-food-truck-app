@@ -70,7 +70,7 @@ function ShowAll({ loggedUser }) {
           // Handle the error if needed
         });
     } else {
-      toast.info("You must log in to use this functionality", {
+      toast.info("You must log in or sign up to favorite a truck", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
       navigate("/login");
