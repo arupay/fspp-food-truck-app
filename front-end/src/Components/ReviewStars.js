@@ -1,11 +1,17 @@
 import Stars from "./Stars";
 
 function ReviewStars({ average_score, total_reviews }) {
-  const ratingsCalc = (rating) => {
-    const num = parseFloat(rating);
-    const rounded = Math.round(num * 2) / 2;
-    return rounded;
+  const ratingsCalc = (avg) => {
+    let roundedDown = Math.floor(avg);
+    if (isNaN(avg)) {
+      return 0;
+    }
+    if (avg - roundedDown < 0.5) {
+      return roundedDown;
+    }
+    return roundedDown + 0.5;
   };
+
   return (
     <>
       <Stars num={ratingsCalc(average_score)} />

@@ -133,6 +133,9 @@ function ShowOne({ loggedUser }) {
         console.log(e);
       });
   };
+  const handleImageUploadSuccess = () => {
+    openGalleryModal();
+  };
   return (
     <div>
       <span id="truck" className="index-title">
@@ -173,31 +176,27 @@ function ShowOne({ loggedUser }) {
           <div className="aboutThisTruck__about">{truck.about}</div>
           <div className="d-flex justify-content-around w-100  truck_icons">
             {loggedUser.id === truck.added_by && (
-              <div className="truck-icon">
-                <FiEdit2
-                  title="edit"
-                  size="2em"
-                  onClick={() => navigate(`/trucks/${id}/edit`)}
-                />
+              <div
+                className="truck-icon"
+                onClick={() => navigate(`/trucks/${id}/edit`)}
+              >
+                <FiEdit2 title="edit" size="2em" />
                 Edit
               </div>
             )}
             {loggedUser.id === truck.added_by && (
-              <div className="truck-icon">
-                <AiOutlineDelete size="2em" onClick={handleDelete} />
+              <div className="truck-icon" onClick={handleDelete}>
+                <AiOutlineDelete size="2em" />
                 Delete
               </div>
             )}
 
-            <div className="truck-icon">
-              <AiOutlineComment size="2em" onClick={handleReviewScroll} />
+            <div className="truck-icon" onClick={handleReviewScroll}>
+              <AiOutlineComment size="2em" />
               Comment
             </div>
-            <div className="truck-icon">
-              <AiOutlineCloudUpload
-                size="2em"
-                onClick={handleFileUploadOpenModal}
-              />
+            <div className="truck-icon" onClick={handleFileUploadOpenModal}>
+              <AiOutlineCloudUpload size="2em" />
               Upload Photo
             </div>
           </div>
@@ -240,7 +239,12 @@ function ShowOne({ loggedUser }) {
         style={modalStyles}
         className={`shadow p-4`}
       >
-        <ImageUpload userId={loggedUser.id} truckId={id} />
+        <ImageUpload
+          userId={loggedUser.id}
+          truckId={id}
+          closeModal={handleCloseFileUploadModal}
+          onSuccess={handleImageUploadSuccess}
+        />
       </Modal>
     </div>
   );
