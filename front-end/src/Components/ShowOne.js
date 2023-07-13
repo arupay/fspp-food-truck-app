@@ -80,11 +80,30 @@ function ShowOne({ loggedUser }) {
     document.body.style.overflow = "visible"; // Disable scroll
     setIsGalleryOpen(false);
   }
-  // const customGalleryStyles = {
-  //   content: {
-  //     marginTop: "150px",
-  //   },
-  // };
+  const modalStyles = {
+    overlay: {
+      position: "fixed",
+      zIndex: 1020,
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      background: "rgba(50, 50, 50, .9)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    content: {
+      background: "white",
+      width: "50rem",
+      maxWidth: "calc(100vw)",
+      maxHeight: "calc(100vh)",
+      overflowY: "auto",
+      position: "relative",
+      border: "1px solid #ccc",
+      borderRadius: "1rem",
+    },
+  };
 
   //File Upload MODAL LOGIC
 
@@ -101,14 +120,6 @@ function ShowOne({ loggedUser }) {
 
   const handleCloseFileUploadModal = () => {
     setIsFileUploadModalOpen(false);
-  };
-
-  const customUploadModalStyle = {
-    content: {
-      width: "400px", // Adjust the width as desired
-      height: "300px", // Adjust the height as desired
-      margin: "auto",
-    },
   };
 
   const handleDelete = (e) => {
@@ -212,30 +223,7 @@ function ShowOne({ loggedUser }) {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeGalleryModal}
         className={`shadow p-4`}
-        style={{
-          overlay: {
-            position: "fixed",
-            zIndex: 1020,
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(50, 50, 50, .9)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          },
-          content: {
-            background: "white",
-            width: "50rem",
-            maxWidth: "calc(100vw)",
-            maxHeight: "calc(100vh)",
-            overflowY: "auto",
-            position: "relative",
-            border: "1px solid #ccc",
-            borderRadius: "1rem",
-          },
-        }}
+        style={modalStyles}
       >
         <TruckImageGallery
           closeModal={closeGalleryModal}
@@ -249,7 +237,7 @@ function ShowOne({ loggedUser }) {
       <Modal
         isOpen={isFileUploadModalOpen}
         onRequestClose={handleCloseFileUploadModal}
-        style={customUploadModalStyle}
+        style={modalStyles}
       >
         <ImageUpload userId={loggedUser.id} truckId={id} />
       </Modal>
