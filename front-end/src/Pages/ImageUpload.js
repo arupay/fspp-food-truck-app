@@ -31,7 +31,10 @@ function ImageUpload(props) {
       fileInputRef.current.value = "";
 
       toast.success(
-        "Image uploaded successfully to gallery, below is a preview!"
+        "Image uploaded! Below is a preview, you will rerouted to the gallery.",
+        {
+          autoClose: 5000, // 5 seconds
+        }
       );
       setTimeout(() => {
         props.closeModal();
