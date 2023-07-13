@@ -238,6 +238,7 @@ function ShowOne({ loggedUser }) {
         isOpen={isFileUploadModalOpen}
         onRequestClose={handleCloseFileUploadModal}
         style={modalStyles}
+        className={`shadow p-4`}
       >
         <ImageUpload userId={loggedUser.id} truckId={id} />
       </Modal>
