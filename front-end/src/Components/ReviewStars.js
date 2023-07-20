@@ -1,20 +1,10 @@
 import Stars from "./Stars";
 
 function ReviewStars({ average_score, total_reviews }) {
-  const ratingsCalc = (avg) => {
-    let roundedDown = Math.floor(avg);
-    if (isNaN(avg)) {
-      return 0;
-    }
-    if (avg - roundedDown < 0.5) {
-      return roundedDown;
-    }
-    return roundedDown + 0.5;
-  };
-
+  average_score = average_score === null ? 0 : average_score;
   return (
     <>
-      <Stars num={ratingsCalc(average_score)} />
+      <Stars num={average_score} />
       <span id="reviews">
         {average_score > 0
           ? `${

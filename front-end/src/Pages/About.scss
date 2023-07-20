@@ -9,7 +9,8 @@
     background-size: cover;
     background-position: 30% 50%;
     background-attachment: fixed;
-    @media (max-width: 500) {
+    
+    @media (max-width: 500px) {
         background-image: url("../assets/homebgsm.jpg");
         background-size: fill;
         background-attachment: scroll; //no parallax for mobile;
@@ -18,14 +19,21 @@
     &__mask{
         background-color: rgba(0,0,0,0.5); 
         margin-top: 100px;
-        width: 60%;
+        width: 500px;
         align-self: center;
+        font-size: 18px;
+        @media (max-width: 500px) {
+            font-size: 12px;
+            width: 300px;
+        }
     }
     &__abouttext{
         font-style: oblique;
         letter-spacing: 1px;
         font-weight: 500;
     }
+    
+    
 }
 .aboutcontainer {
 	padding-left: 5.0em;

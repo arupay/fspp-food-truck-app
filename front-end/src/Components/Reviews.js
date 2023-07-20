@@ -9,20 +9,6 @@ const API = process.env.REACT_APP_API_URL;
 
 const Reviews = forwardRef((props, ref) => {
   const { id, loggedUser, reviews, setReviews, ratingsCalc } = props;
-  // const [reviews, setReviews] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API}/trucks/${id}/reviews`)
-  //     .then((res) => {
-  //       let sorted = res.data.sort(
-  //         (a, b) => new Date(b.created_on) - new Date(a.created_on)
-  //       );
-  //       setReviews(sorted);
-  //     })
-  //     .catch((err) => {
-  //       return err;
-  //     });
-  // }, [id, loggedUser]);
 
   const handleAdd = (newReview) => {
     axios

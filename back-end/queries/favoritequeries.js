@@ -28,7 +28,10 @@ const toggleFavorite = async (user_id, truck_id) => {
         SELECT 1 FROM deleted
       )
       RETURNING *,
-               CASE WHEN EXISTS (SELECT 1 FROM deleted) THEN 'delete' ELSE 'insert' END AS action;
+              CASE 
+                WHEN EXISTS (SELECT 1 FROM deleted) 
+              THEN 'delete' ELSE 'insert' 
+              END AS action;
     `;
     const result = await db.oneOrNone(query, [user_id, truck_id]);
     return result;

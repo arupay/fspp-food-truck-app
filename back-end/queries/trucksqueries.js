@@ -1,15 +1,31 @@
 const db = require("../db/dbConfig.js");
 
-const getTrucks = async () => {
+const getTrucks = async (userId) => {
   try {
-    const trucks = await db.any(`
+    let query;
+    if (userId) {
+      query = `
       SELECT t.*, 
              ROUND(AVG(r.rating) * 2) / 2.0 AS average_score,
-             COUNT(r.id) AS total_reviews
+             COUNT(r.id) AS total_reviews,
+      CASE 
+        WHEN ft.user_id = $1 THEN true ELSE false 
+      END AS favorite
       FROM trucks t
       LEFT JOIN reviews r ON t.id = r.trucks_id
-      GROUP BY t.id;
-    `);
+      LEFT JOIN favorite_trucks ft ON t.id = ft.truck_id AND ft.user_id = $1
+      GROUP BY t.id, ft.user_id
+      ORDER BY t.id`;
+    } else {
+      query = `SELECT trucks.*, 
+      ROUND(AVG(reviews.rating) * 2) / 2.0 AS average_score,
+      COUNT(reviews.id) AS total_reviews
+      FROM trucks
+      LEFT JOIN reviews ON trucks.id = reviews.trucks_id
+      GROUP BY trucks.id
+      ORDER BY trucks.id`;
+    }
+    const trucks = await db.any(query, [userId]);
     return trucks;
   } catch (error) {
     console.log(error.message || error);

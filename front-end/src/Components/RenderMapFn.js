@@ -6,7 +6,6 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-
 import Stars from "./Stars";
 
 const RenderMapFn = ({ trucksCoords }) => {
@@ -92,7 +91,13 @@ function Maps({ trucksCoords }) {
                 >
                   {selected[0].name}
                 </div>
-                <Stars num={selected[0].average_score} />
+                <Stars
+                  num={
+                    selected[0].average_score === null
+                      ? 0
+                      : selected[0].average_score
+                  }
+                />
                 <img src={selected[0].image_url} alt="truckiamge" />
                 <div
                   style={{

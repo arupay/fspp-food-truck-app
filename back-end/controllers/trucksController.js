@@ -21,14 +21,15 @@ const {
 
 //GET
 trucks.get("/", async (req, res) => {
-  const trucksObj = await getTrucks();
+  const userId = req.query.userId; // Assuming the user ID is passed as a query parameter
+  console.log(userId);
+  const trucksObj = await getTrucks(userId);
   if (trucksObj) {
-    res.json({ sucess: true, payload: trucksObj });
+    res.json({ success: true, payload: trucksObj });
   } else {
     res.status(404).json("Error");
   }
 });
-
 //GET ONE
 trucks.get("/:id", async (req, res) => {
   const { id } = req.params;

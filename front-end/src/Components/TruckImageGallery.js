@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./TruckImageGallery.scss";
-import { Container } from "react-bootstrap";
-import Loader from "./Loader";
 import { GrReturn } from "react-icons/gr";
 import Stars from "./Stars";
 import emptyalbum from "../assets/emptyalbum.jpg";
@@ -15,7 +13,10 @@ function TruckImageGallery(props) {
     const fetchImages = async () => {
       try {
         const response = await axios.get(`${API}/photos/truck/${truck.id}`);
-        setImages(response.data.payload);
+        let sorted = response.data.payload.sort(
+          (a, b) => new Date(b.uploaded_at) - new Date(a.uploaded_at)
+        );
+        setImages(sorted);
       } catch (error) {
         console.log(error);
       }
@@ -41,9 +42,11 @@ function TruckImageGallery(props) {
           {images.map((image) => (
             <div key={image.id} className="gallery-item">
               <img src={image.image_url} alt={image.caption} />
-              <div className="truckimageinfo">
-                <div className="truckimageinfo__caption">{image.caption}</div>
-              </div>
+              {image.caption && (
+                <div className="truckimageinfo">
+                  <div className="truckimageinfo__caption">{image.caption}</div>
+                </div>
+              )}
             </div>
           ))}
         </div>

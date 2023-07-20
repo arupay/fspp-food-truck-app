@@ -97,6 +97,8 @@
     cursor: pointer; 
 }
    
-
+.favorite-truck {
+  order: -1; /* Moves the favorite truck to the beginning */
+}
 
   

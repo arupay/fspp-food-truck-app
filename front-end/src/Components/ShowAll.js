@@ -13,27 +13,25 @@ const API = process.env.REACT_APP_API_URL;
 
 function ShowAll({ loggedUser }) {
   const [trucks, setTrucks] = useState([]);
-  const [faveList, setFaveList] = useState([]);
   const [searchParams] = useSearchParams();
   const borough = searchParams.get("borough");
-  const fetchFavoriteTrucks = useCallback(async () => {
-    if (loggedUser && loggedUser.id) {
-      try {
-        const { data } = await axios.get(`${API}/favorite/${loggedUser.id}`);
-        setFaveList(data.payload);
-      } catch (error) {
-        console.log(error); // Handle the error or display an error message
+  const fetchData = async () => {
+    try {
+      let apiUrl = `${API}/trucks`;
+      if (loggedUser && loggedUser.id) {
+        apiUrl += `?userId=${loggedUser.id}`;
       }
-    }
-  }, [loggedUser]);
-  useEffect(() => {
-    const fetching = async () => {
-      const { data } = await axios.get(`${API}/trucks`);
+
+      const { data } = await axios.get(apiUrl);
       setTrucks(data.payload);
-      fetchFavoriteTrucks();
-    };
-    fetching();
-  }, [setTrucks, loggedUser, fetchFavoriteTrucks]);
+    } catch (error) {
+      console.log(error); // Handle the error or display an error message
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [loggedUser]);
 
   const navigate = useNavigate();
   const renderTitle = () => {
@@ -48,7 +46,8 @@ function ShowAll({ loggedUser }) {
       ? trucks
       : trucks.filter((truck) => truck.borough === borough);
 
-  const handleIconClick = (event, truckId) => {
+  const handleIconClick = (event, truck) => {
+    let truckId = truck.id;
     // Prevent event propagation to the card
     event.stopPropagation();
     if (loggedUser && loggedUser.id) {
@@ -59,11 +58,14 @@ function ShowAll({ loggedUser }) {
         })
         .then((response) => {
           if (response.data.payload === null) {
-            toast.warning("Truck removed from favorites", { autoClose: 1000 }); // Show for 1 second
+            toast.warning(`${truck.name} removed from favorites`, {
+              autoClose: 1000,
+            }); // Show for 1 second
           } else {
-            toast.info("Truck added to favorites", { autoClose: 1000 }); // Show for 1 second
+            toast.info(`${truck.name} added to favorites`, { autoClose: 1000 }); // Show for 1 second
           }
-          fetchFavoriteTrucks(); // Fetch favorite trucks after the API request is completed
+          fetchData(); // Fetch favorite trucks after the API request is completed
+          window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
         })
         .catch((error) => {
           console.log("we are here");
@@ -83,7 +85,12 @@ function ShowAll({ loggedUser }) {
         <Container className="truckindex mt-4">
           <Row>
             {filteredTrucks.map((truck, i) => (
-              <div className="sm-12 col-md-6 col-lg-4 mb-3" key={i}>
+              <div
+                className={`sm-12 col-md-6 col-lg-4 mb-3 ${
+                  truck.favorite ? "favorite-truck" : ""
+                }`}
+                key={i}
+              >
                 <Card
                   className="backgroundimg"
                   style={{
@@ -110,20 +117,10 @@ function ShowAll({ loggedUser }) {
                     </Card.Body>
                   </div>
                   <div
-                    className={`hearticon ${
-                      faveList.length > 0 &&
-                      faveList.find(
-                        (favorite) => parseInt(favorite.truck_id) === truck.id
-                      )
-                        ? "bounce"
-                        : ""
-                    }`}
-                    onClick={(event) => handleIconClick(event, truck.id)}
+                    className={`hearticon ${truck.favorite ? "bounce" : ""}`}
+                    onClick={(event) => handleIconClick(event, truck)}
                   >
-                    {faveList.length > 0 &&
-                    faveList.find(
-                      (favorite) => parseInt(favorite.truck_id) === truck.id
-                    ) ? (
+                    {truck.favorite ? (
                       <AiFillHeart size="2em" color="crimson" />
                     ) : (
                       <AiOutlineHeart size="2em" color="grey" />
