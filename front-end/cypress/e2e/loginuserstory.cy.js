@@ -15,7 +15,7 @@ describe("Successful user log in", () => {
     };
     cy.visit("http://localhost:3000/");
 
-    cy.get("#login").contains("sign in").click();
+    cy.get("#login").contains("log in").click();
 
     cy.url().should("include", "login");
 
@@ -23,6 +23,7 @@ describe("Successful user log in", () => {
 
     cy.get('#loginform input[name="password"]').type(pw, { force: true });
     cy.get("button[name='submit']").contains("log in").click();
+    cy.wait(3000);
     cy.url().should("include", "/trucks");
     cy.visit("http://localhost:3000/trucks/new");
     cy.get("#test_addTruck").contains("Add Truck").click();

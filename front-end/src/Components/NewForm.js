@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import "./NewForm.scss";
 const API = process.env.REACT_APP_API_URL;
 const boroughs = require("../Components/boroughs");
+
 function NewForm({ loggedUser }) {
   const navigate = useNavigate();
   const [truck, setTruck] = useState({

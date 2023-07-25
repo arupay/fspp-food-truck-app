@@ -100,7 +100,7 @@ function App() {
               path="/trucks/:id"
               element={<ShowPage loggedUser={loggedUser} />}
             />
-            <Route element={<PrivateRoute />}>
+            <Route element={<PrivateRoute loggedUser={loggedUser} />}>
               <Route
                 path="/trucks/new"
                 element={<NewPage loggedUser={loggedUser} />}
