@@ -13,7 +13,7 @@ the 5 boroughs.
 ## Important Links
 
 - [Deployed Api Server](https://yum-trucks.herokuapp.com/)
-- [Deployed FrontEnd](https://yum-trucks.netlify.app/)
+- [Deployed FrontEnd](https://yumtrucks.netlify.app/)
 - [Trello Board](https://trello.com/b/DsRA3t2k/truck-app)
 - [ERD](https://dbdiagram.io/d/63069ffdf1a9b01b0fd9aa1b)
 - [Wireframe](https://gcdnb.pbrd.co/images/Ujx5Hm3mfJZv.jpg)
