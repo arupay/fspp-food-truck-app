@@ -24,25 +24,6 @@ const formatter = (req, res, next) => {
     res.status(400).json({ error: "Name is required" });
   }
 };
-
-// const setCoords = async (req, res, next) => {
-//   const location = `${req.body.address} ${req.body.borough} ${req.body.zip}`;
-//   await axios
-//     .get("https://maps.googleapis.com/maps/api/geocode/json", {
-//       params: {
-//         address: location,
-//         key: process.env.MAP_API_KEY,
-//       },
-//     })
-//     .then((res) => {
-//       let coords = res.data.results[0].geometry.location;
-//       req.body = { ...req.body, lng: coords.lng, lat: coords.lat };
-//     })
-//     .catch((err) => {
-//       return err;
-//     });
-//   next();
-// };
 const setCoords = async (req, res, next) => {
   const location = `${req.body.address} ${req.body.borough} ${req.body.zip}`;
   await axios
